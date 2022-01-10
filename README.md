@@ -74,14 +74,14 @@ This project is a recipe app that allows the user to look for recipes, save them
 | userRoute | .post | 'user/' |
 | userRoute | .post | 'user/login' |
 | userRoute | .get | 'user/verify' |
-| recipeRoute | .post | '/recipe/' |
+| recipeRoute | .post | '/recipe' |
 | recipeRoute | .get | '/recipe/all/:userId' |
 | recipeRoute | .get | '/recipe/:recipeId' |
 | recipeRoute | .put | '/recipe/:recipeId' |
 | recipeRoute | .delete | '/recipe/:recipeId' |
-| categoryRoute | .get | '/category/' |
+| categoryRoute | .get | '/category' |
 | categoryRoute | .get | '/category/:categoryId' |
-| categoryRoute | .post | '/category/' |
+| categoryRoute | .post | '/category' |
 | categoryRoute | .put | '/category/:recipeId' |
 | categoryRoute | .delete | '/category/:recipeId' |
 ___
