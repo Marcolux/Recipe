@@ -71,11 +71,11 @@ This project is a recipe app that allows the user to look for recipes, save them
 
 |Routes                     | HTTP Verb                       | URL                            |
 | :----------------------: | ------------------------------- | ------------------------------- |
-| userRoute | .post | '/' |
-| userRoute | .post | '/login' |
-| userRoute | .get | 'verify' |
+| userRoute | .post | 'user/' |
+| userRoute | .post | 'user/login' |
+| userRoute | .get | 'user/verify' |
 | recipeRoute | .post | '/recipe/' |
-| recipeRoute | .get | '/recipe/all' |
+| recipeRoute | .get | '/recipe/all/:userId' |
 | recipeRoute | .get | '/recipe/:recipeId' |
 | recipeRoute | .put | '/recipe/:recipeId' |
 | recipeRoute | .delete | '/recipe/:recipeId' |
@@ -103,6 +103,19 @@ ___
 -add the feature of add recipe by just typing them in a form
 -Create a weekly meal plan
 -Create a grocery list based on the weekly plan
+
+### Completion Timeline:
+
+- By the end of Monday I will have the backend completed with the  tables and routes functions,
+
+- Then Moving on the Frontend I will start on the user authentication first, then going with the app flow:
+
+- Add the functions to search for the recipes and the components related to them
+
+- Adding the functions to add recipes, add categories, create the associations between the two,
+
+
+
 
 ### Links
 

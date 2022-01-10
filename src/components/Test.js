@@ -254,7 +254,7 @@ const convert_amount=()=>{
 //____________GET RECIPE FROM THE WEB_______________________
 
 const recipe_from_web =()=>{
-  let url2 = 'https://www.macheesmo.com/waffle-maker-hash-browns/'
+  let url2 = 'https://www.allrecipes.com/recipe/264440/traditional-spaghetti-allamatriciana/'
   const options = {
 
     method: 'GET',
