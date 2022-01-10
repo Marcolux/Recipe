@@ -36,7 +36,7 @@ This project is a recipe app, once the user login or signup from the home page w
 
 -The category has a + button that will bring me to a page with all the recipes from Where I will be able to add them to the selected  category
 
--If I click on the single recipe the app will bring me to the single recipe page.
+-If I click on the single recipe in the navigation bar, the app will bring me to the single recipe page.
 
 -The single recipe page shows the list of the ingredients, the image and the instructions for the recipe.
 
@@ -58,7 +58,7 @@ This project is a recipe app, once the user login or signup from the home page w
 
 -From the Navigation Bar I can click add Recipe that will show a drop down menu with two links, 1 to add from website and 1 add by typing in.
 
--If I click add from website I will navigate to a different page where I can see an input and an button. After I paste the link into the input and I click search, I will make an Api call and the api will try to read the info from the website.
+-If I click add from website I will navigate to a different page where I can see an input and a button. After I paste the link into the input and I click search, I will make an Api call and the api will try to read the info from the website.
 
 -If I have a successful call I will see picture, ingredients and instructions for the recipe
 
@@ -79,10 +79,12 @@ This project is a recipe app, once the user login or signup from the home page w
 | recipeRoute | .get | '/recipe/all' |
 | recipeRoute | .get | '/recipe/:recipeId' |
 | recipeRoute | .put | '/recipe/:recipeId' |
+| recipeRoute | .delete | '/recipe/:recipeId' |
 | categoryRoute | .get | '/category/' |
 | categoryRoute | .get | '/category/:categoryId' |
 | categoryRoute | .post | '/category/' |
 | categoryRoute | .put | '/category/:recipeId' |
+| categoryRoute | .delete | '/category/:recipeId' |
 ___
 ### MVP
 
