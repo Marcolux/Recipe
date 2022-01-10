@@ -1,4 +1,4 @@
-# Recipe_App_Front_End
+# Your_recipes
 
 ### Overview
 
@@ -7,38 +7,37 @@ This project is a recipe app, once the user login or signup from the home page w
 
 ### Wireframe
 
-![Wireframe](./Photos/DB_Map.png)
+![Wireframe](./images/BackendDatabaseRecipeApp.png)
 
 ![Wireframe](./images/wireframe_frontend.png) 
 
-![Wireframe](./Photos/Components_chart.png)
+![Wireframe](./images/Components_chart.png)
 
 ### User Stories
 
 -When I first visit the site, I'm on a home page that just has a simple description of the app.
 
--When not logged in, I see links to home, signup & login only. If I were to visit any of these routes manually while logged in, I would get redirected to the home page.
+-When not logged in, I see links to home, signup & login only, where I can create an account or login. If I were to visit any of these routes manually while logged in, I would get redirected to the home page.
 
--I can create an account or log in.
 
--When logged in, in navigation bar, I see links to User,search for recipe, add recipe, and weekly plan. If I'm visiting any of these routes manually while logged out, I would get redirected to the home page.
+-When logged in, in navigation bar, I see links to User,search for recipe, add recipe, and weekly plan
 
 -The Navigation Bar will stay the same after the login till I logout
 
 -The user name can be clicked and will open up a menu where I can logout, navigate to the categories or navigate to all the recipes page.
 
--If I click on one recipe from All the recipe page I will navigate to the single recipe page
+-If I'm in "All the recipe" page I can click on one recipe I will navigate to the single recipe page
 
 
--In the User page I can see all the categories that the user has created with the title and the image of the recipes.
+-In the User page I can see all the recipes organized by categories.
 
 -In the top right corner in the category section I will have a + button to create a category.
 
--The category has a + button that will bring me to a page with all the recipes from Where I will be able to add them to the selected  category
+-The category has a + button that will bring me to a page with all the recipes from Where I will be able to add them to the selected  category.
 
--If I click on the single recipe in the navigation bar, the app will bring me to the single recipe page.
+-If I click on the single recipe in the category section or in "all recipes Page", the app will bring me to the single recipe page.
 
--The single recipe page shows the list of the ingredients, the image and the instructions for the recipe.
+-The single recipe page shows the list of the ingredients, the image and the instructions for the recipe., and the options of add it to a category by selecting it from a drop down menu.
 
 -From the navigation bar I can click the search button.
 
@@ -48,13 +47,13 @@ This project is a recipe app, once the user login or signup from the home page w
 
 -The search input will send a call to the api.
 
--After the call a list of results(recipes) will be shown in the same page, and the user can decide to add it to one or more categories.
+-After the call, a list of results(recipes) will be shown in the same page, and the user can decide to add it to one or more categories.
 
--When add to category the user will create a row in the recipes table in the backend and an association between the recipes table and categories table. 
+<!-- -When add to category the user will create a row in the recipes table in the backend and an association between the recipes table and categories table.  -->
 
 -Once added to the categories, the recipe will be shown in the user page under the relative category.
 
--The user can remove it by clicking the remove button. That will destroy the entry in the backend
+-The user can remove it by clicking the remove button.
 
 -From the Navigation Bar I can click add Recipe that will show a drop down menu with two links, 1 to add from website and 1 add by typing in.
 
@@ -90,16 +89,19 @@ ___
 
 -The site has user authentication functionality. 
 
--Each user has recipes saved and organized in categories.
+-Each user can add and remove recipes by searching them from the api. 
 
--Each user can add and remove recipes, from websites or by searching them from the api or by just typing them in. 
+-Each user has recipes saved and organized in categories.
 
 -Each user can add or remove the recipes to categories
 
+-The app has a clean modern style.
+
 ### Stretch Goals
 
+-Add the feature of add recipe from a website
+-add the feature of add recipe by just typing them in a form
 -Create a weekly meal plan
 -Create a grocery list based on the weekly plan
-
 
 Unit 4 Solo-Project
