@@ -2,7 +2,7 @@
 
 ### Overview
 
-This project is a recipe app, once the user login or signup from the home page will be able to look for recipes, save them in weekly meal plans, divide them in categories such as breakfast, lunch, snack, dinner and etc, and get a grocery list based on the list of the ingredients of each meal.
+This project is a recipe app that allows the user to look for recipes, save them in weekly meal plans, divide them in categories such as breakfast, lunch, snack, dinner and etc, and eventually get a grocery list based on the list of the ingredients of each meal.
 
 
 ### Wireframe
@@ -103,5 +103,16 @@ ___
 -add the feature of add recipe by just typing them in a form
 -Create a weekly meal plan
 -Create a grocery list based on the weekly plan
+
+### Links
+
+- frontend:
+
+https://github.com/Marcolux/Recipe
+
+- backend:
+
+https://github.com/Marcolux/Recipe_backend
+
 
 Unit 4 Solo-Project
