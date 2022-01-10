@@ -2,7 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios";
 
 
-const Map=()=>{
+const Test=()=>{
       
 
   
@@ -253,8 +253,8 @@ const convert_amount=()=>{
 
 //____________GET RECIPE FROM THE WEB_______________________
 
-const recipe_from_web =async ()=>{
-  let url2 = 'https://www.tasteofhome.com/recipes/the-best-ever-pancakes/'
+const recipe_from_web =()=>{
+  let url2 = 'https://www.macheesmo.com/waffle-maker-hash-browns/'
   const options = {
 
     method: 'GET',
@@ -266,7 +266,7 @@ const recipe_from_web =async ()=>{
     }
   };
 
-  await axios.request(options).then(function (response) {
+    axios.request(options).then(function (response) {
     console.log(response.data);
     setRes(response.data)
   }).catch(function (error) {
@@ -303,5 +303,5 @@ return(
 
 
 }
-export default Map
+export default Test
 
