@@ -1,21 +1,35 @@
-import NavigationBar from "../components/NavigationBar"
 import { useState } from "react"
+
+//using context to pass the user informations between components
+import { useContext } from 'react';
+import { Context } from '../context/Context';
+
+// axios for the call to the backend
 import axios from "axios"
 
-const Signup=(props)=>{
+// I need to show the navigation bar in this page so I import it
+import NavigationBar from "../components/NavigationBar"
 
+const Signup=()=>{
+
+    const { userState } = useContext(Context);
+    const [user, setUser] = userState
+
+    // setting the info for the call in the backend to create a user in users table
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
 
+    //function to create a user in the backend database
     const signupForm = (e) => {
         e.preventDefault()
         axios.post(`http://localhost:3001/user/`, {name, email, password })
         .then((response) => {
             console.log(response)
-
+            // settin the userId in localstorage
             localStorage.setItem('userId', response.data.newUser.id)
-            props.setUser(response.data.newUser)
+            // setting user in context
+            setUser(response.data.newUser)
         })
     }
     return(

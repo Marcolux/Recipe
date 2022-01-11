@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+
+/* _____________________NAVIGATION BAR____________________ */
+
 .NavigationBar{
   display: flex;
   border: 1px solid black;
@@ -21,6 +24,14 @@
 .homePageLinks p{
   margin-left: 2vw;
 }
+
+/* ________________NAVIGATION BAR END____________________ */
+
+
+
+/* ________________SIGNUP AND LOGIN FORMS____________________ */
+
+
 .AuthPage{
   display: flex;
   flex-direction: column;
@@ -52,6 +63,8 @@
 .formButton{
   margin-right:3vw;
 }
+
+/* ________________SIGNUP AND LOGIN FORMS END____________________ */
 
 
 
