@@ -1,20 +1,47 @@
+import './App.css';
+
 import { Navigate, Route, Routes } from 'react-router-dom';
+
+
 //using context to pass the user informations between components
-import { useContext } from 'react';
+import { useContext,useEffect } from 'react';
 import { Context } from './context/Context';
 
+import axios from 'axios';
+
 import Homepage from './pages/Homepage';
-import './App.css';
 import Test from './components/Test';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserPage from './pages/UserPage';
+import SearchFromApi from './pages/SearchFromApi';
+import SingleRecipePage from './pages/SingleRecipePage';
+
 
 function App() {
 
   const { userState } = useContext(Context);
   const [user, setUser] = userState
   console.log(user)
+
+  useEffect(()=>{
+    const fetchUser = () => {
+    const userId = localStorage.getItem('userId')
+    if (userId) {
+       
+      axios.get(`http://localhost:3001/user/verify`, {
+        headers: {
+          Authorization: userId
+        }
+      })
+      .then((response) => {
+        
+        setUser(response.data.user)
+      })
+    }
+  }
+  fetchUser()
+}, [user.id])
 
 
 
@@ -29,7 +56,12 @@ function App() {
           localStorage.userId ? <Navigate to='/user-page'/>:<Signup/>
           }/>
         <Route path='/user-page' element={
-        <UserPage/>}/>
+        localStorage.userId ?<UserPage/>:<Navigate to='/'/>}/>
+
+        <Route path='/search-recipe' element={
+        localStorage.userId ?<SearchFromApi/>:<Navigate to='/'/>}/>
+        <Route path='/:recipe.id' element={
+          localStorage.userId ?<SingleRecipePage/>:<Navigate to='/'/>}/>
       </Routes>
     </div>
   );

@@ -4,6 +4,7 @@ import { Context } from '../context/Context';
 
 import NavigationBar from "../components/NavigationBar"
 import AddCategory from '../components/AddCategory';
+import CategoriesInPage from '../components/CategoriesInPage';
 
 
 const UserPage = ()=>{
@@ -17,18 +18,20 @@ const UserPage = ()=>{
     return(
     <div className="UserPage">
         <NavigationBar/>
-        <h1>This is the user Page</h1>
         <div className='Addcategory'>
-        {createCategory===true?
-            <div>
-                <p>ready to create a new one</p>
-                <button className='addFromBackend' onClick={()=>{
-                    setCreateCategory(false)
-                }} >ok</button>
-            </div>
-            :
-            <AddCategory setCreateCategory={setCreateCategory}/>
-        }
+            {createCategory ===true?
+                <AddCategory setCreateCategory={setCreateCategory}/>
+                :
+                <div>
+                    <p>ready to create a new one</p>
+                    <button className='addFromBackend' onClick={()=>{
+                        setCreateCategory(true)
+                    }} >ok</button>
+                </div>
+            }
+        </div>
+        <div >
+            <CategoriesInPage/>
         </div>
     </div>
     )
