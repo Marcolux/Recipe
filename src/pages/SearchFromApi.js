@@ -1,8 +1,13 @@
 import { useEffect, useState } from "react/cjs/react.development"
 import { Link } from "react-router-dom"
+
+
 import axios from "axios"
 import NavigationBar from "../components/NavigationBar"
 import SingleRecipe from "./SingleRecipePage"
+
+import { useContext } from 'react';
+import { Context } from '../context/Context';
 
 const SearchFromApi =()=>{
 
@@ -12,10 +17,19 @@ const SearchFromApi =()=>{
     const [specific,setSpecific] = useState(false)
     const [SingleRecipePage, setSingleRecipePage]= useState(false)
 
+    const { recipeIdState } = useContext(Context);
+    const [recipeId,setRecipeId] = recipeIdState
+
+    const { recipeImageState } = useContext(Context);    
+    const [recipeImage, setRecipeImage] = recipeImageState
+   
+
     const [recipNm, setRecipNm]= useState('')
     const [diet, setDiet]= useState('')
     const [excludeIngredients, setExcludeIngredients]= useState('')
     const [intolerances, setIntolerances]= useState('')
+
+
     let arr=[]
    
     // ___________GET RECIPE FROM NAME____________________________
@@ -84,7 +98,7 @@ const SearchFromApi =()=>{
             diet: diet,
             excludeIngredients: excludeIngredients,
             intolerances: intolerances,
-            number: '24',
+            number: '8',
             offset: '0',
             type: 'main course'
 
@@ -98,7 +112,7 @@ const SearchFromApi =()=>{
 
         axios.request(options).then(function (response) {
             setResults(response.data.results);
-            console.log(response.data.results);
+           
            
         }).catch(function (error) {
             console.error(error);
@@ -116,6 +130,11 @@ const SearchFromApi =()=>{
         }
             
     }
+
+    // const setSingleRecipe=()=>{
+    //     setSingleRecipePage(true)
+    //     setRecipeId(recipe.id)
+    // }
         
         
         // useEffect(get_recipe_from_name,[])
@@ -123,13 +142,16 @@ const SearchFromApi =()=>{
         <>
         <NavigationBar/> 
         <h1>search here</h1>
-        <p>Looking for a more specific diet, click here</p>
-        <button onClick={()=>{
-            if (specific===false){
-            setSpecific(true)}else{setSpecific(false)}
-            }}>+</button>
+        
         <div className="SearchSection">
             <div className='SearchForm'>
+                <div className="beSpecific">
+                    <p>Looking for a more specific diet, click here</p>
+                    <button className="beSpecificButton" onClick={()=>{
+                        if (specific===false){
+                        setSpecific(true)}else{setSpecific(false)}
+                        }}>+</button>
+                </div>
                 {!specific?
                     <form onSubmit={search}>
                         <label className="searchLabel" htmlFor="name"></label>
@@ -142,60 +164,114 @@ const SearchFromApi =()=>{
                     </form>:
                     <>
                     <p>lets be more specific</p>
-                        <form className="AuthForm" onSubmit={specificSearch}>
-                            <div className="subAuthForm">   
-                                <div className='formInput'>
+                        <form className="searchAuthForm" onSubmit={specificSearch}>
+                            <div className="searchSubAuthForm">   
+                                <div className='searchformInput'>
                                     <label htmlFor="name" id='userName'>Recipe Name:</label>
                                     <input value={recipNm} onChange={(e) => setRecipNm(e.target.value)} />
                                 </div>
-                                <div className='formInput'>
+                                <div className='searchformInput'>
                                     <label >Diet:</label>
                                     <input value={diet} onChange={(e) => setDiet(e.target.value)} />
                                 </div>
-                                <div className='formInput'>
+                                <div className='searchformInput'>
                                     <label >Exclude Ingredients:</label>
                                     <input value={excludeIngredients} onChange={(e) => setExcludeIngredients(e.target.value)} />
                                 </div>
-                                <div className='formInput'>
+                                <div className='searchformInput'>
                                     <label >Intolerances:</label>
                                     <input value={intolerances} onChange={(e) => setIntolerances(e.target.value)} />
                                 </div>
-                                <div className='formInput'>
+                                <div className='searchformInputSubmit'>
                                     <input className='formButton' type="submit" value="Submit" />
                                 </div>
                             </div>
                     </form>
                 </>
                 }
+               
             </div>
-            <div className="resultsSection">
-                {SingleRecipePage==false?
-                results.map((recipe,i)=>{
-                    let split=recipe.image.split(":")
+                <div className="resultsSection">
+                    {SingleRecipePage==false?
 
-                    return(
-                        <div className="singleResult" key={i}>
-                            <>
-                                { 
-                                split[0]=='https' ?
-                                <div className="resultPic" style={{backgroundImage:`url(${recipe.image})`}}></div>:
-                                <div className="resultPic" style={{backgroundImage:`url(https://spoonacular.com/recipeImages/${recipe.image})`}}></div>
+                        results.map((recipe,i)=>{
                                 
-                                }
-                            </>
-                            <p onClick={()=>{setSingleRecipePage(true)}}>{recipe.title}</p>
-                        </div>
-                    )
-                }):
-                <>
-                <p onClick={()=>{setSingleRecipePage(false)}}>back to the Search</p>
-                <SingleRecipe/>
-                </>
-                }
-            </div>
+                                let split=recipe.image.split(":")
+                                let split2=recipe.image.split("-")
+                                console.log(recipe.image)
+                                       
+                                return(
+                                recipe.image && split[0]=='https'?
+                                
+                                <div className="singleResult" key={i}>
+                                    <div className="resultPic" style={{backgroundImage:`url(${recipe.image})`}}></div>
+                                    <p onClick={()=>{setSingleRecipePage(true)
+                                                    setRecipeId(recipe.id)
+                                                    setRecipeImage(`url(${recipe.image})`)
+                                                    }}>{recipe.title}</p>
+                                </div>
+                                    :
+                                <div className="singleResult" key={i}>
+                                    <div className="resultPic" style={{backgroundImage:`url(https://spoonacular.com/recipeImages/${recipe.image})`}}></div>
+                                    <p onClick={()=>{setSingleRecipePage(true)
+                                                    setRecipeId(recipe.id)
+                                                    setRecipeImage(`url(https://spoonacular.com/recipeImages/${recipe.image})`)
+                                                    }}>{recipe.title}</p>
+                                </div>
+                                )
+                        })    
+                    :
+                    <>
+                    <SingleRecipe recipeId={recipeId} setSingleRecipePage={setSingleRecipePage}/>
+                    </>}
+                </div>
         </div>
     </>
     )
 }
 
 export default SearchFromApi
+
+
+// recipe.image?
+                                
+//         return(
+//         g
+//         // let split=recipe.image.split(":")
+//         let split2=recipe.image.split("-")
+//             <>
+//             {
+//             // console.log('split',split),
+//             console.log('split2',split2.length),
+//             console.log('results',results)}
+//                 {
+//                 // split!=undefined?
+//                     // results?
+//                 <div className="singleResult" key={i}>
+//                     <>
+//                         { 
+//                         // split[0]=='https'||
+//                         split2.length>2 ?
+//                         <div className="resultPic" style={{
+                            //     backgroundImage:`url(${recipe.image})`
+                            // }}></div>:
+//                         <div className="resultPic" style={{
+                            // backgroundImage:`url(https://spoonacular.com/recipeImages/${recipe.image})`}}></div>
+                        
+//                         }
+//                     </>
+                    // <p onClick={()=>{
+                        
+                //     setSingleRecipePage(true)
+                // }}>{recipe.title}</p>
+//                 </div>
+                
+//             }</>
+//         )
+//     }
+//         </>
+//         :
+//         <p>loading</p>
+//     }):
+// <p>loading</p>
+// }
