@@ -8,7 +8,9 @@ import Category from './Category';
 const CategoriesInPage=()=>{
 
     const [categoriesUser, setCategoriesUser] =useState([])
-    const [categoryId, setCategoryId] =useState()
+    
+    const { categoryIdState } = useContext(Context);
+    const [categoryId,setCategoryId] = categoryIdState
 
     const { userState } = useContext(Context);
     const [user, setUser] = userState
