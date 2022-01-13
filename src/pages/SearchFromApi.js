@@ -15,10 +15,13 @@ const SearchFromApi =()=>{
     const [criteria, setCriteria] = useState('')
     const [input,setInput] = useState('')
     const [specific,setSpecific] = useState(false)
-    const [SingleRecipePage, setSingleRecipePage]= useState(false)
+    // const [SingleRecipePage, setSingleRecipePage]= useState(false)
 
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
+
+    const { SingleRecipePageState } = useContext(Context);
+    const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
 
     const { recipeImageState } = useContext(Context);    
     const [recipeImage, setRecipeImage] = recipeImageState
@@ -86,21 +89,20 @@ const SearchFromApi =()=>{
 
        
     const specificSearch=(e)=>{
-
-      
+        
 
         e.preventDefault()
-    const options = {
-        method: 'GET',
-        url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
-        params: {
-            query: recipNm,
-            diet: diet,
-            excludeIngredients: excludeIngredients,
-            intolerances: intolerances,
-            number: '8',
-            offset: '0',
-            type: 'main course'
+        const options = {
+            method: 'GET',
+            url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+            params: {
+                query: recipNm,
+                diet: diet,
+                excludeIngredients: excludeIngredients,
+                intolerances: intolerances,
+                number: '18',
+                offset: '0',
+                type: 'main course'
 
     
         },
@@ -112,12 +114,13 @@ const SearchFromApi =()=>{
 
         axios.request(options).then(function (response) {
             setResults(response.data.results);
-           
-           
+            
+            
         }).catch(function (error) {
             console.error(error);
         });
     }
+    console.log('results',results.image)
 
 
     const search =(e)=>{
@@ -131,13 +134,6 @@ const SearchFromApi =()=>{
             
     }
 
-    // const setSingleRecipe=()=>{
-    //     setSingleRecipePage(true)
-    //     setRecipeId(recipe.id)
-    // }
-        
-        
-        // useEffect(get_recipe_from_name,[])
         return(
         <>
         <NavigationBar/> 
@@ -192,10 +188,10 @@ const SearchFromApi =()=>{
                
             </div>
                 <div className="resultsSection">
-                    {SingleRecipePage==false?
-
-                        results.map((recipe,i)=>{
-                                
+                    {SingleRecipePage===false?
+                        // <>
+                        // {/* {results.image? */}
+                        results?.map((recipe,i)=>{
                                 let split=recipe.image.split(":")
                                 let split2=recipe.image.split("-")
                                 console.log(recipe.image)
@@ -219,7 +215,11 @@ const SearchFromApi =()=>{
                                                     }}>{recipe.title}</p>
                                 </div>
                                 )
-                        })    
+                        })
+                    //     :
+                    //     <p>loading</p> 
+                    // }
+                    // </>   
                     :
                     <>
                     <SingleRecipe recipeId={recipeId} setSingleRecipePage={setSingleRecipePage}/>
@@ -232,46 +232,3 @@ const SearchFromApi =()=>{
 
 export default SearchFromApi
 
-
-// recipe.image?
-                                
-//         return(
-//         g
-//         // let split=recipe.image.split(":")
-//         let split2=recipe.image.split("-")
-//             <>
-//             {
-//             // console.log('split',split),
-//             console.log('split2',split2.length),
-//             console.log('results',results)}
-//                 {
-//                 // split!=undefined?
-//                     // results?
-//                 <div className="singleResult" key={i}>
-//                     <>
-//                         { 
-//                         // split[0]=='https'||
-//                         split2.length>2 ?
-//                         <div className="resultPic" style={{
-                            //     backgroundImage:`url(${recipe.image})`
-                            // }}></div>:
-//                         <div className="resultPic" style={{
-                            // backgroundImage:`url(https://spoonacular.com/recipeImages/${recipe.image})`}}></div>
-                        
-//                         }
-//                     </>
-                    // <p onClick={()=>{
-                        
-                //     setSingleRecipePage(true)
-                // }}>{recipe.title}</p>
-//                 </div>
-                
-//             }</>
-//         )
-//     }
-//         </>
-//         :
-//         <p>loading</p>
-//     }):
-// <p>loading</p>
-// }

@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import { useState } from "react/cjs/react.development";
 import { Context } from '../context/Context';
 
-const SingleRecipe=(props)=>{
+const SingleRecipe=()=>{
 
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
@@ -12,7 +12,12 @@ const SingleRecipe=(props)=>{
     const { recipeImageState } = useContext(Context);    
     const [recipeImage, setRecipeImage] = recipeImageState
 
-    const [ recipeDetails,setRecipeDetails] = useState({})
+    const { SingleRecipePageState } = useContext(Context);
+    const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
+    
+    const { recipeDetailsState } = useContext(Context);
+    const [ recipeDetails,setRecipeDetails] = recipeDetailsState
+    
 
     const userId = localStorage.getItem('userId')
 
@@ -48,7 +53,19 @@ const SingleRecipe=(props)=>{
                             {recipeImage && recipeDetails.diets && recipeDetails.extendedIngredients?
                             <div className="SingleRecipe">
                                 <h3 className="recipeTitle">{recipeDetails.title}</h3>
-                            
+                                <div className="singleRecipeButtons">
+                                <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
+                                    <button onClick={()=>{
+                                        axios.post(`http://localhost:3001/recipe/${userId} `,
+                                        {
+                                        apiId:recipeDetails.id,
+                                        ingredients:ingred.toString(),
+                                        instructions:recipeDetails.instructions,
+                                        picture:recipeImage,name:recipeDetails.title,
+                                        diets:dietS.toString()
+                                        })
+                                        }}>Add to Your Recipes</button>
+                                </div>
                                 <div className="diet-Ingredients">
                                 <div className="SingleRecipePic" style={{backgroundImage:recipeImage}}></div>
                                     <div className="RecipeIngredients">
@@ -79,19 +96,7 @@ const SingleRecipe=(props)=>{
                                 <h3>Instructions:</h3>    
                                     <p>{recipeDetails.instructions}</p>
                                 </div>
-                                <div className="singleRecipeButtons">
-                                <button onClick={()=>{props.setSingleRecipePage(false)}}>Back to Search</button>
-                                    <button onClick={()=>{
-                                        axios.post(`http://localhost:3001/recipe/${userId} `,
-                                        {
-                                        apiId:recipeDetails.id,
-                                        ingredients:ingred.toString(),
-                                        instructions:recipeDetails.instructions,
-                                        picture:recipeImage,name:recipeDetails.title,
-                                        diets:dietS.toString()
-                                        })
-                                        }}>Add to Your Recipes</button>
-                                </div>
+                                
                             </div>
                             :
                             <div className='spin'></div>

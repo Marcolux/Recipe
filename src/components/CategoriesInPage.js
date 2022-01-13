@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../context/Context';
+import { useNavigate} from "react-router-dom"
 
 import axios from 'axios';
 import Category from './Category';
@@ -7,9 +8,12 @@ import Category from './Category';
 const CategoriesInPage=()=>{
 
     const [categoriesUser, setCategoriesUser] =useState([])
+    const [categoryId, setCategoryId] =useState()
 
     const { userState } = useContext(Context);
     const [user, setUser] = userState
+
+    let history = useNavigate()
 
     const getCategories=()=>{
     const userId=localStorage.getItem('userId')
@@ -28,6 +32,11 @@ const CategoriesInPage=()=>{
             <div className='CategorySection' key={i}>
                 <p className='categoryTitle'>{category.name}</p>
                 <Category  category={category.id} categoriesUser={categoriesUser} />
+                <button onClick={()=>{
+                        setCategoryId(category.id)
+                        history('/all-the-recipes')
+                        }
+                        }>+</button>
             </div>
             )
         })

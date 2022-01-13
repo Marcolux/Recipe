@@ -39,33 +39,36 @@
                /*USER MENU  */
 .menuBar{
   position: absolute;
-  left:5vw;
+  left:8vw;
   display: inline-block;
 }
 .menuBar p:hover{
-  color: rgb(255, 255, 255);
-  text-shadow:1px 1px #e39038;
+  color: rgb(184, 184, 184);
+  text-shadow:1px 1px #000000;
   cursor:pointer;
 }
 .menuLinks{
   position: absolute;
+  left: -4vw;
   display: none;
-  background-color: #f9f9f9cb;
+  background-color: #f9f9f9e0;
   z-index: 1;
   animation: growDown 300ms;
   padding: 1.5vmin;
   border-radius: 1vmin;
-  border: 3px solid black;
+  border: 2px solid black;
   
 }
 @keyframes growDown {
-  0% {transform: rotateY(0.2turn);}
+  0% {transform:translateX(-70%);}
+
  
-  100% {transform: rotateY(1turn)}
+  100% {transform:translateX(0%);}
 }
 .menuBar:hover .menuLinks{
   display: flex;
   flex-direction: column;
+ 
 }
 .menuNavLink:hover {
   color: #6450d7;
@@ -158,6 +161,9 @@
   border:1px solid #e39038;
   margin-top: 7vh;
   margin-bottom: 2vh;
+  padding: 1vw;
+  display: flex;
+  flex-wrap: wrap;
   
 }
 .categoryTitle{
@@ -186,7 +192,7 @@
   display: flex;
   width: 90vw;
   flex-wrap: wrap;
-  border: 1px solid rgb(69, 133, 135);
+  border: 1px solid rgb(69, 134, 136);
   justify-self:center ;
   justify-content: space-evenly;
   min-height:80vh ;
@@ -201,7 +207,8 @@
   justify-content: center;
   align-items: center;
   width: 22vw;
-  height: 31vh;
+  height: 33vh;
+  padding: 1vh;
   border: 1px solid rgba(40, 36, 36, 0.783);
   margin: 1vw;
   border-radius: 1vw;
@@ -286,6 +293,8 @@
 
 
 /* ________________SEARCH PAGE END____________________ */
+
+
 /* ________________SINGLE RECIPE____________________ */
 
 .recipeTitle{
@@ -296,6 +305,14 @@
   display: flex;
   flex-direction: column;
   
+}
+.SingleRecipePage{
+  padding: 2vh;
+  border: 1px solid rgb(69, 133, 135);
+border-radius: 1vh;
+box-shadow: -.5px -.5px 1.5px 1.5px cadetblue;
+margin: 5vh;
+
 }
 .diet-Ingredients{
   display: flex;
@@ -321,8 +338,8 @@ margin: 0;
   background-size: cover;
   background-repeat: no-repeat;
 display: flex;
-width: 50vw;
-height: 40vh;
+width: 35vw;
+height: 25vh;
 justify-self: center;
 border: 1px solid rgb(69, 133, 135);
 border-radius: 1vh;
@@ -352,11 +369,20 @@ box-shadow: -.5px -.5px 1.5px 1.5px cadetblue;
   word-spacing: 0.3vw;
 }
 .singleRecipeButtons{
-  margin-top: 5vh;
+  margin-bottom: 5vh;
   display: flex;
   justify-content: space-between;
 }
 /* ________________SINGLE RECIPE END____________________ */
+
+/* _____________ALL RECIPES PAGE______________ */
+
+.allTheRecipeSection{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+/* _____________ALL RECIPES PAGE END______________ */
 
 
 /* ______________DON'T CHANGE BELOW CODES_________ */

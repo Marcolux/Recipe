@@ -21,7 +21,7 @@ const UserInNavBar=()=>{
                             setUser({})
                     }}>logout</p>
                     <Link  to='/user-page'>All the Categories</Link>
-                    {/* <Link  to={`/${props.user.id}/jokes`}>jokes</Link> */}
+                    <Link  to='/all-the-recipes'>My recipes</Link>
                 </div>
             </div>
     )

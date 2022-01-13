@@ -16,6 +16,7 @@ import Login from './pages/Login';
 import UserPage from './pages/UserPage';
 import SearchFromApi from './pages/SearchFromApi';
 import SingleRecipePage from './pages/SingleRecipePage';
+import AllTheRecipes from './pages/AllTheRecipes';
 
 
 function App() {
@@ -62,6 +63,10 @@ function App() {
         localStorage.userId ?<SearchFromApi/>:<Navigate to='/'/>}/>
         <Route path='/:recipe.id' element={
           localStorage.userId ?<SingleRecipePage/>:<Navigate to='/'/>}/>
+        <Route path='/all-the-recipes' element={
+          localStorage.userId ?<AllTheRecipes/>:<Navigate to='/'/>}/>
+
+
       </Routes>
     </div>
   );
