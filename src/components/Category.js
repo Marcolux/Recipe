@@ -52,7 +52,7 @@ const Category= (props)=>{
                             axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
                             deleteRecipe(i)
                             setRecipesInCategory([...recipesInCategory])
-                        }}> remove from to{catIdBackend}</button>
+                        }}> remove from to{props.category}</button>
                     </div>
                 )
             })}
