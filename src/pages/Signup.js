@@ -24,7 +24,7 @@ const Signup=()=>{
     const signupForm = (e) => {
         e.preventDefault()
         // axios.post(`http://localhost:3001/user/`, {name, email, password })
-        axios.post(`http://https://my-recipes-backen.herokuapp.com//user/`, {name, email, password })
+        axios.post(`http://my-recipes-backen.herokuapp.com/user/`, {name, email, password })
         .then((response) => {
             console.log(response)
             // settin the userId in localstorage

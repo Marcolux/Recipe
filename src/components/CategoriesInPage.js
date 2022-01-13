@@ -18,7 +18,7 @@ const CategoriesInPage=()=>{
     const getCategories=()=>{
     const userId=localStorage.getItem('userId')
     // axios.get(`http://localhost:3001/category/all/${userId}`)
-    axios.get(`http://https://my-recipes-backen.herokuapp.com//category/all/${userId}`)
+    axios.get(`http://my-recipes-backen.herokuapp.com/category/all/${userId}`)
     .then((response)=>{setCategoriesUser(response.data)})
     }
 
