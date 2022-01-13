@@ -23,8 +23,8 @@ const Signup=()=>{
     //function to create a user in the backend database
     const signupForm = (e) => {
         e.preventDefault()
-        // axios.post(`http://localhost:3001/user/`, {name, email, password })
-        axios.post(`http://my-recipes-backen.herokuapp.com/user/`, {name, email, password })
+        axios.post(`http://localhost:3001/user/`, {name, email, password })
+        // axios.post(`https://my-recipes-backen.herokuapp.com/user/`, {name, email, password })
         .then((response) => {
             console.log(response)
             // settin the userId in localstorage

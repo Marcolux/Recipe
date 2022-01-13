@@ -30,8 +30,8 @@ const AllTheRecipes = ()=>{
 
     console.log(user)
     useEffect(()=>{
-        // axios.get(`http://localhost:3001/recipe/all/${userId}`)
-        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+        axios.get(`http://localhost:3001/recipe/all/${userId}`)
+        // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
         .then((response)=>{
             console.log(response.data)
             setAllRecipes(response.data)

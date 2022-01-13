@@ -191,13 +191,19 @@ const SearchFromApi =()=>{
                     {SingleRecipePage===false?
                         // <>
                         // {/* {results.image? */}
-                        results?.map((recipe,i)=>{
-                                let split=recipe.image.split(":")
-                                let split2=recipe.image.split("-")
-                                console.log(recipe.image)
-                                       
-                                return(
+                        results.map((recipe,i)=>{
+                            let split=null
+                            if (recipe.image){
+                                split=recipe.image.split(":")
+
+                            }
+                            // let split2=recipe.image.split("-")
+                            
+                            return(
+                                
                                 recipe.image && split[0]=='https'?
+                                
+                                // console.log(recipe.image)
                                 
                                 <div className="singleResult" key={i}>
                                     <div className="resultPic" style={{backgroundImage:`url(${recipe.image})`}}></div>

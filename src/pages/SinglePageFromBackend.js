@@ -22,8 +22,8 @@ const SinglePageFromBackend=(props)=>{
     
     
     const getInfo=()=>{
-        // axios.get(`http://localhost:3001/recipe/${recipeId}`)
-        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+        axios.get(`http://localhost:3001/recipe/${recipeId}`)
+        // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
         .then((response)=>{
             setSingleRecipe(response.data)
            
@@ -76,8 +76,8 @@ const SinglePageFromBackend=(props)=>{
                                     <div className="singleRecipeButtons">
                                     <button onClick={()=>{props.setSingleRecipePage(false)}}>Back to my Recipes</button>
                                             <button onClick={()=>{
-                                                // axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
-                                                axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
+                                                axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
+                                                // axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
                                             
                                             }}>Add to {}</button>
                             </div>
