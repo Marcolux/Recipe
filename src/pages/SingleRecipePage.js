@@ -57,7 +57,7 @@ const SingleRecipe=()=>{
                                 <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
                                     <button onClick={()=>{
                                         // axios.post(`http://localhost:3001/recipe/${userId} `,
-                                        axios.post(`http://my-recipes-backen.herokuapp.com/recipe/${userId} `,
+                                        axios.post(`https://my-recipes-backen.herokuapp.com/recipe/${userId} `,
                                         {
                                         apiId:recipeDetails.id,
                                         ingredients:ingred.toString(),

@@ -20,7 +20,7 @@ const Category= (props)=>{
 
     const getRecipeCategory=()=>{
     // axios.get(`http://localhost:3001/category/${userId}/${catIdBackend}/recipes`)
-    axios.get(`http://my-recipes-backen.herokuapp.com/category/${userId}/${catIdBackend}/recipes`)
+    axios.get(`https://my-recipes-backen.herokuapp.com/category/${userId}/${catIdBackend}/recipes`)
     .then((response)=>{
         // console.log(response.data)
         setRecipesInCategory(response.data)
@@ -49,7 +49,7 @@ const Category= (props)=>{
                         <button onClick={
                             ()=>{
                             // axios.delete(`http://localhost:3001/category/${catIdBackend}/${recipe.id}`)
-                            axios.delete(`http://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
+                            axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
                             deleteRecipe(i)
                             setRecipesInCategory([...recipesInCategory])
                         }}> remove from to{catIdBackend}</button>

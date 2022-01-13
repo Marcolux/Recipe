@@ -31,7 +31,7 @@ const AllTheRecipes = ()=>{
     console.log(user)
     useEffect(()=>{
         // axios.get(`http://localhost:3001/recipe/all/${userId}`)
-        axios.get(`http://https:/my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+        axios.get(`https:/my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
         .then((response)=>{
             console.log(response.data)
             setAllRecipes(response.data)
@@ -64,7 +64,7 @@ const AllTheRecipes = ()=>{
                                     <button onClick={
                                         ()=>{
                                         // axios.put(`http://localhost:3001/category/${categoryId}/${recipe.id}`)
-                                        axios.put(`http://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
+                                        axios.put(`https://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
                                     }}> add to{categoryId}</button>
                                     </div>
                                 ) 

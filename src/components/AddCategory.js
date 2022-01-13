@@ -13,7 +13,7 @@ const AddCategory=(props)=>{
 
     const createTheCategory= ()=>{
         // axios.post(`http://localhost:3001/category/${user.id}`, {categoryName})
-        axios.post(`http://my-recipes-backen.herokuapp.com/category/${user.id}`, {categoryName})
+        axios.post(`https://my-recipes-backen.herokuapp.com/category/${user.id}`, {categoryName})
         props.setCreateCategory(true)
     }
     return(
