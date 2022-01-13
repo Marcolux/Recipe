@@ -5,7 +5,7 @@ import { useEffect, useState } from "react/cjs/react.development"
 import { useContext } from 'react';
 import { Context } from '../context/Context';
 
-const SinglePageFromBackend=()=>{
+const SinglePageFromBackend=(props)=>{
     const { SingleRecipePageState } = useContext(Context);
     const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
 
@@ -22,21 +22,15 @@ const SinglePageFromBackend=()=>{
     
     
     const getInfo=()=>{
-        axios.get(`http://localhost:3001/recipe/${recipeId}`)
+        // axios.get(`http://localhost:3001/recipe/${recipeId}`)
+        axios.get(`http://https://my-recipes-backen.herokuapp.com//recipe/${recipeId}`)
         .then((response)=>{
-            console.log(response.data)
             setSingleRecipe(response.data)
-            console.log("before",singleRecipe)
-            // let ingredients = singleRecipe.ingredients.split(',')
-            // ingred.push(ingredients)
-            // console.log('newIngredients',ingredients)
+           
         })
     }    
     useEffect(getInfo,[])
-    
-    // let ingredients = singleRecipe.ingredients.split(',')
-    // ingred.push(ingredients)
-    // console.log('newIngredients',ingredients)
+
     
     let newIngredients = singleRecipe.ingredients?.split(',')
     
@@ -80,9 +74,10 @@ const SinglePageFromBackend=()=>{
                                         <p>{singleRecipe.instructions}</p>
                                 </div>
                                     <div className="singleRecipeButtons">
-                                    <button onClick={()=>{setSingleRecipePage(false)}}>Back to my Recipes</button>
+                                    <button onClick={()=>{props.setSingleRecipePage(false)}}>Back to my Recipes</button>
                                             <button onClick={()=>{
-                                                axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
+                                                // axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
+                                                axios.post(`http://https://my-recipes-backen.herokuapp.com//:categoryId/${recipeId}`)
                                             
                                             }}>Add to {}</button>
                             </div>
