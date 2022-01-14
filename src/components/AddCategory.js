@@ -9,7 +9,7 @@ const AddCategory=(props)=>{
 
     const[categoryName, setCategoryName] = useState('')
 
-    console.log(user.id)
+    // console.log(user.id)
 
     const createTheCategory= ()=>{
         axios.post(`http://localhost:3001/category/${user.id}`, {categoryName})

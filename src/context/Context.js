@@ -11,6 +11,8 @@ const Provider = ({children}) => {
     const [recipeDetails,setRecipeDetails] = useState({})
     const [categoryId,setCategoryId] = useState()
     const [results, setResults] = useState([])
+    const [categoryName,setCategoryName] = useState()
+
 
     const state = {
         userState: [ user, setUser ],
@@ -19,7 +21,8 @@ const Provider = ({children}) => {
         SingleRecipePageState:[SingleRecipePage, setSingleRecipePage],
         recipeDetailsState:[ recipeDetails,setRecipeDetails],
         categoryIdState:[categoryId,setCategoryId],
-        resultsState:[results, setResults]
+        resultsState:[results, setResults],
+        categoryNameState:[categoryName,setCategoryName]
     }
 
     return (

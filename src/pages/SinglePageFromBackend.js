@@ -1,5 +1,7 @@
 import axios from "axios"
-import { useEffect, useState } from "react/cjs/react.development"
+import { useEffect, useState} from "react/cjs/react.development"
+import { useNavigate} from "react-router-dom"
+// import { useHistory } from "react-router-dom";
 
 //using context to pass the user informations between components
 import { useContext } from 'react';
@@ -19,6 +21,7 @@ const SinglePageFromBackend=(props)=>{
 
     let ingred = []
     
+    let history = useNavigate()
     
     
     const getInfo=()=>{
@@ -74,7 +77,10 @@ const SinglePageFromBackend=(props)=>{
                                         <p>{singleRecipe.instructions}</p>
                                 </div>
                                     <div className="singleRecipeButtons">
-                                    <button onClick={()=>{props.setSingleRecipePage(false)}}>Back to my Recipes</button>
+                                    <button onClick={()=>{
+                                        setSingleRecipePage(false)
+                                        history(-1)
+                                        }}>Back to my Recipes</button>
                                             <button onClick={()=>{
                                                 axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
                                                 // axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)

@@ -12,6 +12,9 @@ const CategoriesInPage=()=>{
     const { categoryIdState } = useContext(Context);
     const [categoryId,setCategoryId] = categoryIdState
 
+    const { categoryNameState } = useContext(Context);
+    const [categoryName,setCategoryName] = categoryNameState
+
     const { userState } = useContext(Context);
     const [user, setUser] = userState
 
@@ -26,6 +29,13 @@ const CategoriesInPage=()=>{
 
     useEffect(getCategories,[])
 
+    const deleteCategory= (i)=>{
+
+        categoriesUser.splice(i,1)
+        let array = categoriesUser
+        setCategoriesUser(array)
+      }
+
     return(
         <div className='allTheCategories'>
         {
@@ -34,10 +44,17 @@ const CategoriesInPage=()=>{
             return(
             <div className='CategorySection' key={i}>
                 <p className='categoryTitle'>{category.name}</p>
+                <button onClick={()=>{
+                    axios.delete(`http://localhost:3001/category/${category.id}`)
+                    deleteCategory(i)
+                    setCategoriesUser([...categoriesUser])
+                }
+                }>x</button>
                 <Category  category={category.id} categoriesUser={categoriesUser} />
                 <button onClick={()=>{
                         setCategoryId(category.id)
                         history('/all-the-recipes')
+                        setCategoryName(category.name)
                         }
                         }>+</button>
             </div>

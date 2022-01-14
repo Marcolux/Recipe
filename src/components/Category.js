@@ -12,6 +12,9 @@ const Category= (props)=>{
     const { categoryIdState } = useContext(Context);
     const [categoryId,setCategoryId] = categoryIdState
 
+    const { recipeIdState } = useContext(Context);
+    const [recipeId,setRecipeId] = recipeIdState
+
     const [recipesInCategory, setRecipesInCategory] = useState([])
 
     let catIdBackend= props.category
@@ -40,19 +43,19 @@ const Category= (props)=>{
                 console.log(recipe)
                 return(
                     <div className="singleResult" key={i}>
-                        <div className="resultPic" style={{backgroundImage:recipe.picture}}></div>
-                        <p onClick={()=>{
-                            console.log('hi')
-                            // setSingleRecipePage(true)
-                            // setRecipeId(recipe.id)
-                            }}>{recipe.name}</p> 
-                        <button onClick={
+                        <button className='removeRecipe' onClick={
                             ()=>{
                             axios.delete(`http://localhost:3001/category/${catIdBackend}/${recipe.id}`)
                             // axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
                             deleteRecipe(i)
                             setRecipesInCategory([...recipesInCategory])
-                        }}> remove from to{props.category}</button>
+                        }}>x</button>
+                        <div className="resultPic" style={{backgroundImage:recipe.picture}}></div>
+                        <p onClick={()=>{
+                            setRecipeId(recipe.id)
+                            history('/saved-recipe')
+                            }}>{recipe.name}</p> 
+                    
                     </div>
                 )
             })}

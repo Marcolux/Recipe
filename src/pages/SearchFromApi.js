@@ -68,7 +68,7 @@ const SearchFromApi =()=>{
         url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
         params: {
             ingredients: ingredientsFromBody,
-            number: '12',
+            number: '27',
             ignorePantry: 'true',
             ranking: '1'
         },
@@ -100,7 +100,7 @@ const SearchFromApi =()=>{
                 diet: diet,
                 excludeIngredients: excludeIngredients,
                 intolerances: intolerances,
-                number: '18',
+                number: '49',
                 offset: '0',
                 type: 'main course'
 
@@ -195,16 +195,9 @@ const SearchFromApi =()=>{
                             let split=null
                             if (recipe.image){
                                 split=recipe.image.split(":")
-
                             }
-                            // let split2=recipe.image.split("-")
-                            
-                            return(
-                                
+                            return(   
                                 recipe.image && split[0]=='https'?
-                                
-                                // console.log(recipe.image)
-                                
                                 <div className="singleResult" key={i}>
                                     <div className="resultPic" style={{backgroundImage:`url(${recipe.image})`}}></div>
                                     <p onClick={()=>{setSingleRecipePage(true)
@@ -222,10 +215,7 @@ const SearchFromApi =()=>{
                                 </div>
                                 )
                         })
-                    //     :
-                    //     <p>loading</p> 
-                    // }
-                    // </>   
+
                     :
                     <>
                     <SingleRecipe recipeId={recipeId} setSingleRecipePage={setSingleRecipePage}/>

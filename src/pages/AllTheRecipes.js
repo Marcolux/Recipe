@@ -1,13 +1,14 @@
 import axios from "axios"
-import { useEffect,useState } from "react/cjs/react.development"
+import { useEffect,useState } from "react"
 import NavigationBar from "../components/NavigationBar"
-
+import { useNavigate } from "react-router-dom";
 
 
 //using context to pass the user informations between components
 import { useContext } from 'react';
 import { Context } from '../context/Context';
-import SinglePageFromBackend from "./SinglePageFromBackend";
+
+import SingleRecipe from "../components/SingleRecipe";
 
 const AllTheRecipes = ()=>{
 
@@ -16,72 +17,58 @@ const AllTheRecipes = ()=>{
 
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
-
- 
-    const [SingleRecipePage, setSingleRecipePage] = useState(false)
-
+    
     const { categoryIdState } = useContext(Context);
     const [categoryId,setCategoryId] = categoryIdState
 
+    const { categoryNameState } = useContext(Context);
+    const [categoryName,setCategoryName] = categoryNameState
+
     const [allRecipes, setAllRecipes] = useState([])
+    
 
     let userId = localStorage.getItem('userId')
-
+    let history = useNavigate()
 
     console.log(user)
     useEffect(()=>{
         axios.get(`http://localhost:3001/recipe/all/${userId}`)
         // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
         .then((response)=>{
-            console.log(response.data)
             setAllRecipes(response.data)
         })
     },[])
-    
 
-
+ 
 
     return(
         <>
             <NavigationBar/>
             {allRecipes?
-            <div className="allTheRecipes">
-                <p>All My Recipes Here</p>
-                <div className="allTheRecipeSection">
-                    {
-                        SingleRecipePage===false?
-                        <>
-                    {
-                        allRecipes.map((recipe,i)=>{
-                            console.log(recipe)
-                            return(
-                                    <div className="singleResult" key={i}>
-                                    <div className="resultPic" style={{backgroundImage:recipe.picture}}></div>
-                                    <p onClick={()=>{
-                                        setSingleRecipePage(true)
-                                        setRecipeId(recipe.id)
-                                        }}>{recipe.name}</p> 
-                                    <button onClick={
-                                        ()=>{
-                                        // axios.put(`http://localhost:3001/category/${categoryId}/${recipe.id}`)
-                                        axios.put(`https://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
-                                    }}> add to{categoryId}</button>
-                                    </div>
-                                ) 
-                            
-                        })                       
-                    }
-                    </>:
-                    <SinglePageFromBackend/>
-                    }
+                <div className="allTheRecipes">
+                    <p onClick={()=>{
+                        history(-1)
+                        setCategoryId()
+                        setCategoryName()
+                    }}> --- Back</p>
+                        <div className="allTheRecipeSection">
+                            {
+                               
+                                
+                                allRecipes.map((recipe,i)=>{
+            
+                                    return(
 
-                        
-                    
-                
-                    
+                                        <SingleRecipe key={i} recipe={recipe}/>
+                                    ) 
+                                    
+                                })                       
+                            }
+                        </div>
                 </div>
-            </div>:
-            <div className='spin'></div>}
+                :
+                <div className='spin'></div>
+            }
         </>
     )
 }
