@@ -33,8 +33,8 @@ const AllTheRecipes = ()=>{
 
     console.log(user)
     useEffect(()=>{
-        axios.get(`http://localhost:3001/recipe/all/${userId}`)
-        // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+        // axios.get(`http://localhost:3001/recipe/all/${userId}`)
+        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
         .then((response)=>{
             setAllRecipes(response.data)
         })
@@ -42,8 +42,8 @@ const AllTheRecipes = ()=>{
     
     let list =[]
     if (categId){
-            axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
-            // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+            // axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
+            axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
             .then((response)=>{
                 setAllRecipesInCat(response.data)
                 
@@ -87,8 +87,8 @@ const deleteRecipe= (i)=>{
                                         { !list.includes(recipe.id)?
                                         <>
                                         <button className="deleteRecipe" onClick={()=>{
-                                            axios.delete(`http://localhost:3001/recipe/${recipeId}`)
-                                            // axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                            // axios.delete(`http://localhost:3001/recipe/${recipeId}`)
+                                            axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>
@@ -124,8 +124,8 @@ const deleteRecipe= (i)=>{
                                     return(
                                         <div className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
-                                            axios.delete(`http://localhost:3001/recipe/${recipeId}`)
-                                            // axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                            // axios.delete(`http://localhost:3001/recipe/${recipeId}`)
+                                            axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>
