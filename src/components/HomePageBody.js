@@ -3,7 +3,7 @@
 const HomePageBody = ()=>{
 
     return(
-        <p> App description, and some style here</p>
+        <p> Created by Marco Colucci with Spoonacular Api </p>
     )
 }
 
