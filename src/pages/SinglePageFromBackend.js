@@ -25,8 +25,8 @@ const SinglePageFromBackend=(props)=>{
     
     
     const getInfo=()=>{
-        axios.get(`http://localhost:3001/recipe/${recipeId}`)
-        // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+        // axios.get(`http://localhost:3001/recipe/${recipeId}`)
+        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
         .then((response)=>{
             setSingleRecipe(response.data)
            

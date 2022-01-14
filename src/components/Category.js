@@ -46,8 +46,8 @@ const Category= (props)=>{
                     <div className="singleResult" key={i}>
                         <button className='removeRecipe' onClick={
                             ()=>{
-                            axios.delete(`http://localhost:3001/category/${catIdBackend}/${recipe.id}`)
-                            // axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
+                            // axios.delete(`http://localhost:3001/category/${catIdBackend}/${recipe.id}`)
+                            axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
                             deleteRecipe(i)
                             setRecipesInCategory([...recipesInCategory])
                         }}>x</button>

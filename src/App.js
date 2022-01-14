@@ -31,8 +31,8 @@ function App() {
     const userId = localStorage.getItem('userId')
     if (userId) {
        
-      axios.get(`http://localhost:3001/user/verify`, {
-      // axios.get(`https://my-recipes-backen.herokuapp.com/user/verify`, {
+      // axios.get(`http://localhost:3001/user/verify`, {
+      axios.get(`https://my-recipes-backen.herokuapp.com/user/verify`, {
         headers: {
           Authorization: userId
         }

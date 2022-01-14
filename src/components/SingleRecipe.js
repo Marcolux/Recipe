@@ -24,11 +24,23 @@ const SingleRecipe =(props)=>{
     let history = useNavigate()
     let userId = localStorage.getItem('userId')
     // console.log(categoryName)
+
+    // const getInfo=()=>{
+    //     axios.delete(`http://localhost:3001/recipe/${recipeId}`)
+    //     // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+
+    // }    
+    // useEffect(getInfo,[])
+
+  
    
     return(
        
         // { list.includes(props.recipe.id)?
             <div className="singleResult" >
+                
+
+                
                 <div className="resultPic" style={{
                     backgroundImage:props.recipe.picture,
                     animation:animations
@@ -43,8 +55,8 @@ const SingleRecipe =(props)=>{
                         {buttonFunction===true ?
                             <button onClick={
                                 ()=>{
-                                axios.put(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
-                                // axios.put(`https://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
+                                // axios.put(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
+                                axios.put(`https://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
                                 setAnimations('rotation 1s')
                                 if(buttonFunction===true){setButtonFunction(false)}else{setButtonFunction(true)}
                             }}> add to {categoryName}</button>
@@ -52,8 +64,8 @@ const SingleRecipe =(props)=>{
                             <button onClick={
                                 ()=>{
                                     setButtonFunction(true)
-                                    axios.delete(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
-                                    // axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
+                                    // axios.delete(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
+                                    axios.delete(`https://my-recipes-backen.herokuapp.com/category/${categId}/${props.recipe.id}`)
                                     setAnimations('rotation .5s')
                                 }}>Remove</button>
                             }
@@ -62,21 +74,6 @@ const SingleRecipe =(props)=>{
                
                 
             </div>
-    //         :
-    //         <div>
-    //         <div className="singleResult" >
-    //         <div className="resultPic" style={{
-    //             backgroundImage:props.recipe.picture,
-    //             }}></div>
-    //         <p onClick={()=>{
-    //             history('/saved-recipe')
-    //             setRecipeId(props.recipe.id)
-    //             }}>{props.recipe.name}</p> 
-                
-    //         </div>
-    //     </div>  
-    // }
-    // </>
     )
 }
 
