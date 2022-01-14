@@ -45,11 +45,12 @@ const AllTheRecipes = ()=>{
             // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
             .then((response)=>{
                 setAllRecipesInCat(response.data)
+                
             })
         },[])
         console.log(allRecipesInCat)
         let list =[]
-        allRecipesInCat?.map(element => {
+        allRecipesInCat.map(element => {
 
             console.log(element.id)
             list.push(element.id)

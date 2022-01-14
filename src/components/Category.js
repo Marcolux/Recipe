@@ -52,7 +52,7 @@ const Category= (props)=>{
                             setRecipesInCategory([...recipesInCategory])
                         }}>x</button>
                         <div className="resultPic" style={{backgroundImage:recipe.picture}}></div>
-                        <p onClick={()=>{
+                        <p className='linksRecipe' onClick={()=>{
                             setRecipeId(recipe.id)
                             history('/saved-recipe')
                             }}>{recipe.name}</p> 

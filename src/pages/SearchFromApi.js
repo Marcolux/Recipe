@@ -137,7 +137,7 @@ const SearchFromApi =()=>{
         return(
         <>
         <NavigationBar/> 
-        <h1>search here</h1>
+        <div className="searchBanner"></div>
         
         <div className="SearchSection">
             <div className='SearchForm'>
@@ -200,7 +200,7 @@ const SearchFromApi =()=>{
                                 recipe.image && split[0]=='https'?
                                 <div className="singleResult" key={i}>
                                     <div className="resultPic" style={{backgroundImage:`url(${recipe.image})`}}></div>
-                                    <p onClick={()=>{setSingleRecipePage(true)
+                                    <p className="linksRecipe" onClick={()=>{setSingleRecipePage(true)
                                                     setRecipeId(recipe.id)
                                                     setRecipeImage(`url(${recipe.image})`)
                                                     }}>{recipe.title}</p>
@@ -208,7 +208,7 @@ const SearchFromApi =()=>{
                                     :
                                 <div className="singleResult" key={i}>
                                     <div className="resultPic" style={{backgroundImage:`url(https://spoonacular.com/recipeImages/${recipe.image})`}}></div>
-                                    <p onClick={()=>{setSingleRecipePage(true)
+                                    <p className="linksRecipe" onClick={()=>{setSingleRecipePage(true)
                                                     setRecipeId(recipe.id)
                                                     setRecipeImage(`url(https://spoonacular.com/recipeImages/${recipe.image})`)
                                                     }}>{recipe.title}</p>

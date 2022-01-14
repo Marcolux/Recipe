@@ -1,25 +1,58 @@
+html{
+  background:white;
+  opacity: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+}
 .App {
   text-align: center;
+  font-family: 'Luxurious Roman', cursive;
+  background: #f4f1ea01;
+   opacity:1;
+  
 }
 
 
 /* _____________________NAVIGATION BAR____________________ */
 
+.links{
+  text-decoration: none;
+  color: #F2C53D;
+  
+}
+
+.links:hover{
+  text-decoration:underline;
+}
+
 .NavigationBar{
   display: flex;
-  border: 1px solid black;
+  border: 1px solid #0D0D0D;
   width: 100vw;
-  height: 10vh;
-  background: cadetblue;
+  height: 8vh;
+  font-size: 30px;
+  background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* W3C */
   align-items: center;
   justify-content: center;
+  color: #F2C53D;
+  box-shadow:1px 1px 1px 1px #F2A922 ;
 }
 
 .homePageLinks{
   display: flex;
   justify-content: space-around;
+  align-items: center;
   position: absolute;
   right: 3vw;
+  font-size: 30px;
+  color: #F2C53D;
+  
 }
 .homePageLinks p{
   margin-left: 2vw;
@@ -51,11 +84,15 @@
   position: absolute;
   left: -4vw;
   display: none;
-  background-color: #f9f9f9e0;
+  background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* W3C */
   z-index: 1;
   animation: growDown 300ms;
-  padding: 1.5vmin;
-  border-radius: 1vmin;
+  padding: 20px;
+  border-radius: 10px;
   border: 2px solid black;
   
 }
@@ -71,7 +108,7 @@
  
 }
 .menuNavLink:hover {
-  color: #6450d7;
+  color: #F27F1B;
   
 }
 
@@ -79,12 +116,47 @@
 
 
 /* ________________NAVIGATION BAR END____________________ */
+/* ________________Home page END____________________ */
+
+.HomePage{
+  
+  width: 100vw;
+  height: 40vh;
+}
+.HomePage h1{
+
+  margin-top: 0;
+  font-size: 12vh;
+}
+
+.homepageBanner{
+  width: 100vw;
+  height:60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row-reverse;
+}
+/* ________________Home page END____________________ */
 
 
 
 /* ________________SIGNUP AND LOGIN FORMS____________________ */
 
-
+.FormBottomBanner{
+  background-image: url("../src/img/assorted.jpeg");
+  background-size:cover;
+  background-position:top;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 30vh;
+  position: fixed;
+  bottom: 0;
+  border-top: 2px solid #F2A922;;
+  padding: 1vh;
+  box-shadow:2px 2px 2px 2px #F2A922;
+  
+}
 .AuthPage{
   display: flex;
   flex-direction: column;
@@ -93,41 +165,87 @@
 .AuthForm{
   display: flex;
   flex-direction: column;
+  box-shadow:-.5px -.5px 5px 5px #f2a922d0;
   align-items: center;
-  /* justify-self: center; */
-  border: 1px solid black;
+  margin-top: 15vh;
+  margin-left: 3vw;
+  /* border: 2px solid #274001; */
+  border-radius: 1.5vh;
   width: 30vw;
   padding: 2vh;
+  background-color: #F2C53D;
 }
 .subAuthForm{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  border: 1px solid black;
+  
   margin: 3px;
   padding: 2vh;
 }
 
 .formInput{
   margin-right: 1vw;
+  font-size: 20px;
   margin-top: 1vh;
+  font-weight: 600;
   /* width: 25vw; */
+}
+.formInput input{
+  font-size: 20px;
+  margin-left: 10px;
+  font-family: 'Luxurious Roman', cursive;
+  padding: .1vh;
 }
 .formButton{
   margin-right:3vw;
+  font-family: 'Luxurious Roman', cursive;
+  font-weight: 800;
+  letter-spacing: .05vw;
+  font-size: large;
+  border-radius: 1vh;
+  background:#F2A922 ;
+}
+.formButton:hover{
+  background-color:#F27F1B ;
 }
 
 /* ________________SIGNUP AND LOGIN FORMS END____________________ */
 
 /* ________________USER PAGE____________________ */
+.UserPage{
+background-image: url('./img/searchBackground.jpeg');
+background-size: cover;
+background-position: center;
+}
+.allCatBanner{
+  /* background-image: url('./img/categoryBanner.jpeg'); */
+  height: 10vh;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  overflow:scroll;
+}
 .Addcategory{
   position: absolute;
   margin-top: 1vh;
   right: 2vw;
   display: flex;
   flex-direction: column;
-  border: 1px solid red;
+  border: 1px solid #0D0D0D;
+  background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* W3C */
   padding: 1vh;
+  border-radius: 1vh;
+  font-size: 18px;
+  font-weight: 800;
+  color:#F2C53D ;
+  letter-spacing: .8px;
 }
 
 /* ________________USER PAGE END____________________ */
@@ -138,21 +256,72 @@
 .CategorySection{
   display: flex;
   flex-direction: column;
-  border: 1px solid green;
-  margin: 1vh;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+  margin-top: 2vh;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 1.5vh;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.831);
+  opacity: 1;
+}
+
+/* .categorySingle{
+
+} */
+ .deleteCat{
+
+  height: 3vh;
+  position: absolute;
+  right: 15vw;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'Luxurious Roman', cursive;
+  font-weight: 900;
+  letter-spacing: .8px;
+
+}
+.deleteCat:hover{
+  text-decoration: underline;
+}
+.deleteCat:active{
+  color:#F27F1B ;
+}
+.addRecipeButton{
+  height: 3vh;
+  background: none;
+  border: none;
+  font-size: 20px;
+  font-family: 'Luxurious Roman', cursive;
+  font-weight: 900;
+  letter-spacing: .8px; 
+
+
+}
+.addRecipeButton:hover{
+  text-decoration: underline;
+}
+.addRecipeButton:active{
+  color:#F27F1B ;
 }
 
 .allTheCategories{
   margin-top: 15vh;
   margin-left:3vw;
   margin-right:3vw;
-  border: 1px solid blue;
   padding: 3vh;
 }
 .removeRecipe{
+height:30px;
+width: 30px;
 margin-left: 20vw;
-margin-bottom: 2vh;
-
+margin-bottom: 1vh;
+border-radius: 15px;
+border-color: black;
+}
+.removeRecipe:hover{
+  background:#F27F1B ;
 }
 
 
@@ -163,28 +332,57 @@ margin-bottom: 2vh;
 
 /* ________________SINGLE CATEGORY____________________ */
 .singleCat{
-  border:1px solid #e39038;
+  border:1px solid #0D0D0D;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+  margin: 1vh;
+  border-radius: 1vh;
+  background-color: white;
+  min-height: 33vh;
   margin-top: 7vh;
   margin-bottom: 2vh;
   padding: 1vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  opacity: 1;
   
 }
 .categoryTitle{
   position:absolute;
   margin-left: 1vw;
-  border: 1px solid yellowgreen;
+  border: 1px solid #274001;
+  border-radius: 3px;
   margin-top: 1vh;
   padding: .5vh;
   width: 25vw;
   height: 3vh;
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: white;
+  opacity: 1;
+  text-shadow: 1px 1px #274001;
+
+}
+
+.linksRecipe:hover{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 /* ________________SINGLE CATEGORY END____________________ */
 
 /* ________________ SEARCH PAGE____________________ */
+
+/* .searchBanner{
+  background-image:url('./img/colorBanner.jpeg');
+  width: 100vw;
+  height: 15vh;
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+  z-index: 0;
+} */
 
 .SearchSection{
   display: flex;
@@ -192,22 +390,34 @@ margin-bottom: 2vh;
   align-items: center;
   border: 1px solid black;
   padding: 2vw;
+  background-image: url('./img/eggs.jpeg');
+  background-position: center;
+  background-size: cover;
+  opacity: 1;
+  height: 90vh;
+  overflow: scroll;
   
 }
 .resultsSection{
   display: flex;
   width: 90vw;
-  flex-wrap: wrap;
-  border: 1px solid rgb(69, 134, 136);
+  max-height: fit-content;
+  /* overflow: scroll; */
+  flex-wrap:wrap;
   justify-self:center ;
-  justify-content: space-evenly;
-  min-height:80vh ;
+  justify-content:center;
+  align-items: center;
   border-radius: 1vh;
   padding: 2vh;
   margin-top: 4vh;
-  box-shadow: -.6px -.6px 1.8px 1.8px cadetblue;
+  border:1px solid #0D0D0D;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+  background-color: rgba(255, 255, 255, 0.81);
 }
 .singleResult{
+  font-weight: 900;
+  letter-spacing: .2px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -218,7 +428,8 @@ margin-bottom: 2vh;
   border: 1px solid rgba(40, 36, 36, 0.783);
   margin: 1vw;
   border-radius: 1vw;
-  box-shadow: -.5px -.5px 1.5px 1.5px cadetblue;
+  box-shadow: -.5px -.5px 1.5px 1.5px #274001;
+  background: #F2C53D;  
   /* animation: rotation 4s; */
  
 }
@@ -240,7 +451,10 @@ margin-bottom: 2vh;
 .SearchForm{
   display: flex;
   flex-direction: column;
-  border: 1px solid black;
+  border: 1px solid #0D0D0D;
+  box-shadow: -.5px -.5px 1.5px 1.5px #274001;
+  background-color: rgba(255, 255, 255, 0.79);
+  opacity: 1;
   align-items: center;
   border-radius: 1vh;
   width: 65vw;
@@ -256,19 +470,29 @@ margin-bottom: 2vh;
   border-radius: .5vh;
   margin-bottom: 2vh;
   margin-top: 1vh;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: .7px;
 }
 
 .beSpecific{
   display: flex;
-  border:2px solid rgb(61, 134, 136);
-  box-shadow: -.5px -.5px 1.5px 1.5px rgb(6, 6, 6);
-  background:rgb(69, 133, 135) ;
+  
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+  background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #274001  10%, #0D0D0D 80%); /* W3C */
   border-top-left-radius:1vh ;
   border-top-right-radius:1vh ;
   justify-content:space-evenly;
   align-items: center;
   padding: .5vh;
   width: 70vw;
+  color: #F27F1B;
+  font-size: 25px;
+  letter-spacing: 1px;
 
 }
 .beSpecificButton{
@@ -320,32 +544,38 @@ margin-bottom: 2vh;
 .SingleRecipe{
   display: flex;
   flex-direction: column;
+  background: white;
+  padding: 2vw;
+  border-radius: 1vh;
+  border: 1px solid #274001;
+  box-shadow: -1px -1px 8px 1px #274001;
+  font-weight: 600;
+  font-size: 20px;
   
 }
 .SingleRecipePage{
   padding: 2vh;
-  border: 1px solid rgb(69, 133, 135);
-border-radius: 1vh;
-box-shadow: -.5px -.5px 1.5px 1.5px cadetblue;
-margin: 5vh;
+  border: 1px solid #274001;
+  box-shadow: -1px -1px 8px 1px #274001;
+  border-radius: 1vh;
+  margin: 5vh;
 
 }
 .diet-Ingredients{
   display: flex;
-  /* border: 1px solid rgb(214, 15, 15); */
   justify-content:space-evenly;
   align-items: center;
 }
 .RecipeDiets{
   display: flex;
   flex-direction: column;
-  /* border: 1px solid rgb(16, 218, 33); */
+  
 }
 .RecipeDiets h3{
 margin: 0;
 }
 .RecipeDiets li{
-  list-style:circle ;
+  list-style-type:circle;
   text-align: left;
 
 }
@@ -357,9 +587,9 @@ display: flex;
 width: 35vw;
 height: 25vh;
 justify-self: center;
-border: 1px solid rgb(69, 133, 135);
+border: 1px solid #274001;
+  box-shadow: -1px -1px 8px 1px #274001;
 border-radius: 1vh;
-box-shadow: -.5px -.5px 1.5px 1.5px cadetblue;
 }
 .RecipeIngredients{
   margin: 0;

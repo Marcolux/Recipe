@@ -20,8 +20,8 @@ const UserInNavBar=()=>{
                             history("/")
                             setUser({})
                     }}>logout</p>
-                    <Link  to='/user-page'>All the Categories</Link>
-                    <Link  to='/all-the-recipes'>My recipes</Link>
+                    <Link className="links"  to='/user-page'>Categories</Link>
+                    <Link className="links" to='/all-the-recipes'>Recipes</Link>
                 </div>
             </div>
     )

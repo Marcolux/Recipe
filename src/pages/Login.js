@@ -35,7 +35,7 @@ const Login =()=>{
     return(
         <div className="AuthPage">
             <NavigationBar/>
-            <p>Login Form here</p>
+            
                 <form className="AuthForm" onSubmit={loginForm}>
                     <div className="subAuthForm">
                         <div className='formInput'>
@@ -51,6 +51,7 @@ const Login =()=>{
                         </div>
                     </div>
                 </form>
+                <div className="FormBottomBanner"></div>
         {/* <div className="NavigateHome"></div> */}
         </div>
     )

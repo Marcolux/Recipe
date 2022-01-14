@@ -1,13 +1,18 @@
+import { Link } from "react-router-dom";
 import HomePageBody from "../components/HomePageBody"
 import NavigationBar from "../components/NavigationBar"
+import image from "../img/AdobeStock_265201895.jpeg"; 
 
 const Homepage = ()=>{
 
 
 return (
     <div className="HomePage">
-        <NavigationBar/>
-        <h3>This is the first Landing Page</h3>
+        {/* <NavigationBar/> */}
+        <div className="homepageBanner" style={{backgroundImage:`url(${image})`}}></div>
+        <h1>My Recipe Collection</h1>
+        <h2><Link to='/signup'>Signup</Link> To Start Your Recipe Collection</h2>
+        <h2>Or Login From <Link to='/login'>Here</Link></h2>
         <HomePageBody/>
     </div>
 )

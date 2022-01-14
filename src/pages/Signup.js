@@ -36,7 +36,7 @@ const Signup=()=>{
     return(
         <div className="AuthPage">
             <NavigationBar/>
-            <p>Signup Form here</p>
+            
                 <form className="AuthForm" onSubmit={signupForm}>
                     <div className="subAuthForm">   
                         <div className='formInput'>
@@ -52,10 +52,13 @@ const Signup=()=>{
                             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className='formInput'>
-                            <input className='formButton' type="submit" value="Submit" />
+                            <input className='formButton' type="submit" value="Signup" />
                         </div>
                     </div>
+
                 </form>
+                <div className="SomeDecoration"></div>
+                <div className="FormBottomBanner"></div>
         {/* <div className="NavigateHome"> */}
        
         </div>

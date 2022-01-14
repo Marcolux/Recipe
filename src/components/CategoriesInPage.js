@@ -39,24 +39,24 @@ const CategoriesInPage=()=>{
     return(
         <div className='allTheCategories'>
         {
-        categoriesUser.length ?
+        categoriesUser?
         categoriesUser.map((category,i)=>{
             return(
             <div className='CategorySection' key={i}>
                 <p className='categoryTitle'>{category.name}</p>
-                <button onClick={()=>{
+                <button className='deleteCat' onClick={()=>{
                     axios.delete(`http://localhost:3001/category/${category.id}`)
                     deleteCategory(i)
                     setCategoriesUser([...categoriesUser])
                 }
-                }>x</button>
-                <Category  category={category.id} categoriesUser={categoriesUser} />
-                <button onClick={()=>{
+                }>Remove</button>
+                <Category className='categorySingle'  category={category.id} categoriesUser={categoriesUser} />
+                <button className='addRecipeButton' onClick={()=>{
                         setCategId(category.id)
                         history('/all-the-recipes')
                         setCategoryName(category.name)
                         }
-                        }>+</button>
+                        }>Add Recipe</button>
             </div>
             )
         })

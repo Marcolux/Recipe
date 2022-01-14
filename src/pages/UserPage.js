@@ -18,12 +18,13 @@ const UserPage = ()=>{
     return(
     <div className="UserPage">
         <NavigationBar/>
+        {/* <div className='allCatBanner'></div> */}
         <div className='Addcategory'>
             {createCategory ===true?
                 <AddCategory setCreateCategory={setCreateCategory}/>
                 :
                 <div>
-                    <p>ready to create a new one</p>
+                    <p>Add a New Category</p>
                     <button className='addFromBackend' onClick={()=>{
                         setCreateCategory(true)
                     }} >ok</button>

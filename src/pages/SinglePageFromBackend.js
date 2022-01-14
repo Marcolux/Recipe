@@ -43,8 +43,18 @@ const SinglePageFromBackend=(props)=>{
                 {
                     singleRecipe ?
                     <div className="SingleRecipe">
+                        <div className="singleRecipeButtons">
+                                    <button onClick={()=>{
+                                        setSingleRecipePage(false)
+                                        history(-1)
+                                        }}>Back </button>
+                                            <button onClick={()=>{
+                                                axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
+                                                // axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
+                                            
+                                            }}>Add to My Recipe {}</button>
+                            </div>   
                         <h3 className="recipeTitle">{singleRecipe.name}</h3>
-                                
                             <div className="diet-Ingredients">
                                 <div className="SingleRecipePic" style={{backgroundImage:singleRecipe.picture}}></div>
                                     <div className="RecipeIngredients">
@@ -76,17 +86,7 @@ const SinglePageFromBackend=(props)=>{
                                     <h3>Instructions:</h3>    
                                         <p>{singleRecipe.instructions}</p>
                                 </div>
-                                    <div className="singleRecipeButtons">
-                                    <button onClick={()=>{
-                                        setSingleRecipePage(false)
-                                        history(-1)
-                                        }}>Back to my Recipes</button>
-                                            <button onClick={()=>{
-                                                axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
-                                                // axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
-                                            
-                                            }}>Add to {}</button>
-                            </div>
+                                    
                                   
                     
                     </div>

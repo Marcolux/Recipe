@@ -16,16 +16,16 @@ return(
             <div className="NavigationBar">
                 <UserInNavBar/>
                 <div className="userNavigation">
-                    <Link to={'/search-recipe'}><p>Search</p></Link>
-                    <p>add recipe</p>
-                    <p>grocery list</p>
+                    <Link className="links" to={'/search-recipe'}><p>Search</p></Link>
+                    {/* <p>add recipe</p>
+                    <p>grocery list</p> */}
                 </div>
             </div>
             :
             <div className="homePageLinks">
-                <Link to='/'>Home</Link>
-                <Link to='/login'><p>Login</p></Link>
-                <Link to='/signup'><p>Signup</p></Link>
+                <Link className="links" to='/'>Home</Link>
+                <Link className="links" to='/login'><p>Login</p></Link>
+                <Link className="links" to='/signup'><p>Signup</p></Link>
             </div>
         }
     </div>
