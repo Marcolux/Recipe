@@ -91,7 +91,7 @@ const SearchFromApi =()=>{
     const specificSearch=(e)=>{
         e.preventDefault()
         setSpecific(false)
-        SingleRecipePage(false)
+        // SingleRecipePage(false)
 
         const options = {
             method: 'GET',
