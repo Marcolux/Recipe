@@ -44,16 +44,16 @@ const SingleRecipe =(props)=>{
                         ()=>{
                         axios.put(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
                         // axios.put(`https://my-recipes-backen.herokuapp.com/category/${categoryId}/${recipe.id}`)
-                        setAnimations('rotation .8s')
+                        setAnimations('rotation 1s')
                         if(buttonFunction===true){setButtonFunction(false)}else{setButtonFunction(true)}
                     }}> add to {categoryName}</button>
                     :
                     <button onClick={
                         ()=>{
-                            setAnimations('rotation .8s')
                             setButtonFunction(true)
                             axios.delete(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
                             // axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
+                            setAnimations('rotation .5s')
                         }}>Remove</button>
                     }
                

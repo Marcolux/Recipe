@@ -40,37 +40,39 @@ const AllTheRecipes = ()=>{
         })
     },[])
     
-        useEffect(()=>{
+    let list =[]
+    if (categId){
             axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
             // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
             .then((response)=>{
                 setAllRecipesInCat(response.data)
                 
             })
-        },[])
-        console.log(allRecipesInCat)
-        let list =[]
-        allRecipesInCat.map(element => {
-
-            console.log(element.id)
-            list.push(element.id)
-        })
-
+            console.log(allRecipesInCat)
+            allRecipesInCat.map(element => {
+                
+                console.log(element.id)
+                list.push(element.id)
+            })
+        }
+            
 console.log(list)
 
     return(
         <>
             <NavigationBar/>
-            {allRecipes?
+            {categId?
                 <div className="allTheRecipes">
-                    <p onClick={()=>{
+                    { allRecipes  ?
+                    <>
+                    <p className="links" onClick={()=>{
                         history(-1)
                         setCategId()
                         setCategoryName()
                     }}> --- Back</p>
                         <div className="allTheRecipeSection">
                             {
-                               allRecipes  ?
+                            //    allRecipes  ?
                                 
                                 allRecipes?.map((recipe,i)=>{
                                     
@@ -87,13 +89,33 @@ console.log(list)
                                     ) 
                                     
                                 }) 
-                                :
-                                <div className='spin'></div>                       
+                                // :
+                                // <div className='spin'></div>                       
                             }
                         </div>
+                </>
+                :
+                <div className='spin'></div> 
+                
+                }                      
                 </div>
                 :
-                <div className='spin'></div>
+                <>
+                {
+                    allRecipes  ?
+                     
+                     allRecipes?.map((recipe,i)=>{
+                         
+                         return(
+                             
+                             <SingleRecipe key={i} recipe={recipe}/>
+                         ) 
+                         
+                     }) 
+                     :
+                     <div className='spin'></div>                       
+                 }
+                 </>
             }
         </>
     )

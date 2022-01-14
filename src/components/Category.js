@@ -41,7 +41,7 @@ const Category= (props)=>{
     return(
         <div className="singleCat">
             {recipesInCategory?.map((recipe,i)=>{
-                console.log(recipe)
+
                 return(
                     <div className="singleResult" key={i}>
                         <button className='removeRecipe' onClick={
