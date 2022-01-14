@@ -41,7 +41,10 @@ const AllTheRecipes = ()=>{
     },[])
     
     let list =[]
-    if (categId){
+
+useEffect(()=>{
+    
+        if (categId){
             // axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
             axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
             .then((response)=>{
@@ -55,6 +58,8 @@ const AllTheRecipes = ()=>{
                 list.push(element.id)
             })
         }
+    
+},[])
             
 console.log(list)
 
@@ -80,7 +85,7 @@ const deleteRecipe= (i)=>{
                     }}> --- Back</p>
                         <div className="allTheRecipeSection">
                             {
-                                allRecipes?.map((recipe,i)=>{
+                                allRecipes.map((recipe,i)=>{
                                     
                                     return(
                                         <>
@@ -119,7 +124,7 @@ const deleteRecipe= (i)=>{
                         }}>Back to My Categories</h3>
                         <div className="allTheRecipeSection">
                             {
-                                allRecipes?.map((recipe,i)=>{
+                                allRecipes.map((recipe,i)=>{
 
                                     return(
                                         <div className="recipe">

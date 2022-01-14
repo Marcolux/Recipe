@@ -41,14 +41,17 @@ const CategoriesInPage=()=>{
            
         {
         categoriesUser?
-        categoriesUser.map((category,i)=>{
+        categoriesUser?.map((category,i)=>{
             return(
             <div className='CategorySection' key={i}>
                 <p className='categoryTitle'>{category.name}</p>
                 <button className='deleteCat' onClick={()=>{
                     // axios.delete(`http://localhost:3001/category/${category.id}`)
                     axios.delete(`https://my-recipes-backen.herokuapp.com/category/${category.id}`)
-                    deleteCategory(i)
+                        categoriesUser.splice(i,1)
+                        let array = categoriesUser
+                        setCategoriesUser(array)
+                      
                     setCategoriesUser([...categoriesUser])
                 }
                 }>Remove</button>
