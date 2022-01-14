@@ -9,7 +9,7 @@ const Provider = ({children}) => {
     const [recipeImage, setRecipeImage] = useState('')
     const [SingleRecipePage, setSingleRecipePage]= useState(false)
     const [recipeDetails,setRecipeDetails] = useState({})
-    const [categoryId,setCategoryId] = useState()
+    const [categId,setCategId] = useState()
     const [results, setResults] = useState([])
     const [categoryName,setCategoryName] = useState()
 
@@ -20,7 +20,7 @@ const Provider = ({children}) => {
         recipeImageState:[recipeImage, setRecipeImage],
         SingleRecipePageState:[SingleRecipePage, setSingleRecipePage],
         recipeDetailsState:[ recipeDetails,setRecipeDetails],
-        categoryIdState:[categoryId,setCategoryId],
+        categIdState:[categId,setCategId],
         resultsState:[results, setResults],
         categoryNameState:[categoryName,setCategoryName]
     }

@@ -9,8 +9,9 @@ const Category= (props)=>{
 
     let history = useNavigate()
 
-    const { categoryIdState } = useContext(Context);
-    const [categoryId,setCategoryId] = categoryIdState
+    const { categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
+    
 
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState

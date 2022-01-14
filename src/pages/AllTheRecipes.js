@@ -18,13 +18,14 @@ const AllTheRecipes = ()=>{
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
     
-    const { categoryIdState } = useContext(Context);
-    const [categoryId,setCategoryId] = categoryIdState
+    const { categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
 
     const { categoryNameState } = useContext(Context);
     const [categoryName,setCategoryName] = categoryNameState
 
     const [allRecipes, setAllRecipes] = useState([])
+    const [allRecipesInCat, setAllRecipesInCat] = useState([])
     
 
     let userId = localStorage.getItem('userId')
@@ -38,8 +39,23 @@ const AllTheRecipes = ()=>{
             setAllRecipes(response.data)
         })
     },[])
+    
+        useEffect(()=>{
+            axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
+            // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+            .then((response)=>{
+                setAllRecipesInCat(response.data)
+            })
+        },[])
+        console.log(allRecipesInCat)
+        let list =[]
+        allRecipesInCat?.map(element => {
 
- 
+            console.log(element.id)
+            list.push(element.id)
+        })
+
+console.log(list)
 
     return(
         <>
@@ -48,21 +64,30 @@ const AllTheRecipes = ()=>{
                 <div className="allTheRecipes">
                     <p onClick={()=>{
                         history(-1)
-                        setCategoryId()
+                        setCategId()
                         setCategoryName()
                     }}> --- Back</p>
                         <div className="allTheRecipeSection">
                             {
-                               
+                               allRecipes  ?
                                 
-                                allRecipes.map((recipe,i)=>{
-            
+                                allRecipes?.map((recipe,i)=>{
+                                    
                                     return(
-
+                                        <>
+                                       { !list.includes(recipe.id)?
+                                       
                                         <SingleRecipe key={i} recipe={recipe}/>
+                                  
+                                        :
+                                        null
+                                       }
+                                       </>
                                     ) 
                                     
-                                })                       
+                                }) 
+                                :
+                                <div className='spin'></div>                       
                             }
                         </div>
                 </div>

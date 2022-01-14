@@ -9,8 +9,8 @@ const CategoriesInPage=()=>{
 
     const [categoriesUser, setCategoriesUser] =useState([])
 
-    const { categoryIdState } = useContext(Context);
-    const [categoryId,setCategoryId] = categoryIdState
+    const { categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
 
     const { categoryNameState } = useContext(Context);
     const [categoryName,setCategoryName] = categoryNameState
@@ -52,7 +52,7 @@ const CategoriesInPage=()=>{
                 }>x</button>
                 <Category  category={category.id} categoriesUser={categoriesUser} />
                 <button onClick={()=>{
-                        setCategoryId(category.id)
+                        setCategId(category.id)
                         history('/all-the-recipes')
                         setCategoryName(category.name)
                         }
