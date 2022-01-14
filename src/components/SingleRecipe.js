@@ -56,7 +56,7 @@ const SingleRecipe =(props)=>{
                             <button onClick={
                                 ()=>{
                                 // axios.put(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
-                                axios.put(`https://my-recipes-backen.herokuapp.com/category/${categyId}/${props.recipe.id}`)
+                                axios.put(`https://my-recipes-backen.herokuapp.com/category/${categId}/${props.recipe.id}`)
                                 setAnimations('rotation 1s')
                                 if(buttonFunction===true){setButtonFunction(false)}else{setButtonFunction(true)}
                             }}> add to {categoryName}</button>
