@@ -214,19 +214,18 @@ html{
 
 /* ________________USER PAGE____________________ */
 .UserPage{
-background-image: url('./img/searchBackground.jpeg');
-background-size: cover;
-background-position: center;
+background-image: url('../src/img/backGround.jpeg');
+
 }
 .allCatBanner{
-  /* background-image: url('./img/categoryBanner.jpeg'); */
+  background-image: url('./img/categoryBanner.jpeg');
   height: 10vh;
   width: 100vw;
   background-size: cover;
   background-position: center;
-  width: 100vw;
-  height: 100vh;
-  overflow:scroll;
+  border: 1px solid #274001;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+ 
 }
 .Addcategory{
   position: absolute;
@@ -262,7 +261,9 @@ background-position: center;
   margin-right: 0;
   padding: 1.5vh;
   border-radius: 5px;
-  background: rgba(255, 255, 255, 0.831);
+  background-image: url('./img/honeyBack.jpeg');
+background-size: cover;
+background-position: center;
   opacity: 1;
 }
 
@@ -351,17 +352,19 @@ border-color: black;
   position:absolute;
   margin-left: 1vw;
   border: 1px solid #274001;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
   border-radius: 3px;
   margin-top: 1vh;
-  padding: .5vh;
+  padding-bottom: 1vh;
   width: 25vw;
   height: 3vh;
   font-size: 25px;
   font-weight: 900;
   letter-spacing: 1px;
-  background: white;
+  background: #ffffff69;
   opacity: 1;
   text-shadow: 1px 1px #274001;
+  
 
 }
 
@@ -536,7 +539,23 @@ border-color: black;
 
 
 /* ________________SINGLE RECIPE____________________ */
-
+.recipe{
+  border: 1px solid #274001;
+  box-shadow: -1px -1px 8px 1px #274001;
+  margin: 2vh;
+  display: flex;
+  flex-direction: column;
+}
+.deleteRecipe{
+position: absolute;
+background:white;
+border: 1px solid black;
+border-radius: 4px;
+}
+.deleteRecipe:hover{
+  background:#274001 ;
+  color: white;
+}
 .recipeTitle{
   margin-bottom: 4vh;
   text-decoration:underline;
@@ -622,6 +641,16 @@ border-radius: 1vh;
 /* ________________SINGLE RECIPE END____________________ */
 
 /* _____________ALL RECIPES PAGE______________ */
+
+.allRecipesPageBanner{
+  background-image: url('../src/img/colorBanner.jpeg');
+  height: 15vh;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #274001;
+  box-shadow: -1px -1px 2.5px 2.5px #274001;
+ 
+}
 
 .allTheRecipeSection{
   display: flex;

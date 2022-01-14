@@ -38,6 +38,7 @@ const CategoriesInPage=()=>{
 
     return(
         <div className='allTheCategories'>
+           
         {
         categoriesUser?
         categoriesUser.map((category,i)=>{

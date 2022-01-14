@@ -18,7 +18,7 @@ const UserPage = ()=>{
     return(
     <div className="UserPage">
         <NavigationBar/>
-        {/* <div className='allCatBanner'></div> */}
+        <div className='allCatBanner'></div>
         <div className='Addcategory'>
             {createCategory ===true?
                 <AddCategory setCreateCategory={setCreateCategory}/>

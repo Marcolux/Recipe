@@ -89,9 +89,10 @@ const SearchFromApi =()=>{
 
        
     const specificSearch=(e)=>{
-        
-
         e.preventDefault()
+        setSpecific(false)
+        SingleRecipePage(false)
+
         const options = {
             method: 'GET',
             url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
@@ -189,8 +190,7 @@ const SearchFromApi =()=>{
             </div>
                 <div className="resultsSection">
                     {SingleRecipePage===false?
-                        // <>
-                        // {/* {results.image? */}
+                       
                         results.map((recipe,i)=>{
                             let split=null
                             if (recipe.image){

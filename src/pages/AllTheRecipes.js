@@ -58,9 +58,17 @@ const AllTheRecipes = ()=>{
             
 console.log(list)
 
+const deleteRecipe= (i)=>{
+
+    allRecipes.splice(i,1)
+    let array = allRecipesInCat
+    setAllRecipes(array)
+  }
+
     return(
         <>
             <NavigationBar/>
+            <div className="allRecipesPageBanner"></div>
             {categId?
                 <div className="allTheRecipes">
                     { allRecipes  ?
@@ -72,50 +80,67 @@ console.log(list)
                     }}> --- Back</p>
                         <div className="allTheRecipeSection">
                             {
-                            //    allRecipes  ?
-                                
                                 allRecipes?.map((recipe,i)=>{
                                     
                                     return(
                                         <>
-                                       { !list.includes(recipe.id)?
-                                       
+                                        { !list.includes(recipe.id)?
+                                        <>
+                                        <button className="deleteRecipe" onClick={()=>{
+                                            axios.delete(`http://localhost:3001/recipe/${recipeId}`)
+                                            // axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                            deleteRecipe(i)
+                                            setAllRecipes([...allRecipes])
+                                        }}>X</button>
                                         <SingleRecipe key={i} recipe={recipe}/>
-                                  
+                                        </>
                                         :
                                         null
-                                       }
-                                       </>
+                                        }
+                                        </>
                                     ) 
-                                    
-                                }) 
-                                // :
-                                // <div className='spin'></div>                       
+                                })                    
                             }
                         </div>
-                </>
-                :
-                <div className='spin'></div> 
+                    </>
+                    :
+                    <div className='spin'></div> 
                 
-                }                      
+                    }                      
                 </div>
                 :
-                <>
-                {
-                    allRecipes  ?
-                     
-                     allRecipes?.map((recipe,i)=>{
-                         
-                         return(
-                             
-                             <SingleRecipe key={i} recipe={recipe}/>
-                         ) 
-                         
-                     }) 
-                     :
-                     <div className='spin'></div>                       
-                 }
-                 </>
+                <div className="allTheRecipes">
+                    { allRecipes  ?
+                    <>
+                        <h3 className="linksRecipes" onClick={()=>{
+                            history('/user-page')
+                            setCategId()
+                            setCategoryName()
+                        }}>Back to My Categories</h3>
+                        <div className="allTheRecipeSection">
+                            {
+                                allRecipes?.map((recipe,i)=>{
+
+                                    return(
+                                        <div className="recipe">
+                                        <button className="deleteRecipe" onClick={()=>{
+                                            axios.delete(`http://localhost:3001/recipe/${recipeId}`)
+                                            // axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                            deleteRecipe(i)
+                                            setAllRecipes([...allRecipes])
+                                        }}>X</button>
+                                        <SingleRecipe key={i} recipe={recipe}/>
+                                        </div>
+                                    ) 
+                                })                    
+                            }
+                        </div>
+                    </>
+                    :
+                    <div className='spin'></div> 
+                    }
+                
+                 </div>
             }
         </>
     )
