@@ -1,9 +1,11 @@
 html{
-  background:white;
+  /* background-image: url('../src/img/backGround.jpeg'); */
   opacity: 1;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  padding: 0;
+  margin: 0;
 
 }
 .App {
@@ -11,7 +13,8 @@ html{
   font-family: 'Luxurious Roman', cursive;
   background: #f4f1ea01;
    opacity:1;
-  
+   padding: 0;
+   margin: 0;
 }
 
 
@@ -215,6 +218,11 @@ html{
 /* ________________USER PAGE____________________ */
 .UserPage{
 background-image: url('../src/img/backGround.jpeg');
+background-size: cover;
+background-position: center;
+margin-bottom: 0px;
+padding: 0%;
+height: 100vh;
 
 }
 .allCatBanner{
@@ -404,8 +412,8 @@ border-color: black;
 .resultsSection{
   display: flex;
   width: 90vw;
-  max-height: fit-content;
-  /* overflow: scroll; */
+  /* min-height:90vh;
+  max-height: 90vh; */
   flex-wrap:wrap;
   justify-self:center ;
   justify-content:center;

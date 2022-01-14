@@ -101,7 +101,7 @@ const SearchFromApi =()=>{
                 diet: diet,
                 excludeIngredients: excludeIngredients,
                 intolerances: intolerances,
-                number: '49',
+                number: '42',
                 offset: '0',
                 type: 'main course'
 
