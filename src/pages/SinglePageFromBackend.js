@@ -49,8 +49,8 @@ const SinglePageFromBackend=(props)=>{
                                         history(-1)
                                         }}>Back </button>
                                             <button onClick={()=>{
-                                                axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
-                                                // axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
+                                                // axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
+                                                axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
                                             
                                             }}>Add to My Recipe {}</button>
                             </div>   

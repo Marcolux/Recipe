@@ -23,8 +23,8 @@ const Category= (props)=>{
     let userId = localStorage.getItem('userId')
 
     const getRecipeCategory=()=>{
-    axios.get(`http://localhost:3001/category/${userId}/${catIdBackend}/recipes`)
-    // axios.get(`https://my-recipes-backen.herokuapp.com/category/${userId}/${catIdBackend}/recipes`)
+    // axios.get(`http://localhost:3001/category/${userId}/${catIdBackend}/recipes`)
+    axios.get(`https://my-recipes-backen.herokuapp.com/category/${userId}/${catIdBackend}/recipes`)
     .then((response)=>{
         // console.log(response.data)
         setRecipesInCategory(response.data)
