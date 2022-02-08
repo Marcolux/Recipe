@@ -9,6 +9,8 @@ import axios from "axios"
 
 import env from 'react-dotenv';
 
+import img from '../img/assorted.jpeg'
+
 // I need to show the navigation bar in this page so I import it
 import NavigationBar from "../components/NavigationBar"
 
@@ -59,7 +61,7 @@ const Signup=()=>{
 
                 </form>
                 <div className="SomeDecoration"></div>
-                <div className="FormBottomBanner"></div>
+                <img className="FormBottomBanner" src={img}/>
         {/* <div className="NavigateHome"> */}
        
         </div>

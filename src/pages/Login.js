@@ -11,6 +11,9 @@ import NavigationBar from "../components/NavigationBar"
 import { useContext } from 'react';
 import { Context } from '../context/Context';
 
+import img from '../img/assorted.jpeg'
+
+
 
 const Login =()=>{
 
@@ -19,6 +22,8 @@ const Login =()=>{
     // setting the info for the call in the backend
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    
 
     //function to "fetch" a user in the backend database
     const loginForm = (e) => {
@@ -53,8 +58,7 @@ const Login =()=>{
                         </div>
                     </div>
                 </form>
-                <div className="FormBottomBanner"></div>
-        {/* <div className="NavigateHome"></div> */}
+                <img className="FormBottomBanner" src={img}/>
         </div>
     )
 }
