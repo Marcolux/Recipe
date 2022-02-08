@@ -23,7 +23,7 @@ const AddCategory=(props)=>{
                 <label htmlFor="name">Enter The Category name</label>
                 <input value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
             </form>
-                {/* <p onClick={props.setCreateCategory(true)}>Esc</p> */}
+                <p onClick={()=>{props.setCreateCategory(false)}}>Esc</p>
         </div>
     )
     

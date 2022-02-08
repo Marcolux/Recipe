@@ -9,17 +9,20 @@ import env from 'react-dotenv';
 const Category= (props)=>{
 
     let history = useNavigate()
-
-    const { categIdState } = useContext(Context);
-    const [categId,setCategId] = categIdState
     
 
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
 
+    const { categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
+
+    const { categoryNameState } = useContext(Context);
+    const [categoryName,setCategoryName] = categoryNameState
+
     const [recipesInCategory, setRecipesInCategory] = useState([])
 
-    let catIdBackend= props.category
+    let catIdBackend= props.category.id
 
     let userId = localStorage.getItem('userId')
 
@@ -30,17 +33,28 @@ const Category= (props)=>{
         setRecipesInCategory(response.data)
     })}
     useEffect(getRecipeCategory,[])
+    
 
     const deleteRecipe= (i)=>{
 
         recipesInCategory.splice(i,1)
-        let array = recipesInCategory
-        setRecipesInCategory(array)
-      }
+        let array1 = recipesInCategory
+        setRecipesInCategory(array1)
+    }
+    
+    const deleteCategory= (i)=>{
+
+    props.categoriesUser.splice(i,1)
+    let array = props.categoriesUser
+    props.setCategoriesUser(array)
+    }
 
     return(
+        <>
+        <p className='categoryTitle'>{props.category.name}</p>
         <div className="singleCat">
-            {recipesInCategory?.map((recipe,i)=>{
+                
+            {recipesInCategory.map((recipe,i)=>{
 
                 return(
                     <div className="singleResult" key={i}>
@@ -61,6 +75,13 @@ const Category= (props)=>{
                 )
             })}
         </div>
+        <button className='addRecipeButton' onClick={()=>{
+            setCategId(props.category.id)
+            history('/all-the-recipes')
+            setCategoryName(props.category.name)
+            }
+            }>Add Recipe</button>
+    </>
     )
 }
 
