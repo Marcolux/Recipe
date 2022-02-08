@@ -29,16 +29,16 @@ const SingleRecipe =(props)=>{
 
     let history = useNavigate()
     let userId = localStorage.getItem('userId')
-   
+    console.log(props.recipe.picture)
     return(
        
             <div className="singleResult" >
                 
-                <div className="resultPic" style={{
-                    backgroundImage:props.recipe.picture,
+                <img className="resultPic" src={props.recipe.picture?.split('(')[1].split(')',1)} style={{
+                    // backgroundImage:props.recipe.picture,
                     animation:animations,
                     border:borders
-                    }}></div>
+                    }}/>
                 <p className="linksRecipe" onClick={()=>{
                     history('/saved-recipe')
                     setRecipeId(props.recipe.id)

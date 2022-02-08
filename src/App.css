@@ -344,12 +344,15 @@ height: 100%;
   border-radius: 1vh;
 }
 .removeRecipe{
-height:30px;
-width: 30px;
-margin-left: 20vw;
+height:23px;
+width: 23px;
+position: relative;
+/* left: 13vh;
+bottom: 1vh; */
 margin-bottom: 1vh;
-border-radius: 15px;
-border-color: black;
+margin-top: 1vh;
+border-radius: 50%;
+border: 2px solid black;
 }
 .removeRecipe:hover{
   background:#F27F1B ;
@@ -450,16 +453,17 @@ border-color: black;
 .singleResult{
   font-weight: 900;
   letter-spacing: .2px;
-  font-size: 20px;
+  font-size: 16px;
   display: flex;
   flex-direction: column;
   /* justify-content: center; */
-  align-items: center;
-  width: 22vw;
+  align-items:flex-end;
+  width: 20vw;
+  
   height: 30vh;
-  padding: 2vh;
+  padding: 1vh 2vw;
   border: 1px solid rgba(40, 36, 36, 0.783);
-  margin: 1vw;
+  margin: 1.7vw;
   border-radius: 1vw;
   box-shadow: -.5px -.5px 3.5px 1.5px #274001;
   background: #F2C53D;  
@@ -502,6 +506,9 @@ border-color: black;
   min-height: 20vh;
   width: 100%;
   border-radius: .5vw;
+  object-fit: cover;
+  object-position: center;
+  /* aspect-ratio: 16 / 9; */
 }
 .SearchForm{
   display: flex;
@@ -597,9 +604,12 @@ border-color: black;
   margin: 2vh;
   display: flex;
   flex-direction: column;
+  background: white;
+  padding: 1vh;
 }
 .deleteRecipe{
 position: absolute;
+
 background:white;
 border: 1px solid black;
 border-radius: 4px;
@@ -655,6 +665,8 @@ margin: 0;
   background-size: cover;
   background-repeat: no-repeat; */
   object-fit: cover;
+  object-position:center; 
+   /* aspect-ratio: 16 / 9; */
   display: flex;
   width: 30vw;
   height: 50vh;
@@ -783,17 +795,31 @@ margin: 0;
   .AuthForm{
     width: 80%;
   }
+  /* .removeRecipe{
+    left:24vw
+  } */
 }
 
 @media only screen and (min-width: 600px) and (max-width:900px) {
   .singleResult{
     font-size: 15px;
-    align-items: center;
     width: 50vw;
     height: 30vh;
    
   }
   .AuthForm{
     width: 70%;
+  }
+  /* .removeRecipe{
+    right:4vw;
+  } */
+}
+
+@media only screen and (min-width: 1400px){
+  .singleResult{
+    font-size: 15px;
+    width: 15vw;
+    height: 30vh;
+   
   }
 }
