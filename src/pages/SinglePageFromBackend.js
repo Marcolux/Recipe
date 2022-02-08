@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect, useState} from "react/cjs/react.development"
 import { useNavigate} from "react-router-dom"
 // import { useHistory } from "react-router-dom";
+import reactDom from "react-dom";
 
 //using context to pass the user informations between components
 import { useContext } from 'react';
@@ -10,6 +11,7 @@ import { Context } from '../context/Context';
 import env from 'react-dotenv';
 
 const SinglePageFromBackend=(props)=>{
+
     const { SingleRecipePageState } = useContext(Context);
     const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
 
@@ -49,15 +51,12 @@ const SinglePageFromBackend=(props)=>{
                                         setSingleRecipePage(false)
                                         history(-1)
                                         }}>Back </button>
-                                            <button onClick={()=>{
+                                            {console.log(singleRecipe.picture?.split('(')[1].split(')',1))}
                                             
-                                                axios.post(`${env.BACKEND_URL}/:categoryId/${recipeId}`)
-                                            
-                                            }}>Add to My Recipe {}</button>
                             </div>   
                         <h3 className="recipeTitle">{singleRecipe.name}</h3>
                             <div className="diet-Ingredients">
-                                <div className="SingleRecipePic" style={{backgroundImage:singleRecipe.picture}}></div>
+                                <img className="SingleRecipePic" src={singleRecipe.picture?.split('(',2)[1].split(')',1)} alt="display image"/>
                                     <div className="RecipeIngredients">
                                         <h3>Ingedients lists:</h3>
                                         <ul >
@@ -71,7 +70,7 @@ const SinglePageFromBackend=(props)=>{
                             <div className="RecipeDiets">
                                         <h3>Diets:</h3>
                                         <ul>
-                                        {singleRecipe.diets===""?
+                                        {singleRecipe.diets===''?
                                                 <p>No particular diets</p>
                                                 :
                                                 singleRecipe.diets?.split(',')?.map((diet,i)=>{

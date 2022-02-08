@@ -20,14 +20,14 @@ const UserPage = ()=>{
         <NavigationBar/>
         <div className='allCatBanner'></div>
         <div className='Addcategory'>
-            {createCategory ===true?
+            {createCategory===true?
                 <AddCategory setCreateCategory={setCreateCategory}/>
                 :
                 <div>
                     <p>Add a New Category</p>
                     <button className='addFromBackend' onClick={()=>{
-                        setCreateCategory(true)
-                    }} >ok</button>
+                        setCreateCategory(true)}
+                    } >ok</button>
                 </div>
             }
         </div>

@@ -25,7 +25,9 @@ const AllTheRecipes = ()=>{
     const { categoryNameState } = useContext(Context);
     const [categoryName,setCategoryName] = categoryNameState
 
+    
     const [allRecipes, setAllRecipes] = useState([])
+    
     const [allRecipesInCat, setAllRecipesInCat] = useState([])
     
 
@@ -57,7 +59,7 @@ useEffect(()=>{
                 
             })
         }
-},[])
+},[categId])
 
 // after fetching the recipe we get all the id for those recipes and we "push" them in [list]
     
@@ -71,7 +73,8 @@ useEffect(()=>{
 
 // at this point we filter the recipes in list from all the recipes that a user already has saved
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
-// console.log(filteredRecipeList)
+console.log(filteredRecipeList)
+console.log(allRecipes)
 
 
     const deleteRecipe= (i)=>{
@@ -79,6 +82,8 @@ useEffect(()=>{
         allRecipes.splice(i,1)
         let array = allRecipesInCat
         setAllRecipes(array)
+        filteredRecipeList.splice(i,1)
+
     }
     
     return(
@@ -107,7 +112,7 @@ useEffect(()=>{
                                     return(
                                         <div className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
-                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipeId}`)
+                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>
@@ -140,7 +145,7 @@ useEffect(()=>{
                                         <div className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
                                      
-                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipeId}`)
+                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>

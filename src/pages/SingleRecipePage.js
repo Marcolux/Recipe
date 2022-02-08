@@ -20,7 +20,18 @@ const SingleRecipe=()=>{
     const { recipeDetailsState } = useContext(Context);
     const [ recipeDetails,setRecipeDetails] = recipeDetailsState
     
+    // const { allRecipesState } = useContext(Context);
+    // const [allRecipes, setAllRecipes] = allRecipesState
 
+    // const [button,setButton]=useState(true)
+
+    // let apiIds =[]
+    // allRecipes.map(single =>{
+    //     apiIds.push(single.apiId)
+    // })
+    
+
+    // console.log(apiIds)
     const userId = localStorage.getItem('userId')
 
     const all_the_info =()=>{
@@ -46,6 +57,13 @@ const SingleRecipe=()=>{
     let dietS=[]
     let ingred=[]
 
+    // const disappearButton =()=>{
+    // setButton(false)
+    // apiIds.push(recipeDetails.id)}
+    
+    // useEffect(disappearButton,[apiIds])
+
+
 
     return(
         <>
@@ -56,7 +74,10 @@ const SingleRecipe=()=>{
                             <div className="SingleRecipe">
                                 <h3 className="recipeTitle">{recipeDetails.title}</h3>
                                 <div className="singleRecipeButtons">
-                                <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
+                                    <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
+                                    
+                                    {/* // !apiIds.includes(recipeDetails.id)?
+                                    // // !button==false? */}
                                     <button onClick={()=>{
                                     
                                         axios.post(`${env.BACKEND_URL}/recipe/${userId} `,
@@ -64,10 +85,17 @@ const SingleRecipe=()=>{
                                         apiId:recipeDetails.id,
                                         ingredients:ingred.toString(),
                                         instructions:recipeDetails.instructions,
-                                        picture:recipeImage,name:recipeDetails.title,
+                                        picture:recipeImage,
+                                        name:recipeDetails.title,
                                         diets:dietS.toString()
                                         })
+                                        // disappearButton()
                                         }}>Add to Your Recipes</button>
+                                        {/* // :
+                                        // <p>hi</p> */}
+
+                                    
+                                    
                                 </div>
                                 <div className="diet-Ingredients">
                                 <div className="SingleRecipePic" style={{backgroundImage:recipeImage}}></div>

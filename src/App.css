@@ -469,7 +469,8 @@ border-color: black;
 }
 .resultPic{
   background-position: center;
-  background-size: cover;
+  background-size:cover;
+  background-repeat: no-repeat;
   border:1px solid black;
   min-height: 20vh;
   width: 100%;
@@ -623,9 +624,10 @@ margin: 0;
 
 }
 .SingleRecipePic{
-  background-position: center;
+  /* background-position: center;
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  object-fit: cover;
   display: flex;
   width: 30vw;
   height: 50vh;
@@ -712,6 +714,7 @@ margin: 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  object-fit: cover;
 }
 
 

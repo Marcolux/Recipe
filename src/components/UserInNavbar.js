@@ -9,6 +9,12 @@ const UserInNavBar=()=>{
     const { userState } = useContext(Context);
     const [user, setUser] = userState
 
+    const { categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
+
+    const { categoryNameState } = useContext(Context);
+    const [categoryName,setCategoryName] = categoryNameState
+
     let history = useNavigate()
 
     return(
@@ -21,7 +27,10 @@ const UserInNavBar=()=>{
                             setUser({})
                     }}>logout</p>
                     <Link className="links"  to='/user-page'>Categories</Link>
-                    <Link className="links" to='/all-the-recipes'>Recipes</Link>
+                    {!categId?
+                    <Link className="links"  to='/all-the-recipes'>Recipes</Link>
+                    :
+                    null}
                 </div>
             </div>
     )

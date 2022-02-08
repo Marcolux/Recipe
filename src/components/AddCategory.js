@@ -15,7 +15,7 @@ const AddCategory=(props)=>{
     const createTheCategory= ()=>{
         
         axios.post(`${env.BACKEND_URL}/category/${user.id}`, {categoryName})
-        props.setCreateCategory(true)
+        // props.setCreateCategory(false)
     }
     return(
         <div className='Addcategory'>
@@ -23,6 +23,7 @@ const AddCategory=(props)=>{
                 <label htmlFor="name">Enter The Category name</label>
                 <input value={categoryName} onChange={(e) => setCategoryName(e.target.value)} />
             </form>
+                {/* <p onClick={props.setCreateCategory(true)}>Esc</p> */}
         </div>
     )
     
