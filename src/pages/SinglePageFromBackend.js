@@ -7,6 +7,8 @@ import { useNavigate} from "react-router-dom"
 import { useContext } from 'react';
 import { Context } from '../context/Context';
 
+import env from 'react-dotenv';
+
 const SinglePageFromBackend=(props)=>{
     const { SingleRecipePageState } = useContext(Context);
     const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
@@ -25,8 +27,7 @@ const SinglePageFromBackend=(props)=>{
     
     
     const getInfo=()=>{
-        // axios.get(`http://localhost:3001/recipe/${recipeId}`)
-        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+        axios.get(`${env.BACKEND_URL}/recipe/${recipeId}`)
         .then((response)=>{
             setSingleRecipe(response.data)
            
@@ -49,8 +50,8 @@ const SinglePageFromBackend=(props)=>{
                                         history(-1)
                                         }}>Back </button>
                                             <button onClick={()=>{
-                                                // axios.post(`http://localhost:3001/:categoryId/${recipeId}`)
-                                                axios.post(`https://my-recipes-backen.herokuapp.com/:categoryId/${recipeId}`)
+                                            
+                                                axios.post(`${env.BACKEND_URL}/:categoryId/${recipeId}`)
                                             
                                             }}>Add to My Recipe {}</button>
                             </div>   

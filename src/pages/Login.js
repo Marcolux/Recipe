@@ -1,6 +1,9 @@
 import { useState } from "react"
 // axios for the call to the backend
 import axios from "axios"
+
+import env from 'react-dotenv';
+
 // I need to show the navigation bar in this page so I import it
 import NavigationBar from "../components/NavigationBar"
 
@@ -21,8 +24,7 @@ const Login =()=>{
     const loginForm = (e) => {
 
         e.preventDefault()
-        // axios.post(`http://localhost:3001/user/login`, { email, password })
-        axios.post(`https://my-recipes-backen.herokuapp.com/user/login`, { email, password })
+        axios.post(`${env.BACKEND_URL}/user/login`, { email, password })
         .then((response) => {
             console.log(response)
         // settin the userId in localstorage

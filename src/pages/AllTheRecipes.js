@@ -2,6 +2,7 @@ import axios from "axios"
 import { useEffect,useState } from "react"
 import NavigationBar from "../components/NavigationBar"
 import { useNavigate } from "react-router-dom";
+import env from 'react-dotenv';
 
 
 //using context to pass the user informations between components
@@ -33,76 +34,85 @@ const AllTheRecipes = ()=>{
 
     console.log(user)
     useEffect(()=>{
-        // axios.get(`http://localhost:3001/recipe/all/${userId}`)
-        axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+       
+        axios.get(`${env.BACKEND_URL}/recipe/all/${userId}`)
         .then((response)=>{
             setAllRecipes(response.data)
         })
     },[])
     
+    
     let list =[]
+
+
+// fetching all the recipes already in a specific category
 
 useEffect(()=>{
     
         if (categId){
-            // axios.get(`http://localhost:3001/category/${userId}/${categId}/recipes`)
-            axios.get(`https://my-recipes-backen.herokuapp.com/recipe/all/${userId}`)
+          
+            axios.get(`${env.BACKEND_URL}/category/${userId}/${categId}/recipes`)
             .then((response)=>{
                 setAllRecipesInCat(response.data)
                 
             })
-            console.log(allRecipesInCat)
-            allRecipesInCat.map(element => {
-                
-                console.log(element.id)
-                list.push(element.id)
-            })
         }
-    
 },[])
-            
-console.log(list)
 
-const deleteRecipe= (i)=>{
+// after fetching the recipe we get all the id for those recipes and we "push" them in [list]
+    
+    allRecipesInCat.map(element => {
+    console.log(element.id)
+        list.push(element.id)
+})
+// console.log(categId)
+// console.log(allRecipes)
+// console.log(list)
 
-    allRecipes.splice(i,1)
-    let array = allRecipesInCat
-    setAllRecipes(array)
-  }
+// at this point we filter the recipes in list from all the recipes that a user already has saved
+    const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
+// console.log(filteredRecipeList)
 
+
+    const deleteRecipe= (i)=>{
+        
+        allRecipes.splice(i,1)
+        let array = allRecipesInCat
+        setAllRecipes(array)
+    }
+    
     return(
         <>
             <NavigationBar/>
             <div className="allRecipesPageBanner"></div>
+            {/* if there's a categId means that we're navigating from a single category and we're trying to add a recipe to a specific category */}
+          
             {categId?
                 <div className="allTheRecipes">
-                    { allRecipes  ?
+                    {/* if the call to the backend is completed so we have all the recipes then.. */}
+                    { filteredRecipeList  ?
                     <>
+                    {/* TO FIX THIS ONE!!! */}
                     <p className="links" onClick={()=>{
                         history(-1)
                         setCategId()
                         setCategoryName()
                     }}> --- Back</p>
+                    {/* _________________ */}
+
                         <div className="allTheRecipeSection">
                             {
-                                allRecipes.map((recipe,i)=>{
+                                filteredRecipeList.map((recipe,i)=>{
                                     
                                     return(
-                                        <>
-                                        { !list.includes(recipe.id)?
-                                        <>
+                                        <div className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
-                                            // axios.delete(`http://localhost:3001/recipe/${recipeId}`)
-                                            axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipeId}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>
                                         <SingleRecipe key={i} recipe={recipe}/>
-                                        </>
-                                        :
-                                        null
-                                        }
-                                        </>
+                                        </div>
                                     ) 
                                 })                    
                             }
@@ -129,8 +139,8 @@ const deleteRecipe= (i)=>{
                                     return(
                                         <div className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
-                                            // axios.delete(`http://localhost:3001/recipe/${recipeId}`)
-                                            axios.delete(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
+                                     
+                                            axios.delete(`${env.BACKEND_URL}/recipe/${recipeId}`)
                                             deleteRecipe(i)
                                             setAllRecipes([...allRecipes])
                                         }}>X</button>

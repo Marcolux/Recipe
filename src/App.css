@@ -270,14 +270,11 @@ height: 100vh;
   padding: 1.5vh;
   border-radius: 5px;
   background-image: url('./img/honeyBack.jpeg');
-background-size: cover;
-background-position: center;
+  background-size: cover;
+  background-position: center;
   opacity: 1;
 }
 
-/* .categorySingle{
-
-} */
  .deleteCat{
 
   height: 3vh;
@@ -305,8 +302,6 @@ background-position: center;
   font-family: 'Luxurious Roman', cursive;
   font-weight: 900;
   letter-spacing: .8px; 
-
-
 }
 .addRecipeButton:hover{
   text-decoration: underline;
@@ -431,32 +426,52 @@ border-color: black;
   font-size: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   width: 22vw;
-  height: 33vh;
-  padding: 1vh;
+  height: 30vh;
+  padding: 2vh;
   border: 1px solid rgba(40, 36, 36, 0.783);
   margin: 1vw;
   border-radius: 1vw;
-  box-shadow: -.5px -.5px 1.5px 1.5px #274001;
+  box-shadow: -.5px -.5px 3.5px 1.5px #274001;
   background: #F2C53D;  
   /* animation: rotation 4s; */
  
 }
 @keyframes rotation {
-  from {
-    transform: rotate(0deg);
+  0% {
+    width: 20vw;
+    height: 23vh;
   }
-  to {
-    transform: rotate(359deg);
+  50% {
+    width: 26vw;
+    height: 23vh;
+  }
+  100% {
+    width: 20vw;
+    height: 23vh;
+  }
+}
+@keyframes rotationInv {
+  0% {
+    width: 20vw;
+    height: 23vh;
+  }
+  50% {
+    width: 14vw;
+    height: 23vh;
+  }
+  100% {
+    width: 20vw;
+    height: 23vh;
   }
 }
 .resultPic{
   background-position: center;
   background-size: cover;
-  height: 23vh;
-  width: 20vw;
+  height: 70%;
+  width: 100%;
   border-radius: 1vw;
 }
 .SearchForm{
@@ -610,13 +625,13 @@ margin: 0;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-display: flex;
-width: 30vw;
-height: 50vh;
-justify-self: center;
-border: 1px solid #274001;
+  display: flex;
+  width: 30vw;
+  height: 50vh;
+  justify-self: center;
+  border: 1px solid #274001;
   box-shadow: -1px -1px 8px 1px #274001;
-border-radius: 1vh;
+  border-radius: 1vh;
 }
 .RecipeIngredients{
   margin: 0;

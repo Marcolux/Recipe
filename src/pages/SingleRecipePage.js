@@ -1,5 +1,7 @@
 import axios from "axios"
 
+import env from 'react-dotenv';
+
 import { useContext, useEffect } from 'react';
 import { useState } from "react/cjs/react.development";
 import { Context } from '../context/Context';
@@ -56,8 +58,8 @@ const SingleRecipe=()=>{
                                 <div className="singleRecipeButtons">
                                 <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
                                     <button onClick={()=>{
-                                        // axios.post(`http://localhost:3001/recipe/${userId} `,
-                                        axios.post(`https://my-recipes-backen.herokuapp.com/recipe/${userId} `,
+                                    
+                                        axios.post(`${env.BACKEND_URL}/recipe/${userId} `,
                                         {
                                         apiId:recipeDetails.id,
                                         ingredients:ingred.toString(),

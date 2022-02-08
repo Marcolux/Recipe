@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 //using context to pass the user informations between components
 import { Context } from '../context/Context';
 
+import env from 'react-dotenv';
+
 const SingleRecipe =(props)=>{
 
     const { recipeIdState } = useContext(Context);
@@ -17,33 +19,25 @@ const SingleRecipe =(props)=>{
     const [categoryName,setCategoryName] = categoryNameState
 
     const [animations, setAnimations] = useState()
-    const [recipesCategory, setRecipeCategory] = useState()
+    const [borders, setBorders] = useState()
     const [buttonFunction, setButtonFunction] = useState(true)
+
+    const [recipesCategory, setRecipeCategory] = useState()
     const [allRecipesInCat, setAllRecipesInCat] = useState([])
+    const [allRecipes, setAllRecipes] = useState([])
+
 
     let history = useNavigate()
     let userId = localStorage.getItem('userId')
-    // console.log(categoryName)
-
-    // const getInfo=()=>{
-    //     axios.delete(`http://localhost:3001/recipe/${recipeId}`)
-    //     // axios.get(`https://my-recipes-backen.herokuapp.com/recipe/${recipeId}`)
-
-    // }    
-    // useEffect(getInfo,[])
-
-  
    
     return(
        
-        // { list.includes(props.recipe.id)?
             <div className="singleResult" >
-                
-
                 
                 <div className="resultPic" style={{
                     backgroundImage:props.recipe.picture,
-                    animation:animations
+                    animation:animations,
+                    border:borders
                     }}></div>
                 <p className="linksRecipe" onClick={()=>{
                     history('/saved-recipe')
@@ -55,18 +49,20 @@ const SingleRecipe =(props)=>{
                         {buttonFunction===true ?
                             <button onClick={
                                 ()=>{
-                                // axios.put(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
-                                axios.put(`https://my-recipes-backen.herokuapp.com/category/${categId}/${props.recipe.id}`)
-                                setAnimations('rotation 1s')
+                               
+                                axios.put(`${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`)
+                                setAnimations('rotation .4s')
+                                setBorders("4px solid red")
                                 if(buttonFunction===true){setButtonFunction(false)}else{setButtonFunction(true)}
                             }}> add to {categoryName}</button>
                             :
                             <button onClick={
                                 ()=>{
                                     setButtonFunction(true)
-                                    // axios.delete(`http://localhost:3001/category/${categId}/${props.recipe.id}`)
-                                    axios.delete(`https://my-recipes-backen.herokuapp.com/category/${categId}/${props.recipe.id}`)
-                                    setAnimations('rotation .5s')
+                        
+                                    axios.delete(`${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`)
+                                    setAnimations('rotationInv .4s')
+                                    setBorders("")
                                 }}>Remove</button>
                             }
                             </>:

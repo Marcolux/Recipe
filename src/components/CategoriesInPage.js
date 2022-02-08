@@ -5,6 +5,8 @@ import { useNavigate} from "react-router-dom"
 import axios from 'axios';
 import Category from './Category';
 
+import env from 'react-dotenv';
+
 const CategoriesInPage=()=>{
 
     const [categoriesUser, setCategoriesUser] =useState([])
@@ -22,8 +24,8 @@ const CategoriesInPage=()=>{
 
     const getCategories=()=>{
     const userId=localStorage.getItem('userId')
-    // axios.get(`http://localhost:3001/category/all/${userId}`)
-    axios.get(`https://my-recipes-backen.herokuapp.com/category/all/${userId}`)
+
+    axios.get(`${env.BACKEND_URL}/category/all/${userId}`)
     .then((response)=>{setCategoriesUser(response.data)})
     }
 
@@ -46,8 +48,8 @@ const CategoriesInPage=()=>{
             <div className='CategorySection' key={i}>
                 <p className='categoryTitle'>{category.name}</p>
                 <button className='deleteCat' onClick={()=>{
-                    // axios.delete(`http://localhost:3001/category/${category.id}`)
-                    axios.delete(`https://my-recipes-backen.herokuapp.com/category/${category.id}`)
+                  
+                    axios.delete(`${env.BACKEND_URL}/category/${category.id}`)
                         categoriesUser.splice(i,1)
                         let array = categoriesUser
                         setCategoriesUser(array)

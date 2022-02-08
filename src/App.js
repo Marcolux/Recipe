@@ -1,7 +1,11 @@
+// heroku address fot .env file
+//  https://my-recipes-backen.herokuapp.com
+
 import './App.css';
 
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import env from 'react-dotenv';
 
 //using context to pass the user informations between components
 import { useContext,useEffect } from 'react';
@@ -31,8 +35,8 @@ function App() {
     const userId = localStorage.getItem('userId')
     if (userId) {
        
-      // axios.get(`http://localhost:3001/user/verify`, {
-      axios.get(`https://my-recipes-backen.herokuapp.com/user/verify`, {
+      
+      axios.get(`${env.BACKEND_URL}/user/verify`, {
         headers: {
           Authorization: userId
         }

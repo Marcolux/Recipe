@@ -4,6 +4,7 @@ import { useNavigate} from "react-router-dom"
 import axios from 'axios';
 import { useState } from 'react/cjs/react.development';
 
+import env from 'react-dotenv';
 
 const Category= (props)=>{
 
@@ -23,8 +24,7 @@ const Category= (props)=>{
     let userId = localStorage.getItem('userId')
 
     const getRecipeCategory=()=>{
-    // axios.get(`http://localhost:3001/category/${userId}/${catIdBackend}/recipes`)
-    axios.get(`https://my-recipes-backen.herokuapp.com/category/${userId}/${catIdBackend}/recipes`)
+    axios.get(`${env.BACKEND_URL}/category/${userId}/${catIdBackend}/recipes`)
     .then((response)=>{
         // console.log(response.data)
         setRecipesInCategory(response.data)
@@ -46,8 +46,8 @@ const Category= (props)=>{
                     <div className="singleResult" key={i}>
                         <button className='removeRecipe' onClick={
                             ()=>{
-                            // axios.delete(`http://localhost:3001/category/${catIdBackend}/${recipe.id}`)
-                            axios.delete(`https://my-recipes-backen.herokuapp.com/category/${catIdBackend}/${recipe.id}`)
+                            
+                            axios.delete(`${env.BACKEND_URL}/category/${catIdBackend}/${recipe.id}`)
                             deleteRecipe(i)
                             setRecipesInCategory([...recipesInCategory])
                         }}>x</button>

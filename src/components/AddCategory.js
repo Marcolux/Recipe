@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
 import { Context } from '../context/Context';
 import axios from 'axios';
+import env from 'react-dotenv';
 
 const AddCategory=(props)=>{
 
@@ -12,8 +13,8 @@ const AddCategory=(props)=>{
     // console.log(user.id)
 
     const createTheCategory= ()=>{
-        // axios.post(`http://localhost:3001/category/${user.id}`, {categoryName})
-        axios.post(`https://my-recipes-backen.herokuapp.com/category/${user.id}`, {categoryName})
+        
+        axios.post(`${env.BACKEND_URL}/category/${user.id}`, {categoryName})
         props.setCreateCategory(true)
     }
     return(
