@@ -62,7 +62,7 @@ const SingleRecipe =(props)=>{
                         
                                     axios.delete(`${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`)
                                     setAnimations('rotationInv .4s')
-                                    setBorders("")
+                                    setBorders("1px solid black")
                                 }}>Remove</button>
                             }
                             </>:
