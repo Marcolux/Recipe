@@ -49,32 +49,32 @@ const AllTheRecipes = ()=>{
 
 // fetching all the recipes already in a specific category
 
-useEffect(()=>{
-    
-        if (categId){
-          
-            axios.get(`${env.BACKEND_URL}/category/${userId}/${categId}/recipes`)
-            .then((response)=>{
-                setAllRecipesInCat(response.data)
-                
-            })
-        }
-},[categId])
+    useEffect(()=>{
+        
+            if (categId){
+            
+                axios.get(`${env.BACKEND_URL}/category/${userId}/${categId}/recipes`)
+                .then((response)=>{
+                    setAllRecipesInCat(response.data)
+                    
+                })
+            }
+    },[categId])
 
 // after fetching the recipe we get all the id for those recipes and we "push" them in [list]
     
     allRecipesInCat.map(element => {
     console.log(element.id)
         list.push(element.id)
-})
-// console.log(categId)
-// console.log(allRecipes)
-// console.log(list)
+    })
+    // console.log(categId)
+    // console.log(allRecipes)
+    // console.log(list)
 
-// at this point we filter the recipes in list from all the recipes that a user already has saved
+    // at this point we filter the recipes in list from all the recipes that a user already has saved
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
-console.log(filteredRecipeList)
-console.log(allRecipes)
+    console.log(filteredRecipeList)
+    console.log(allRecipes)
 
 
     const deleteRecipe= (i)=>{
@@ -97,11 +97,11 @@ console.log(allRecipes)
                         {categId  ?
                             <>
                                 {/* TO FIX THIS ONE!!! */}
-                                <p className="links" onClick={()=>{
+                                <button className="backsRecipes" onClick={()=>{
                                     history(-1)
                                     setCategId()
                                     setCategoryName()
-                                }}> --- Back</p>
+                                }}>〈 </button>
                                 {/* _________________ */}
                                 {
                                 filteredRecipeList.map((recipe,i)=>{
@@ -120,11 +120,11 @@ console.log(allRecipes)
                             </> 
                             :
                             <>
-                                <h3 className="links" onClick={()=>{
+                                <button className="backsRecipes" onClick={()=>{
                                     history('/user-page')
                                     setCategId()
                                     setCategoryName()
-                                }}>Back to My Categories</h3>
+                                }}>〈 </button>
                                 {
                                     allRecipes.map((recipe,i)=>{
 

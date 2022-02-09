@@ -21,7 +21,7 @@ html{
    opacity:1;
    padding: 0;
    margin: 0;
-   /* height: 100vh; */
+   min-height: 100vh;
 }
 body{
   background: -webkit-linear-gradient(0deg, #040404 10%, #ffffff 80%); /* Chrome 10+, Saf5.1+ */
@@ -29,7 +29,7 @@ body{
   background:     -ms-linear-gradient(0deg, #000000  10%, #fefefe 80%); /* IE10 */
   background:      -o-linear-gradient(0deg, #000000  10%, #ffffff 80%); /* Opera 11.10+ */
   background:         linear-gradient(0deg, #000000  10%, #ffffff 80%); /* W3C */
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 
@@ -472,30 +472,30 @@ border: 2px solid black;
 }
 @keyframes rotation {
   0% {
-    width: 20vw;
-    height: 23vh;
+    object-fit: cover;
   }
   50% {
-    width: 26vw;
-    height: 23vh;
+    object-fit:none;
+    width: 110%;
+    height: 25vh;
+
   }
   100% {
-    width: 20vw;
-    height: 23vh;
+    object-fit: cover;
   }
 }
 @keyframes rotationInv {
   0% {
-    width: 20vw;
-    height: 23vh;
+    object-fit: cover;
   }
   50% {
-    width: 14vw;
-    height: 23vh;
+    object-fit:none;
+    width: 90%;
+    height: 18vh;
+
   }
   100% {
-    width: 20vw;
-    height: 23vh;
+    object-fit: cover;
   }
 }
 .resultPic{
@@ -503,12 +503,23 @@ border: 2px solid black;
   background-size:cover;
   background-repeat: no-repeat;
   border:1px solid black;
-  min-height: 20vh;
+  height: 75%;
   width: 100%;
   border-radius: .5vw;
   object-fit: cover;
   object-position: center;
   /* aspect-ratio: 16 / 9; */
+}
+.resultPicSection{
+  
+  display: flex;
+  height:20% ;
+  margin-top: 1%;
+  padding-bottom: 2%;
+  align-items:center;
+  justify-content: space-between;
+  padding: 2%;
+  width: 100%;
 }
 .SearchForm{
   display: flex;
@@ -601,7 +612,7 @@ border: 2px solid black;
 .recipe{
   border: 1px solid #274001;
   box-shadow: -1px -1px 8px 1px #274001;
-  margin: 2vh;
+  margin: .5vw;
   display: flex;
   flex-direction: column;
   background: white;
@@ -716,6 +727,21 @@ margin: 0;
   box-shadow: -1px -1px 2.5px 2.5px #274001;
  
 }
+.backsRecipes{
+  background: #F2A922;
+  color:white;
+  font-size: xx-large;
+  height: fit-content;
+  position: absolute;
+  left:1%;
+  top: 50%;
+  border: 2px solid #F2A922;
+  border-radius: 5px;
+}
+.backsRecipes:hover{
+  background: #F27F1B;
+  color:#fcfcfc;
+}
 
 .allTheRecipeSection{
   display: flex;
@@ -815,11 +841,14 @@ margin: 0;
   } */
 }
 
-@media only screen and (min-width: 1400px){
+@media only screen and (min-width: 1500px){
   .singleResult{
     font-size: 15px;
-    width: 15vw;
+    width: 10vw;
     height: 30vh;
    
+  }
+  .singleCat{
+    justify-content:left;
   }
 }

@@ -39,6 +39,7 @@ const SingleRecipe =(props)=>{
                     animation:animations,
                     border:borders
                     }}/>
+                <div className="resultPicSection">
                 <p className="linksRecipe" onClick={()=>{
                     history('/saved-recipe')
                     setRecipeId(props.recipe.id)
@@ -67,6 +68,7 @@ const SingleRecipe =(props)=>{
                             }
                             </>:
                             null}
+                </div>
                
                 
             </div>
