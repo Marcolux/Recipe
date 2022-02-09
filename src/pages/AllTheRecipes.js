@@ -4,6 +4,7 @@ import NavigationBar from "../components/NavigationBar"
 import { useNavigate } from "react-router-dom";
 import env from 'react-dotenv';
 
+import img from "../img/colorBanner.jpeg"
 
 //using context to pass the user informations between components
 import { useContext } from 'react';
@@ -81,7 +82,7 @@ const AllTheRecipes = ()=>{
     return(
         <>
             <NavigationBar/>
-            <div className="allRecipesPageBanner"></div>
+            <img className="allRecipesPageBanner" src={img}/>
             <div className="allTheRecipes">
                 {/* if the call to the backend is completed so we have all the recipes then.. */}
                 {filteredRecipeList|| allRecipes?

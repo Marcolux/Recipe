@@ -69,7 +69,7 @@ const SingleRecipe=()=>{
         <>
             {
                 recipeDetails?
-                    <div className="SingleRecipe">
+                    <>
                             {recipeImage && recipeDetails.diets && recipeDetails.extendedIngredients?
                             <div className="SingleRecipe">
                                 <h3 className="recipeTitle">{recipeDetails.title}</h3>
@@ -132,7 +132,7 @@ const SingleRecipe=()=>{
                             :
                             <div className='spin'></div>
                             }
-                    </div>
+                    </>
                     :
                     <div className='spin'></div>
                 }

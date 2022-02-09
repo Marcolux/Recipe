@@ -633,7 +633,13 @@ border-radius: 4px;
   margin-bottom: 4vh;
   text-decoration:underline;
 }
-.SingleRecipe{
+.recipeHeader{
+  display: flex;
+  width: 100%;
+  justify-content:space-evenly;
+  align-items: center;
+}
+/* .SingleRecipe{
   display: flex;
   flex-direction: column;
   background: white;
@@ -644,19 +650,26 @@ border-radius: 4px;
   font-weight: 600;
   font-size: 20px;
   
-}
+} */
 .SingleRecipePage{
+  display: flex;
   padding: 2vh;
   border: 1px solid #274001;
   box-shadow: -1px -1px 8px 1px #274001;
   border-radius: 1vh;
-  margin: 5vh;
-
+  margin: 2vh;
+  background: white;
+  font-size: 20px;
+  height: 91vh;
+  overflow: scroll;
+  scrollbar-base-color: #fcfcfc00;
 }
 .diet-Ingredients{
   display: flex;
-  justify-content:space-evenly;
+  /* justify-content:space-evenly; */
   align-items: center;
+  width: 100%;
+
 }
 .RecipeDiets{
   display: flex;
@@ -665,6 +678,7 @@ border-radius: 4px;
 }
 .RecipeDiets h3{
 margin: 0;
+text-align: left;
 }
 .RecipeDiets li{
   list-style-type:circle;
@@ -675,11 +689,11 @@ margin: 0;
   /* background-position: center;
   background-size: cover;
   background-repeat: no-repeat; */
-  object-fit: cover;
-  object-position:center; 
+  object-fit:cover;
+  object-position:center;
    /* aspect-ratio: 16 / 9; */
   display: flex;
-  width: 30vw;
+  width: 60%;
   height: 50vh;
   justify-self: center;
   border: 1px solid #274001;
@@ -687,7 +701,7 @@ margin: 0;
   border-radius: 1vh;
 }
 .RecipeIngredients{
-  margin: 0;
+  margin-left: 5%;
   display: flex;
   flex-direction: column;
   /* border: 1px solid black; */
@@ -705,7 +719,8 @@ margin: 0;
   margin-top: 1vh;
   
 }
-.RecipeInstructions{text-align: left;
+.RecipeInstructions{
+  text-align: left;
   line-height: 3vh;
   word-spacing: 0.3vw;
 }
@@ -719,8 +734,11 @@ margin: 0;
 /* _____________ALL RECIPES PAGE______________ */
 
 .allRecipesPageBanner{
-  background-image: url('../src/img/colorBanner.jpeg');
+  /* background-image: url('../src/img/colorBanner.jpeg'); */
+  object-fit: cover;
+  object-position: center;
   height: 15vh;
+  width: 100%;
   background-size: cover;
   background-position: center;
   border: 1px solid #274001;
@@ -821,9 +839,43 @@ margin: 0;
   .AuthForm{
     width: 80%;
   }
-  /* .removeRecipe{
-    left:24vw
-  } */
+  .diet-Ingredients{
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .SingleRecipePic{
+    width: 100%;
+
+  }
+  .allRecipesPageBanner{
+    position: absolute;
+    top: 8vh;
+    left: 0%;
+    /* z-index: 1; */
+   
+  }
+  .NavigationBar{
+    position: fixed;
+    left: 0%;
+    z-index: 1;
+  }
+  .allTheRecipes{
+    position: absolute;
+    margin-top:25vh ;
+    z-index: 0;
+  }
+  .menuLinks{
+    z-index: 1;
+  }
+  html{
+    background: white;
+  }
+  .backsRecipes{
+    position: fixed;
+    top:10%;
+    left: 0%;
+    z-index: +1;
+  }
 }
 
 @media only screen and (min-width: 600px) and (max-width:900px) {
@@ -839,6 +891,7 @@ margin: 0;
   /* .removeRecipe{
     right:4vw;
   } */
+ 
 }
 
 @media only screen and (min-width: 1500px){
@@ -850,5 +903,19 @@ margin: 0;
   }
   .singleCat{
     justify-content:left;
+  }
+  .SingleRecipePage{
+    width: 85%;
+    margin-left: 7.5%;
+  }
+
+}
+@media only screen and (min-width: 1200px){
+  .SingleRecipePic{
+    width: 40%;
+
+  }
+  .diet-Ingredients{
+    justify-content: center
   }
 }

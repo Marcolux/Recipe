@@ -46,15 +46,17 @@ const SinglePageFromBackend=(props)=>{
                 {
                     singleRecipe ?
                     <div className="SingleRecipe">
-                        <div className="singleRecipeButtons">
-                                    <button onClick={()=>{
-                                        setSingleRecipePage(false)
-                                        history(-1)
-                                        }}>Back </button>
-                                            {console.log(singleRecipe.picture?.split('(')[1].split(')',1))}
+                            <div className="recipeHeader">
+                            <button onClick={()=>{
+                                setSingleRecipePage(false)
+                                history(-1)
+                                }}>〈 </button>
+                                    {/* {console.log(singleRecipe.picture?.split('(')[1].split(')',1))} */}
                                             
-                            </div>   
-                        <h3 className="recipeTitle">{singleRecipe.name}</h3>
+                              
+                            <h3 className="recipeTitle">{singleRecipe.name}</h3>
+                            <button>Modify</button>
+                            </div>
                             <div className="diet-Ingredients">
                                 <img className="SingleRecipePic" src={singleRecipe.picture?.split('(',2)[1].split(')',1)} alt="display image"/>
                                     <div className="RecipeIngredients">
@@ -67,6 +69,12 @@ const SinglePageFromBackend=(props)=>{
                                             }
                                         </ul>
                                     </div>
+                            
+                            </div>
+                            <div className="RecipeInstructions">
+                                <h3>Instructions:</h3>    
+                                    <p>{singleRecipe.instructions}</p>
+                            </div>
                             <div className="RecipeDiets">
                                         <h3>Diets:</h3>
                                         <ul>
@@ -80,12 +88,6 @@ const SinglePageFromBackend=(props)=>{
                                                 }
                                         </ul>
                             </div>
-                            </div>
-                                
-                                <div className="RecipeInstructions">
-                                    <h3>Instructions:</h3>    
-                                        <p>{singleRecipe.instructions}</p>
-                                </div>
                                     
                                   
                     
