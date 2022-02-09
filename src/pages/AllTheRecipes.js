@@ -15,9 +15,6 @@ const AllTheRecipes = ()=>{
 
     const { userState } = useContext(Context);
     const [user, setUser] = userState
-
-    // const { recipeIdState } = useContext(Context);
-    // const [recipeId,setRecipeId] = recipeIdState
     
     const { categIdState } = useContext(Context);
     const [categId,setCategId] = categIdState
@@ -27,14 +24,12 @@ const AllTheRecipes = ()=>{
 
     
     const [allRecipes, setAllRecipes] = useState([])
-    
     const [allRecipesInCat, setAllRecipesInCat] = useState([])
     
 
     let userId = localStorage.getItem('userId')
     let history = useNavigate()
 
-    console.log(user)
     useEffect(()=>{
        
         axios.get(`${env.BACKEND_URL}/recipe/all/${userId}`)
@@ -67,9 +62,6 @@ const AllTheRecipes = ()=>{
     console.log(element.id)
         list.push(element.id)
     })
-    // console.log(categId)
-    // console.log(allRecipes)
-    // console.log(list)
 
     // at this point we filter the recipes in list from all the recipes that a user already has saved
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
@@ -96,13 +88,11 @@ const AllTheRecipes = ()=>{
                     <div className="allTheRecipeSection">
                         {categId  ?
                             <>
-                                {/* TO FIX THIS ONE!!! */}
                                 <button className="backsRecipes" onClick={()=>{
                                     history(-1)
                                     setCategId()
                                     setCategoryName()
                                 }}>〈 </button>
-                                {/* _________________ */}
                                 {
                                 filteredRecipeList.map((recipe,i)=>{
                                     
