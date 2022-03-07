@@ -12,10 +12,12 @@ import env from 'react-dotenv';
 import { useContext,useEffect } from 'react';
 import { Context } from './context/Context';
 
+// axios for the call to the beckend
 import axios from 'axios';
 
+// all the components I need for the routes setup
 import Homepage from './pages/Homepage';
-import Test from './components/Test';
+// import Test from './components/Test';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import UserPage from './pages/UserPage';
@@ -30,20 +32,17 @@ function App() {
   const { userState } = useContext(Context);
   const [user, setUser] = userState
   console.log(user)
-
+  // create a function to verify a user from the backend and store it in useContext
   useEffect(()=>{
     const fetchUser = () => {
     const userId = localStorage.getItem('userId')
     if (userId) {
-       
-      
       axios.get(`${env.BACKEND_URL}/user/verify`, {
         headers: {
           Authorization: userId
         }
       })
       .then((response) => {
-        
         setUser(response.data.user)
       })
     }
@@ -55,27 +54,23 @@ function App() {
 
   return (
     <div className="App">
-    
+      {/* set all the routes the app uses */}
       <Routes>
         <Route path='/' element={<Homepage/>}/>
         <Route path='/login' element={
-          localStorage.userId ? <Navigate to='/user-page'/>:<Login />}/>
+        localStorage.userId ? <Navigate to='/user-page'/>:<Login />}/>
         <Route path='/signup' element={
-          localStorage.userId ? <Navigate to='/user-page'/>:<Signup/>
-          }/>
+        localStorage.userId ? <Navigate to='/user-page'/>:<Signup/>}/>
         <Route path='/user-page' element={
         localStorage.userId ?<UserPage/>:<Navigate to='/'/>}/>
-
         <Route path='/search-recipe' element={
         localStorage.userId ?<SearchFromApi/>:<Navigate to='/'/>}/>
         <Route path='/:recipe.id' element={
-          localStorage.userId ?<SingleRecipePage/>:<Navigate to='/'/>}/>
+        localStorage.userId ?<SingleRecipePage/>:<Navigate to='/'/>}/>
         <Route path='/all-the-recipes' element={
-          localStorage.userId ?<AllTheRecipes/>:<Navigate to='/'/>}/>
+        localStorage.userId ?<AllTheRecipes/>:<Navigate to='/'/>}/>
         <Route path='/saved-recipe' element={
-          localStorage.userId ?<SinglePageFromBackend/>:<Navigate to='/'/>}/>
-
-
+        localStorage.userId ?<SinglePageFromBackend/>:<Navigate to='/'/>}/>
       </Routes>
     </div>
   );
