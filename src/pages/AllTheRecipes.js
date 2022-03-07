@@ -26,6 +26,7 @@ const AllTheRecipes = ()=>{
     
     const [allRecipes, setAllRecipes] = useState([])
     const [allRecipesInCat, setAllRecipesInCat] = useState([])
+    const [filteredList, setFilteredList] = useState([])
     
 
     let userId = localStorage.getItem('userId')
@@ -67,15 +68,16 @@ const AllTheRecipes = ()=>{
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
     // console.log(filteredRecipeList)
     // console.log(allRecipes)
-
+    useEffect(setFilteredList(filteredRecipeList),[])
 
     const deleteRecipe= (i)=>{
         
         allRecipes.splice(i,1)
-        let array = allRecipesInCat
-        setAllRecipes(array)
+        // let array = allRecipesInCat
+        // setAllRecipes(array)
         filteredRecipeList.splice(i,1)
-
+        setAllRecipes([...allRecipes])
+        setFilteredList([...filteredList])
     }
     
     return(
@@ -97,13 +99,13 @@ const AllTheRecipes = ()=>{
                                 filteredRecipeList.map((recipe,i)=>{
                                     
                                     return(
-                                        <div className="recipe">
+                                        <div key={i} className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
                                             axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                             deleteRecipe(i)
-                                            setAllRecipes([...allRecipes])
+                                            // setAllRecipes([...allRecipes])
                                         }}>X</button>
-                                        <SingleRecipe key={i} recipe={recipe}/>
+                                        <SingleRecipe recipe={recipe}/>
                                         </div>
                                     ) 
                                 })}
@@ -119,14 +121,14 @@ const AllTheRecipes = ()=>{
                                     allRecipes.map((recipe,i)=>{
 
                                         return(
-                                            <div className="recipe">
+                                            <div key={i} className="recipe">
                                             <button className="deleteRecipe" onClick={()=>{
                                         
                                                 axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                                 deleteRecipe(i)
-                                                setAllRecipes([...allRecipes])
+                                                // setAllRecipes([...allRecipes])
                                             }}>X</button>
-                                            <SingleRecipe key={i} recipe={recipe}/>
+                                            <SingleRecipe  recipe={recipe}/>
                                             </div>
                                         ) 
                                     })

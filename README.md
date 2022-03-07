@@ -15,12 +15,12 @@ This project is a recipe app that allows the user to look for recipes, save them
 
 ### User Stories
 
--When I first visit the site, I'm on a home page that just has a simple description of the app.
+-When I first visit the site, I'm on a home page that is just a simple landing page.
 
 -When not logged in, I see links to home, signup & login only, where I can create an account or login. If I were to visit any of these routes manually while logged in, I would get redirected to the home page.
 
 
--When logged in, in navigation bar, I see links to User,search for recipe, add recipe, and weekly plan
+-When logged in, in navigation bar, I see links to User and search for recipe.
 
 -The Navigation Bar will stay the same after the login till I logout
 
@@ -37,13 +37,12 @@ This project is a recipe app that allows the user to look for recipes, save them
 
 -If I click on the single recipe in the category section or in "all recipes Page", the app will bring me to the single recipe page.
 
--The single recipe page shows the list of the ingredients, the image and the instructions for the recipe., and the options of add it to a category by selecting it from a drop down menu.
+-The single recipe page shows the list of the ingredients, the image and the instructions for the recipe, and the options to add it to a category by selecting it from a drop down menu.
 
 -From the navigation bar I can click the search button.
 
--The search button opens a drop down menu with links to 3 different type of search, by name by ingredients and by calories.
+-The search button opens a search page where I can search a recipe by name by ingredients or I can open a different section, where I can be more specific and filter a particular diet or intollerance .
 
--All the links brings to 3 different pages built in the same way with just the search input different.
 
 -The search input will send a call to the api.
 
@@ -56,16 +55,6 @@ This project is a recipe app that allows the user to look for recipes, save them
 -The user can remove it by clicking the remove button.
 
 -From the Navigation Bar I can click add Recipe that will show a drop down menu with two links, 1 to add from website and 1 add by typing in.
-
--If I click add from website I will navigate to a different page where I can see an input and a button. After I paste the link into the input and I click search, I will make an Api call and the api will try to read the info from the website.
-
--If I have a successful call I will see picture, ingredients and instructions for the recipe
-
--The user can modify the informations by clicking, modify.
-
--If I decide that I like it I can select the category and I can click add and I will create a recipe in the database.
-
--If I choose to add a recipe manually, I will navigate to a page where I can type the different ingredients and the instructions. Once I think I like it I can added to the a category.
 
 ### Routes
 
@@ -106,18 +95,6 @@ ___
 -Create a weekly meal plan
 -Create a grocery list based on the weekly plan
 
-### Completion Timeline:
-
-- By the end of Monday I will have the backend completed with the  tables and routes functions,
-
-- Then Moving on the Frontend I will start on the user authentication first, then going with the app flow:
-
-- Add the functions to search for the recipes and the components related to them
-
-- Adding the functions to add recipes, add categories, create the associations between the two,
-
-
-
 
 ### Links
 
@@ -130,4 +107,4 @@ https://github.com/Marcolux/Recipe
 https://github.com/Marcolux/Recipe_backend
 
 
-Unit 4 Solo-Project
+Solo-Project

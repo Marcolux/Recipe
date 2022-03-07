@@ -22,14 +22,12 @@ const SingleRecipe =(props)=>{
     const [borders, setBorders] = useState()
     const [buttonFunction, setButtonFunction] = useState(true)
 
-    const [recipesCategory, setRecipeCategory] = useState()
-    const [allRecipesInCat, setAllRecipesInCat] = useState([])
-    const [allRecipes, setAllRecipes] = useState([])
+    // const [allRecipes, setAllRecipes] = useState([])
 
 
     let history = useNavigate()
-    let userId = localStorage.getItem('userId')
-    console.log(props.recipe.picture)
+    // let userId = localStorage.getItem('userId')
+    // console.log(props.recipe.picture)
     return(
        
             <div className="singleResult" >

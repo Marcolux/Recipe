@@ -61,8 +61,6 @@ const UserPage = ()=>{
                                             axios.delete(`${env.BACKEND_URL}/category/${category.id}`)
                                             // then we update the page
                                             categoriesUser.splice(i,1)
-                                            // let array = categoriesUser
-                                            // setCategoriesUser(array)
                                             setCategoriesUser([...categoriesUser])
                                             }
                                         }>Remove</button>

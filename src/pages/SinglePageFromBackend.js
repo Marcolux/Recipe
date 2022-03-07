@@ -15,15 +15,16 @@ const SinglePageFromBackend=(props)=>{
     const { SingleRecipePageState } = useContext(Context);
     const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
 
+    // context to fetch the info from the api
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
 
-
+    // state to store all the recipe info from the backend 
     const [singleRecipe,setSingleRecipe]= useState({})
 
-    const userId = localStorage.getItem('userId')
+    // const userId = localStorage.getItem('userId')
 
-    let ingred = []
+    // let ingred = []
     
     let history = useNavigate()
     
@@ -37,8 +38,10 @@ const SinglePageFromBackend=(props)=>{
     }    
     useEffect(getInfo,[])
 
-    
+    // console.log(singleRecipe.ingredients)
+    // creating an array from the ingredients string
     let newIngredients = singleRecipe.ingredients?.split(',')
+    // console.log(newIngredients)
     
     return(
         
@@ -55,9 +58,10 @@ const SinglePageFromBackend=(props)=>{
                                             
                               
                             <h3 className="recipeTitle">{singleRecipe.name}</h3>
-                            <button onClick={()=>{}}>Modify</button>
+                            {/* <button onClick={()=>{}}>Modify</button> */}
                             </div>
                             <div className="diet-Ingredients">
+                                {/* now a lazy way to use the https address as src for the img */}
                                 <img className="SingleRecipePic" src={singleRecipe.picture?.split('(',2)[1].split(')',1)} alt="display image"/>
                                     <div className="RecipeIngredients">
                                         <h3>Ingedients lists:</h3>
@@ -93,7 +97,7 @@ const SinglePageFromBackend=(props)=>{
                     
                     </div>
                     :    
-                    <p>hi</p>
+                    <div className='spin'></div>
                 }
             
             
