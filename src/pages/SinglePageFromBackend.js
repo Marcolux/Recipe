@@ -55,7 +55,7 @@ const SinglePageFromBackend=(props)=>{
                                             
                               
                             <h3 className="recipeTitle">{singleRecipe.name}</h3>
-                            <button>Modify</button>
+                            <button onClick={()=>{}}>Modify</button>
                             </div>
                             <div className="diet-Ingredients">
                                 <img className="SingleRecipePic" src={singleRecipe.picture?.split('(',2)[1].split(')',1)} alt="display image"/>

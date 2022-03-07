@@ -8,7 +8,6 @@ const Homepage = ()=>{
 
 return (
     <div className="HomePage">
-        {/* <NavigationBar/> */}
         <img className="homepageBanner" src={image}/>
         <h1>My Recipe Collection</h1>
         <h2><Link to='/signup'>Signup</Link> To Start Your Recipe Collection</h2>

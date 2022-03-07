@@ -19,7 +19,7 @@ const Login =()=>{
 
     const { userState } = useContext(Context);
     const [user, setUser] = userState
-    // setting the info for the call in the backend
+    // setting the info for the call to the backend
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -31,11 +31,15 @@ const Login =()=>{
         e.preventDefault()
         axios.post(`${env.BACKEND_URL}/user/login`, { email, password })
         .then((response) => {
-            console.log(response)
+         console.log(response.data)
+         if(response.data.user){
         // settin the userId in localstorage
         localStorage.setItem('userId', response.data.user.id)
         // setting user in context
-        setUser(response.data.user)
+        setUser(response.data.user)}
+        else{
+                alert('wrong email address or password!')
+            }
     })
     }
 

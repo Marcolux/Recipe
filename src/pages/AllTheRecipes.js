@@ -31,6 +31,7 @@ const AllTheRecipes = ()=>{
     let userId = localStorage.getItem('userId')
     let history = useNavigate()
 
+    // setting the all recipes state, fetching all the recipes for a that user in the database
     useEffect(()=>{
        
         axios.get(`${env.BACKEND_URL}/recipe/all/${userId}`)
@@ -39,12 +40,10 @@ const AllTheRecipes = ()=>{
         })
     },[])
     
-    
+
+// setting an empty array that we need for filtering the recipes already in a category
     let list =[]
-
-
-// fetching all the recipes already in a specific category
-
+// fetching all the recipes already in a specific category and we store them in setAllRecipesInCat state
     useEffect(()=>{
         
             if (categId){
@@ -60,14 +59,14 @@ const AllTheRecipes = ()=>{
 // after fetching the recipe we get all the id for those recipes and we "push" them in [list]
     
     allRecipesInCat.map(element => {
-    console.log(element.id)
+    // console.log(element.id)
         list.push(element.id)
     })
 
     // at this point we filter the recipes in list from all the recipes that a user already has saved
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
-    console.log(filteredRecipeList)
-    console.log(allRecipes)
+    // console.log(filteredRecipeList)
+    // console.log(allRecipes)
 
 
     const deleteRecipe= (i)=>{

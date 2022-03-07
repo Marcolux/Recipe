@@ -19,7 +19,7 @@ const Signup=()=>{
     const { userState } = useContext(Context);
     const [user, setUser] = userState
 
-    // setting the info for the call in the backend to create a user in users table
+    // setting the info for the call to the backend to create a user in users table
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -29,11 +29,14 @@ const Signup=()=>{
         e.preventDefault()
         axios.post(`${env.BACKEND_URL}/user/`, {name, email, password })
         .then((response) => {
-            console.log(response)
-            // settin the userId in localstorage
+            //  checking the response to see if the email is already taken
+            if(response.data.newUser){
             localStorage.setItem('userId', response.data.newUser.id)
-            // setting user in context
-            setUser(response.data.newUser)
+            setUser(response.data.newUser)}else{
+                // if it's already taken send an alert message
+            alert(response.data.err.errors[0].message)
+            }
+
         })
     }
     return(
