@@ -31,7 +31,7 @@ function App() {
 
   const { userState } = useContext(Context);
   const [user, setUser] = userState
-  console.log(user)
+  // console.log(user)
   // create a function to verify a user from the backend and store it in useContext
   useEffect(()=>{
     const fetchUser = () => {

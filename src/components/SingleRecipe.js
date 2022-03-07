@@ -64,8 +64,8 @@ const SingleRecipe =(props)=>{
                                     setBorders("1px solid black")
                                 }}>Remove</button>
                             }
-                            </>:
-                            null}
+                        </>:
+                        null}
                 </div>
                
                 

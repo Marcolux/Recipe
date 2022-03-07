@@ -68,16 +68,23 @@ const AllTheRecipes = ()=>{
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
     // console.log(filteredRecipeList)
     // console.log(allRecipes)
-    useEffect(setFilteredList(filteredRecipeList),[])
+    // useEffect(setFilteredList(filteredRecipeList),[])
 
     const deleteRecipe= (i)=>{
         
         allRecipes.splice(i,1)
-        // let array = allRecipesInCat
-        // setAllRecipes(array)
+        let array = allRecipesInCat
+        setAllRecipes(array)
+       
+        // setAllRecipes([...allRecipes])
+        
+    }
+
+    const deletefilteredRecipe=(i)=>{
         filteredRecipeList.splice(i,1)
-        setAllRecipes([...allRecipes])
-        setFilteredList([...filteredList])
+        console.log(filteredRecipeList)
+        setFilteredList([...filteredRecipeList])
+        // setAllRecipes(array)
     }
     
     return(
@@ -102,8 +109,8 @@ const AllTheRecipes = ()=>{
                                         <div key={i} className="recipe">
                                         <button className="deleteRecipe" onClick={()=>{
                                             axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
-                                            deleteRecipe(i)
-                                            // setAllRecipes([...allRecipes])
+                                            deletefilteredRecipe(i)
+                                            setAllRecipes([...filteredRecipeList])
                                         }}>X</button>
                                         <SingleRecipe recipe={recipe}/>
                                         </div>
@@ -126,7 +133,7 @@ const AllTheRecipes = ()=>{
                                         
                                                 axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                                 deleteRecipe(i)
-                                                // setAllRecipes([...allRecipes])
+                                                setAllRecipes([...allRecipes])
                                             }}>X</button>
                                             <SingleRecipe  recipe={recipe}/>
                                             </div>

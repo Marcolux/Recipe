@@ -20,9 +20,17 @@ const SearchFromApi =()=>{
     const { recipeIdState } = useContext(Context);
     const [recipeId,setRecipeId] = recipeIdState
 
+
+
     const { SingleRecipePageState } = useContext(Context);
     const [SingleRecipePage, setSingleRecipePage] = SingleRecipePageState
-
+    
+    const {categIdState } = useContext(Context);
+    const [categId,setCategId] = categIdState
+    
+    const {categoryNameState } = useContext(Context);
+    const [categoryName,setCategoryName] =categoryNameState
+    
     const { recipeImageState } = useContext(Context);    
     const [recipeImage, setRecipeImage] = recipeImageState
    
@@ -37,6 +45,8 @@ const SearchFromApi =()=>{
    
     // ___________GET RECIPE FROM NAME____________________________
     const get_recipe_from_name=()=>{
+        setCategId()
+        setCategoryName()
         let recipeName=input
       
         const options = {
@@ -60,7 +70,8 @@ const SearchFromApi =()=>{
 
     //_______ function to get a recipe from ingredients:_____________
     const get_recipe_from_ingredients =  ()=>{
-      
+        setCategId()
+        setCategoryName()
         let ingredientsFromBody=input
     
         const options = {
@@ -91,6 +102,8 @@ const SearchFromApi =()=>{
     const specificSearch=(e)=>{
         e.preventDefault()
         setSpecific(false)
+        setCategId()
+        setCategoryName()
         // SingleRecipePage(false)
 
         const options = {
@@ -121,11 +134,13 @@ const SearchFromApi =()=>{
             console.error(error);
         });
     }
-    console.log('results',results.image)
+    // console.log('results',results.image)
 
 
     const search =(e)=>{
         e.preventDefault()
+        setCategId()
+        setCategoryName()
         arr.push(results)
         if (criteria ==='byName'){
             get_recipe_from_name()
