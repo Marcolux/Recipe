@@ -1,7 +1,8 @@
+
 import { useState } from "react"
 // axios for the call to the backend
 import axios from "axios"
-
+// env to switch between the adresses
 import env from 'react-dotenv';
 
 // I need to show the navigation bar in this page so I import it
@@ -31,13 +32,15 @@ const Login =()=>{
         e.preventDefault()
         axios.post(`${env.BACKEND_URL}/user/login`, { email, password })
         .then((response) => {
-         console.log(response.data)
+        //  console.log(response.data)
+        // checking if we have a positive response
          if(response.data.user){
-        // settin the userId in localstorage
+        //if we have it let's set the userId in localstorage
         localStorage.setItem('userId', response.data.user.id)
-        // setting user in context
+        //and set user in context
         setUser(response.data.user)}
         else{
+            // if not send an alert
                 alert('wrong email address or password!')
             }
     })
@@ -46,15 +49,17 @@ const Login =()=>{
     return(
         <div className="AuthPage">
             <NavigationBar/>
-            
+            {/* login form */}
                 <form className="AuthForm" onSubmit={loginForm}>
                     <div className="subAuthForm">
                         <div className='formInput'>
                             <label htmlFor="email">Email:</label>
+                            {/* using useState to save the info I need for the call to the backend */}
                             <input value={email} onChange={(e) => setEmail(e.target.value)} />
                         </div>
                         <div className='formInput'>
                             <label htmlFor="password">Password:</label>
+                            {/* using useState to save the info I need for the call to the backend */}
                             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                         <div className='formInput'>
