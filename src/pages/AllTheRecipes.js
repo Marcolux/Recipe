@@ -26,7 +26,6 @@ const AllTheRecipes = ()=>{
     
     const [allRecipes, setAllRecipes] = useState([])
     const [allRecipesInCat, setAllRecipesInCat] = useState([])
-    const [filteredList, setFilteredList] = useState([])
     
 
     let userId = localStorage.getItem('userId')
@@ -66,25 +65,15 @@ const AllTheRecipes = ()=>{
 
     // at this point we filter the recipes in list from all the recipes that a user already has saved
     const filteredRecipeList = allRecipes.filter(({ id }) => !list.includes(id));
-    // console.log(filteredRecipeList)
-    // console.log(allRecipes)
-    // useEffect(setFilteredList(filteredRecipeList),[])
 
     const deleteRecipe= (i)=>{
-        
         allRecipes.splice(i,1)
-        let array = allRecipesInCat
-        setAllRecipes(array)
-       
-        // setAllRecipes([...allRecipes])
-        
+        setAllRecipes([...allRecipes])
     }
 
     const deletefilteredRecipe=(i)=>{
         filteredRecipeList.splice(i,1)
-        console.log(filteredRecipeList)
-        setFilteredList([...filteredRecipeList])
-        // setAllRecipes(array)
+        setAllRecipes([...filteredRecipeList])
     }
     
     return(
@@ -95,14 +84,17 @@ const AllTheRecipes = ()=>{
                 {/* if the call to the backend is completed so we have all the recipes then.. */}
                 {filteredRecipeList|| allRecipes?
                     <div className="allTheRecipeSection">
+                        {/* if there's a catId, that means we're coming from the categories page so we're trying to add a recipe to a cat */}
                         {categId  ?
                             <>
                                 <button className="backsRecipes" onClick={()=>{
+                                    // reset the cat name and id
                                     history(-1)
                                     setCategId()
                                     setCategoryName()
                                 }}>〈 </button>
                                 {
+                                // instead of showing all the user's recipe we want to show the one not already in cat
                                 filteredRecipeList.map((recipe,i)=>{
                                     
                                     return(
@@ -110,7 +102,7 @@ const AllTheRecipes = ()=>{
                                         <button className="deleteRecipe" onClick={()=>{
                                             axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                             deletefilteredRecipe(i)
-                                            setAllRecipes([...filteredRecipeList])
+                                            
                                         }}>X</button>
                                         <SingleRecipe recipe={recipe}/>
                                         </div>
@@ -119,10 +111,9 @@ const AllTheRecipes = ()=>{
                             </> 
                             :
                             <>
+                            {/* if there's not catId we want to see all the user's recipes  */}
                                 <button className="backsRecipes" onClick={()=>{
                                     history('/user-page')
-                                    setCategId()
-                                    setCategoryName()
                                 }}>〈 </button>
                                 {
                                     allRecipes.map((recipe,i)=>{
@@ -130,10 +121,8 @@ const AllTheRecipes = ()=>{
                                         return(
                                             <div key={i} className="recipe">
                                             <button className="deleteRecipe" onClick={()=>{
-                                        
                                                 axios.delete(`${env.BACKEND_URL}/recipe/${recipe.id}`)
                                                 deleteRecipe(i)
-                                                setAllRecipes([...allRecipes])
                                             }}>X</button>
                                             <SingleRecipe  recipe={recipe}/>
                                             </div>
