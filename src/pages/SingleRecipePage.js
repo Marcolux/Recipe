@@ -20,18 +20,6 @@ const SingleRecipe=()=>{
     const { recipeDetailsState } = useContext(Context);
     const [ recipeDetails,setRecipeDetails] = recipeDetailsState
     
-    // const { allRecipesState } = useContext(Context);
-    // const [allRecipes, setAllRecipes] = allRecipesState
-
-    // const [button,setButton]=useState(true)
-
-    // let apiIds =[]
-    // allRecipes.map(single =>{
-    //     apiIds.push(single.apiId)
-    // })
-    
-
-    // console.log(apiIds)
     const userId = localStorage.getItem('userId')
 
     const all_the_info =()=>{
@@ -45,7 +33,7 @@ const SingleRecipe=()=>{
         };
         
         axios.request(options).then(function (response) {
-            console.log(response.data)
+            // console.log(response.data)
             setRecipeDetails(response.data)
         }).catch(function (error) {
             console.error(error);
@@ -57,86 +45,69 @@ const SingleRecipe=()=>{
     let dietS=[]
     let ingred=[]
 
-    // const disappearButton =()=>{
-    // setButton(false)
-    // apiIds.push(recipeDetails.id)}
-    
-    // useEffect(disappearButton,[apiIds])
-
-
-
     return(
-        <>
-            {
-                recipeDetails?
-                    <>
-                            {recipeImage && recipeDetails.diets && recipeDetails.extendedIngredients?
-                            <div className="SingleRecipe">
-                                <h3 className="recipeTitle">{recipeDetails.title}</h3>
-                                <div className="singleRecipeButtons">
-                                    <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
-                                    
-                                    {/* // !apiIds.includes(recipeDetails.id)?
-                                    // // !button==false? */}
-                                    <button onClick={()=>{
-                                    
-                                        axios.post(`${env.BACKEND_URL}/recipe/${userId} `,
-                                        {
-                                        apiId:recipeDetails.id,
-                                        ingredients:ingred.toString(),
-                                        instructions:recipeDetails.instructions,
-                                        picture:recipeImage,
-                                        name:recipeDetails.title,
-                                        diets:dietS.toString()
-                                        })
-                                        // disappearButton()
-                                        }}>Add to Your Recipes</button>
-                                        {/* // :
-                                        // <p>hi</p> */}
 
-                                    
-                                    
-                                </div>
-                                <div className="diet-Ingredients">
-                                <div className="SingleRecipePic" style={{backgroundImage:recipeImage}}></div>
-                                    <div className="RecipeIngredients">
-                                    <h3>Ingedients lists:</h3>
-                                    <ul >
-                                        {
-                                            recipeDetails.extendedIngredients.map((ingredient,i)=>{
-                                                ingred.push(ingredient.name)
-                                                return(<li key={i}>{ingredient.name}</li>)
-                                            })
-                                        }
-                                    </ul>
-                                    </div>
-                                    <div className="RecipeDiets">
-                                        <h3>Diets:</h3>
-                                        <ul>
-                                        {
-                                            recipeDetails.diets.map((diet,i)=>{
-                                                dietS.push(diet)
-                                                return(
-                                                    <li key={i}>{diet}</li>)
-                                                })
-                                            }
-                                        </ul>
-                                    </div>
-                                </div>
-                                <div className="RecipeInstructions">
-                                <h3>Instructions:</h3>    
-                                    <p>{recipeDetails.instructions}</p>
-                                </div>
-                                
-                            </div>
-                            :
-                            <div className='spin'></div>
-                            }
-                    </>
-                    :
-                    <div className='spin'></div>
-                }
-        </>
+    <>
+        {/* check that all the info are loaded if not we load the loading page */}
+        {recipeDetails && recipeImage && recipeDetails.diets && recipeDetails.extendedIngredients?
+        <div className="SingleRecipe">
+            <h3 className="recipeTitle">{recipeDetails.title}</h3>
+            <div className="singleRecipeButtons">
+                <button onClick={()=>{setSingleRecipePage(false)}}>Back to Search</button>
+                <button onClick={()=>{
+                    // axios call to save the recipe in the backend database
+                    axios.post(`${env.BACKEND_URL}/recipe/${userId} `,
+                    {
+                    apiId:recipeDetails.id,
+                    ingredients:ingred.toString(),
+                    instructions:recipeDetails.instructions,
+                    picture:recipeImage,
+                    name:recipeDetails.title,
+                    diets:dietS.toString()
+                    })
+                    }}>Add to Your Recipes</button>
+
+                
+                
+            </div>
+            <div className="diet-Ingredients">
+            <div className="SingleRecipePic" style={{backgroundImage:recipeImage}}></div>
+                <div className="RecipeIngredients">
+                <h3>Ingedients lists:</h3>
+                <ul >
+                    {
+                        // we store all the ingredients in an array(ingred)
+                        // we map the list and we create a html list 
+                        recipeDetails.extendedIngredients.map((ingredient,i)=>{
+                            ingred.push(ingredient.name)
+                            return(<li key={i}>{ingredient.name}</li>)
+                        })
+                    }
+                </ul>
+                </div>
+                <div className="RecipeDiets">
+                    <h3>Diets:</h3>
+                    <ul>
+                    {
+                        recipeDetails.diets.map((diet,i)=>{
+                            dietS.push(diet)
+                            return(
+                                <li key={i}>{diet}</li>)
+                            })
+                        }
+                    </ul>
+                </div>
+            </div>
+            <div className="RecipeInstructions">
+            <h3>Instructions:</h3>    
+                <p>{recipeDetails.instructions}</p>
+            </div>
+            
+        </div>
+        :
+        <div className='spin'></div>
+        }
+    </>
 
 
     
