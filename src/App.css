@@ -1,5 +1,4 @@
 html{
-  /* background-image: url('../src/img/backGround.jpeg'); */
   opacity: 1;
   background-size: cover;
   background-position: center;
@@ -7,8 +6,6 @@ html{
   padding: 0;
   margin: 0;
   height: 100vh;
-
-
 }
 .App {
   text-align: center;
@@ -31,20 +28,15 @@ body{
   background:         linear-gradient(0deg, #000000  10%, #ffffff 80%); /* W3C */
   height: 100vh;
 }
-
-
 /* _____________________NAVIGATION BAR____________________ */
-
 .links{
   text-decoration: none;
   color: #F2C53D;
   
 }
-
 .links:hover{
   text-decoration:underline;
 }
-
 .NavigationBar{
   display: flex;
   border: 1px solid #0D0D0D;
@@ -61,7 +53,6 @@ body{
   color: #F2C53D;
   box-shadow:1px 1px 1px 1px #F2A922 ;
 }
-
 .homePageLinks{
   display: flex;
   justify-content: space-around;
@@ -70,13 +61,10 @@ body{
   right: 3vw;
   font-size: 30px;
   color: #F2C53D;
-  
 }
 .homePageLinks p{
   margin-left: 2vw;
 }
-
-
 .userNavigation{
   display: flex;
   justify-content: space-around;
@@ -112,43 +100,32 @@ body{
   padding: 20px;
   border-radius: 10px;
   border: 2px solid black;
-  
+
 }
 @keyframes growDown {
   0% {transform:translateX(-70%);}
-
- 
   100% {transform:translateX(0%);}
 }
 .menuBar:hover .menuLinks{
   display: flex;
   flex-direction: column;
- 
 }
 .menuNavLink:hover {
   color: #F27F1B;
-  
 }
-
               /*USER MENU END */
-
 
 /* ________________NAVIGATION BAR END____________________ */
 /* ________________Home page END____________________ */
-
 .HomePage{
-  
   width: 100vw;
   height: 100vh;
   background: rgb(255, 255, 255);
-  
 }
 .HomePage h1{
-
   margin-top: 0;
   font-size: 12vh;
 }
-
 .homepageBanner{
   width: 100%;
   height:60vh;
@@ -160,10 +137,7 @@ body{
 }
 /* ________________Home page END____________________ */
 
-
-
 /* ________________SIGNUP AND LOGIN FORMS____________________ */
-
 .FormBottomBanner{
   object-fit: cover;
   width: 100%;
@@ -174,7 +148,6 @@ body{
   margin: 0;
   border-top: 2px solid #F2A922;;
   box-shadow:2px 2px 8px 4px #F2A922;
-  
 }
 .AuthPage{
   display: flex;
@@ -190,7 +163,6 @@ body{
   align-items: center;
   margin-top: 15vh;
   margin-left: 3vw;
-  /* border: 2px solid #274001; */
   border-radius: 1.5vh;
   width: 30vw;
   padding: 2vh;
@@ -200,17 +172,13 @@ body{
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  
   margin: 3px;
   padding: 2vh;
 }
-
 .formInput{
   margin-right: 1vw;
   font-size: 20px;
   margin-top: 1vh;
-  font-weight: 600;
-  /* width: 25vw; */
 }
 .formInput input{
   font-size: 20px;
@@ -230,9 +198,7 @@ body{
 .formButton:hover{
   background-color:#F27F1B ;
 }
-
 /* ________________SIGNUP AND LOGIN FORMS END____________________ */
-
 /* ________________USER PAGE____________________ */
 .UserPage{
   background: -webkit-linear-gradient(0deg, #040404 10%, #ffffff 80%); /* Chrome 10+, Saf5.1+ */
@@ -240,12 +206,11 @@ body{
   background:     -ms-linear-gradient(0deg, #000000  10%, #fefefe 80%); /* IE10 */
   background:      -o-linear-gradient(0deg, #000000  10%, #ffffff 80%); /* Opera 11.10+ */
   background:         linear-gradient(0deg, #000000  10%, #ffffff 80%); /* W3C */
-background-size: cover;
-background-position: center;
-margin-bottom: 0px;
-padding: 0%;
-height: 100%;
-
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 0px;
+  padding: 0%;
+  height: 100%;
 }
 .allCatBanner{
   background-image: url('./img/categoryBanner.jpeg');
@@ -255,7 +220,6 @@ height: 100%;
   background-position: center;
   border: 1px solid #274001;
   box-shadow: -1px -1px 2.5px 2.5px #274001;
- 
 }
 .Addcategory{
   position: absolute;
@@ -276,12 +240,8 @@ height: 100%;
   color:#F2C53D ;
   letter-spacing: .8px;
 }
-
 /* ________________USER PAGE END____________________ */
-
-
 /* ________________CATEGORY SECTION____________________ */
-
 .CategorySection{
   display: flex;
   flex-direction: column;
@@ -296,9 +256,7 @@ height: 100%;
   background-position: center;
   opacity: 1;
 }
-
- .deleteCat{
-
+.deleteCat{
   height: 3vh;
   position: absolute;
   right: 15vw;
@@ -308,7 +266,6 @@ height: 100%;
   font-family: 'Luxurious Roman', cursive;
   font-weight: 900;
   letter-spacing: .8px;
-
 }
 .deleteCat:hover{
   text-decoration: underline;
@@ -333,13 +290,10 @@ height: 100%;
 }
 .allCategories{
   margin: 2vh;
-
 }
 .allTheCategories{
- 
   margin:2vw;
   padding: 2vh;
-  /* border: 2px solid rgb(0, 0, 0); */
   box-shadow: -1px -1px 8.5px 5.5px #274001d4;
   border-radius: 1vh;
 }
@@ -347,8 +301,6 @@ height: 100%;
 height:23px;
 width: 23px;
 position: relative;
-/* left: 13vh;
-bottom: 1vh; */
 margin-bottom: 1vh;
 margin-top: 1vh;
 border-radius: 50%;
@@ -357,17 +309,10 @@ border: 2px solid black;
 .removeRecipe:hover{
   background:#F27F1B ;
 }
-
-
-
 /* ________________CATEGORY SECTION END____________________ */
-
-
-
 /* ________________SINGLE CATEGORY____________________ */
 .singleCat{
   border:1px solid #0D0D0D;
-  
   margin: 1vh;
   border-radius: 1vh;
   background-color: rgb(253, 252, 252);
@@ -378,14 +323,11 @@ border: 2px solid black;
   display: flex;
   overflow: scroll;
   flex-wrap: wrap;
-  /* justify-content:center; */
   opacity: 1;
-  
 }
 .categoryTitle{
   position:absolute;
   margin-left: 1vw;
-  /* border: 1px solid #274001; */
   box-shadow: -1px -1px 2.5px 2.5px #274001;
   border-radius: 3px;
   margin-top: 1vh;
@@ -398,29 +340,13 @@ border: 2px solid black;
   background: #ffffff;
   opacity: 1;
   text-shadow: 1px 1px #274001;
-  
-
 }
-
 .linksRecipe:hover{
   text-decoration: underline;
   cursor: pointer;
 }
-
 /* ________________SINGLE CATEGORY END____________________ */
-
 /* ________________ SEARCH PAGE____________________ */
-
-/* .searchBanner{
-  background-image:url('./img/colorBanner.jpeg');
-  width: 100vw;
-  height: 15vh;
-  background-position: center;
-  background-size: cover;
-  opacity: 1;
-  z-index: 0;
-} */
-
 .SearchSection{
   display: flex;
   flex-direction: column;
@@ -433,13 +359,10 @@ border: 2px solid black;
   opacity: 1;
   height: 90vh;
   overflow: scroll;
-  
 }
 .resultsSection{
   display: flex;
   width: 90vw;
-  /* min-height:90vh;
-  max-height: 90vh; */
   flex-wrap:wrap;
   justify-self:center ;
   justify-content:center;
@@ -457,10 +380,8 @@ border: 2px solid black;
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items:flex-end;
   width: 20vw;
-  
   height: 30vh;
   padding: 1vh 2vw;
   border: 1px solid rgba(40, 36, 36, 0.783);
@@ -468,8 +389,6 @@ border: 2px solid black;
   border-radius: 1vw;
   box-shadow: -.5px -.5px 3.5px 1.5px #274001;
   background: #F2C53D;  
-  /* animation: rotation 4s; */
- 
 }
 @keyframes rotation {
   0% {
@@ -479,7 +398,6 @@ border: 2px solid black;
     object-fit:none;
     width: 110%;
     height: 25vh;
-
   }
   100% {
     object-fit: cover;
@@ -493,7 +411,6 @@ border: 2px solid black;
     object-fit:none;
     width: 90%;
     height: 18vh;
-
   }
   100% {
     object-fit: cover;
@@ -509,7 +426,6 @@ border: 2px solid black;
   border-radius: .5vw;
   object-fit: cover;
   object-position: center;
-  /* aspect-ratio: 16 / 9; */
 }
 .resultPicSection{
   
@@ -548,7 +464,6 @@ border: 2px solid black;
   font-weight: 700;
   letter-spacing: .7px;
 }
-
 .beSpecific{
   display: flex;
   
@@ -567,15 +482,12 @@ border: 2px solid black;
   color: #F27F1B;
   font-size: 25px;
   letter-spacing: 1px;
-
 }
 .beSpecificButton{
   width: 4vw;
   height: 4vh;
   border-radius: 2vh;
   border: 1px solid black;
-
-
 }
 .searchSelection{
   width: 30vh;
@@ -596,7 +508,6 @@ border: 2px solid black;
   margin-top: 1vh;
   display: flex;
   flex-direction: column;
-  
 }
 .searchformInputSubmit{
   display: flex;
@@ -604,10 +515,7 @@ border: 2px solid black;
   margin-top: 1vh;
   margin-left: 2vw;
 }
-
-
 /* ________________SEARCH PAGE END____________________ */
-
 
 /* ________________SINGLE RECIPE____________________ */
 .recipe{
@@ -640,18 +548,6 @@ border-radius: 4px;
   justify-content:space-evenly;
   align-items: center;
 }
-/* .SingleRecipe{
-  display: flex;
-  flex-direction: column;
-  background: white;
-  padding: 2vw;
-  border-radius: 1vh;
-  border: 1px solid #274001;
-  box-shadow: -1px -1px 8px 1px #274001;
-  font-weight: 600;
-  font-size: 20px;
-  
-} */
 .SingleRecipePage{
   display: flex;
   padding: 2vh;
@@ -667,15 +563,12 @@ border-radius: 4px;
 }
 .diet-Ingredients{
   display: flex;
-  /* justify-content:space-evenly; */
   align-items: center;
   width: 100%;
-
 }
 .RecipeDiets{
   display: flex;
   flex-direction: column;
-  
 }
 .RecipeDiets h3{
 margin: 0;
@@ -684,15 +577,10 @@ text-align: left;
 .RecipeDiets li{
   list-style-type:circle;
   text-align: left;
-
 }
 .SingleRecipePic{
-  /* background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat; */
   object-fit:cover;
   object-position:center;
-   /* aspect-ratio: 16 / 9; */
   display: flex;
   width: 60%;
   height: 50vh;
@@ -705,12 +593,10 @@ text-align: left;
   margin-left: 5%;
   display: flex;
   flex-direction: column;
-  /* border: 1px solid black; */
   text-align: left;
 }
 .RecipeIngredients h3{
   text-align: left;
-  /* border:1px solid blue; */
   padding: 1vw;
   margin: 0;
 }
@@ -733,9 +619,7 @@ text-align: left;
 /* ________________SINGLE RECIPE END____________________ */
 
 /* _____________ALL RECIPES PAGE______________ */
-
 .allRecipesPageBanner{
-  /* background-image: url('../src/img/colorBanner.jpeg'); */
   object-fit: cover;
   object-position: center;
   height: 15vh;
@@ -761,14 +645,12 @@ text-align: left;
   background: #F27F1B;
   color:#fcfcfc;
 }
-
 .allTheRecipeSection{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 /* _____________ALL RECIPES PAGE END______________ */
-
 
 /* ______________DON'T CHANGE BELOW CODES_________ */
 .res{
@@ -777,21 +659,15 @@ text-align: left;
   border: 1px solid black;
 }
 /*_________ INGREDIENTS LIST__________ */
-
-
 #spoonacular-ingredient-vis-list{
   display:none;
 }
-
 #spoonacular-ingredients-menu a{
   display: none;
 }
-
 #spoonacularView{
   display:none;
 }
-
-
 .pic{
   width: 50vw;
   height: 50vh;
@@ -800,10 +676,7 @@ text-align: left;
   background-repeat: no-repeat;
   object-fit: cover;
 }
-
-
 /* ------LOADING PAGE-------- */
-
 .spin::before {
   animation: .4s linear infinite spinner;
   animation-play-state: inherit;
@@ -819,7 +692,6 @@ text-align: left;
   transform: translate3d(-50%, -50%, 0);
   will-change: transform;
 }
-
 @keyframes spinner {
   0% {
     transform: translate3d(-50%, -50%, 0) rotate(0deg);
@@ -828,7 +700,6 @@ text-align: left;
     transform: translate3d(-50%, -50%, 0) rotate(360deg);
   }
 }
-
 @media only screen and (max-width: 600px) {
   .singleResult{
     font-size: 15px;
@@ -878,21 +749,15 @@ text-align: left;
     z-index: +1;
   }
 }
-
 @media only screen and (min-width: 600px) and (max-width:900px) {
   .singleResult{
     font-size: 15px;
     width: 50vw;
-    height: 30vh;
-   
+    height: 30vh;  
   }
   .AuthForm{
     width: 70%;
   }
-  /* .removeRecipe{
-    right:4vw;
-  } */
- 
 }
 
 @media only screen and (min-width: 1500px){
@@ -909,12 +774,10 @@ text-align: left;
     width: 85%;
     margin-left: 7.5%;
   }
-
 }
 @media only screen and (min-width: 1200px){
   .SingleRecipePic{
     width: 40%;
-
   }
   .diet-Ingredients{
     justify-content: center
