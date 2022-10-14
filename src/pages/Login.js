@@ -11,7 +11,7 @@ import NavigationBar from "../components/NavigationBar";
 import { useContext } from "react";
 import { Context } from "../context/Context";
 
-import img from "../img/assorted.jpeg";
+import img from "../img/assorted.jpg";
 
 const Login = () => {
   const { userState } = useContext(Context);

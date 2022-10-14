@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import HomePageBody from "../components/HomePageBody";
 
-import image from "../img/AdobeStock_265201895.jpeg";
+import image from "../img/AdobeStock_265201895.png";
 
 const Homepage = () => {
   return (

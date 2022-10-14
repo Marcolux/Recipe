@@ -6,6 +6,13 @@ import "./App.css";
 
 import { Navigate, Route, Routes } from "react-router-dom";
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
+import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+
+
+
 import env from "react-dotenv";
 
 //using context to pass the user informations between components
@@ -26,6 +33,7 @@ import SingleRecipePage from "./pages/SingleRecipePage";
 import AllTheRecipes from "./pages/AllTheRecipes";
 import SinglePageFromBackend from "./pages/SinglePageFromBackend";
 
+library.add(fab, faCheckSquare, faCoffee)
 function App() {
   const { userState } = useContext(Context);
   const [user, setUser] = userState;

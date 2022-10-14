@@ -9,7 +9,7 @@ import axios from "axios";
 // env to switch between the local/heroku adresses
 import env from "react-dotenv";
 
-import img from "../img/assorted.jpeg";
+import img from "../img/assorted.jpg";
 
 // I need to show the navigation bar in this page so I import it
 import NavigationBar from "../components/NavigationBar";

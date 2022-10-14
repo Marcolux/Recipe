@@ -12,6 +12,7 @@ const Provider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [categoryName, setCategoryName] = useState();
   const [allRecipes, setAllRecipes] = useState([]);
+  const [alert, setAlert] = useState(false);
 
   const state = {
     userState: [user, setUser],
@@ -23,6 +24,7 @@ const Provider = ({ children }) => {
     resultsState: [results, setResults],
     categoryNameState: [categoryName, setCategoryName],
     allRecipesState: [allRecipes, setAllRecipes],
+    alertState: [alert, setAlert],
   };
 
   return <Context.Provider value={state}>{children}</Context.Provider>;
