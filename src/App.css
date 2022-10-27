@@ -52,9 +52,12 @@
                 }
                 
                 .NavigationBar {
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
                     display: flex;
                     border: 1px solid #0D0D0D;
-                    width: 100vw;
+                    width: 100%;
                     height: 8vh;
                     font-size: 30px;
                     background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
@@ -68,7 +71,7 @@
                     background: linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
                     /* W3C */
                     align-items: center;
-                    justify-content: center;
+                    justify-content: space-between;
                     color: #F2C53D;
                     box-shadow: 1px 1px 1px 1px #F2A922;
                 }
@@ -86,13 +89,13 @@
                 .homePageLinks p {
                     margin-left: 2vw;
                 }
-                
-                .userNavigation {
+                /* .userNavigation {
                     display: flex;
                     justify-content: space-around;
-                    position: absolute;
+                    position: relative;
                     right: 3vw;
-                }
+                    width: 100%;
+                } */
                 
                 .userNavigation p {
                     margin-left: 6vw;
@@ -100,8 +103,8 @@
                 /*USER MENU  */
                 
                 .menuBar {
-                    position: absolute;
-                    left: 8vw;
+                    position: relative;
+                    margin-left: 20px;
                     display: inline-block;
                 }
                 
@@ -113,7 +116,7 @@
                 
                 .menuLinks {
                     position: absolute;
-                    left: -4vw;
+                    /* left: -4vw; */
                     display: none;
                     background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
                     /* Chrome 10+, Saf5.1+ */
@@ -267,7 +270,8 @@
                 
                 .allCatBanner {
                     background-image: url('./img/categoryBanner.jpg');
-                    height: 10vh;
+                    margin-top: 8vh;
+                    height: 7vh;
                     width: 100vw;
                     background-size: cover;
                     background-position: center;
@@ -843,11 +847,6 @@
                         left: 0%;
                         /* z-index: 1; */
                     }
-                    .NavigationBar {
-                        position: fixed;
-                        left: 0%;
-                        z-index: 1;
-                    }
                     .allTheRecipes {
                         position: absolute;
                         margin-top: 25vh;
@@ -933,6 +932,62 @@
                     margin-top: 10px;
                 }
                 
+                .mt-15 {
+                    margin-top: 15px;
+                }
+                
+                .mt-20 {
+                    margin-top: 20px;
+                }
+                
+                .mb-5 {
+                    margin-bottom: 5px;
+                }
+                
+                .mb-10 {
+                    margin-bottom: 10px;
+                }
+                
+                .mb-15 {
+                    margin-bottom: 15px;
+                }
+                
+                .mb-20 {
+                    margin-bottom: 20px;
+                }
+                
+                .ml-5 {
+                    margin-left: 5px;
+                }
+                
+                .ml-10 {
+                    margin-left: 10px;
+                }
+                
+                .ml-15 {
+                    margin-left: 15px;
+                }
+                
+                .ml-20 {
+                    margin-left: 20px;
+                }
+                
+                .mr-5 {
+                    margin-right: 5px;
+                }
+                
+                .mr-10 {
+                    margin-right: 10px;
+                }
+                
+                .mr-15 {
+                    margin-right: 15px;
+                }
+                
+                .mr-20 {
+                    margin-right: 20px;
+                }
+                
                 .justify-center {
                     display: flex;
                     justify-items: center;
@@ -949,8 +1004,7 @@
                 
                 .button-orange {
                     display: flex;
-                    width: 60%;
-                    padding: 5px;
+                    padding: 5px 15px;
                     background: #F2A922;
                     color: rgb(0, 0, 0);
                     justify-self: center;

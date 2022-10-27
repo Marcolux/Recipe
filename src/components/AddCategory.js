@@ -39,7 +39,7 @@ const AddCategory = (props) => {
           }
       } className='flex-column width-100 align-center justifyBetween'>
       <div className=''> 
-        <label htmlFor="name"> Enter Category name </label>{" "}
+        <label htmlFor="name"> Enter Category Name </label>{" "}
         <IoCloseCircleOutline 
           onClick={() => {
                 props.setCreateCategory(false)

@@ -14,21 +14,13 @@ const UserInNavBar = () => {
   const { categoryNameState } = useContext(Context);
   const [categoryName, setCategoryName] = categoryNameState;
 
-  let history = useNavigate();
+
 
   return (
     <div className="menuBar">
       <p>{user.name}</p>
       <div className="menuLinks">
-        <p
-          onClick={() => {
-            localStorage.removeItem("userId");
-            history("/");
-            setUser({});
-          }}
-        >
-          logout
-        </p>
+        
         <Link className="links" to="/user-page">
           Categories
         </Link>

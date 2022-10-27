@@ -37,9 +37,6 @@ library.add(fab, faCheckSquare, faCoffee)
 function App() {
   const { userState } = useContext(Context);
   const [user, setUser] = userState;
-  if (localStorage) {
-    console.log(localStorage);
-  }
   // create a function to verify a user from the backend and store it in useContext
   useEffect(() => {
     const fetchUser = () => {
