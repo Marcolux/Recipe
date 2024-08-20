@@ -47,4 +47,4 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
   )
 }
 
-export { Context, Provider  }
+export { Context, Provider }

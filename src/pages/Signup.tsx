@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 //using context to pass the user informations between components
 import { useContext } from "react";
@@ -9,8 +9,6 @@ import axios from "axios";
 // env to switch between the local/heroku adresses
 import env from "react-dotenv";
 
-import img from "../img/assorted.jpg";
-
 // I need to show the navigation bar in this page so I import it
 import NavigationBar from "../components/NavigationBar";
 
@@ -20,7 +18,10 @@ const validateEmail = (email: string) => {
 }
 
 const Signup = () => {
-  const { userState } = useContext(Context);
+  const context = useContext(Context)
+  if (!context) throw new Error('useContext must be used within a Provider')
+
+  const { userState } = context;
   const [user, setUser] = userState;
 
   // setting the info using useState for the call to the backend to create a user in users table
@@ -29,9 +30,9 @@ const Signup = () => {
   const [password, setPassword] = useState("");
 
   //function to create a user in the backend database
-  const signupForm = (e) => {
+  const signupForm = (e: React.FormEvent<HTMLFormElement>) => {
     // prevent to clear the form
-    console.log(env.BACKEND_URL)
+
     if (!validateEmail(email)) {
       alert("Please enter a valid email address.");
       return;
@@ -59,16 +60,14 @@ const Signup = () => {
       <form className="AuthForm" onSubmit={signupForm}>
         <div className="subAuthForm">
           <div className="formInput">
-            <label htmlFor="name" id="userName">
-              User Name:
-            </label>
+            <label htmlFor="name" id="userName"> User Name: </label>
             {/* useState to temporary storage the info for the call to the backend */}
-            <input value={name} onChange={(e) => setName(e.target.value)} />
+            <input id="name" value={name} onChange={(e) => setName(e.target.value)} />
           </div>
           <div className="formInput">
             <label htmlFor="email"> Email: </label>
             {/* useState to temporary storage the info for the call to the backend */}
-            <input value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input id="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
           <div className="formInput">
             <label htmlFor="password"> Password: </label>
@@ -85,7 +84,6 @@ const Signup = () => {
         </div>
       </form>
       <div className="SomeDecoration"> </div>
-      <img className="FormBottomBanner" src={img} />
       {/* <div className="NavigateHome"> */}
     </div>
   );
