@@ -1,29 +1,29 @@
-import axios from "axios";
-import { useState, useContext, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import axios from "axios"
+import { useState, useContext, useEffect } from "react"
+import { useNavigate } from "react-router-dom"
 
 //using context to pass the user informations between components
-import { Context } from "../context/Context";
+import { Context } from "../context/Context"
 
-import env from "react-dotenv";
+import env from "react-dotenv"
 
 const SingleRecipe = (props) => {
-  const { recipeIdState } = useContext(Context);
-  const [recipeId, setRecipeId] = recipeIdState;
+  const { recipeIdState } = useContext(Context)
+  const [recipeId, setRecipeId] = recipeIdState
 
-  const { categIdState } = useContext(Context);
-  const [categId, setCategId] = categIdState;
+  const { categIdState } = useContext(Context)
+  const [categId, setCategId] = categIdState
 
-  const { categoryNameState } = useContext(Context);
-  const [categoryName, setCategoryName] = categoryNameState;
+  const { categoryNameState } = useContext(Context)
+  const [categoryName, setCategoryName] = categoryNameState
 
-  const [animations, setAnimations] = useState();
-  const [borders, setBorders] = useState();
-  const [buttonFunction, setButtonFunction] = useState(true);
+  const [animations, setAnimations] = useState()
+  const [borders, setBorders] = useState()
+  const [buttonFunction, setButtonFunction] = useState(true)
 
   // const [allRecipes, setAllRecipes] = useState([])
 
-  let history = useNavigate();
+  let history = useNavigate()
   // let userId = localStorage.getItem('userId')
   // console.log(props.recipe.picture)
   return (
@@ -41,53 +41,47 @@ const SingleRecipe = (props) => {
         <p
           className="linksRecipe"
           onClick={() => {
-            history("/saved-recipe");
-            setRecipeId(props.recipe.id);
+            history("/saved-recipe")
+            setRecipeId(props.recipe.id)
           }}
-        >
-          {props.recipe.name}
-        </p>
+        > {props.recipe.name} </p>
 
         {categoryName ? (
           <>
-            {buttonFunction === true ? (
-              <button
-                onClick={() => {
-                  axios.put(
-                    `${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`
-                  );
-                  setAnimations("rotation .4s");
-                  setBorders("4px solid red");
-                  if (buttonFunction === true) {
-                    setButtonFunction(false);
-                  } else {
-                    setButtonFunction(true);
-                  }
-                }}
-              >
-                {" "}
-                add to {categoryName}
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  setButtonFunction(true);
+            {buttonFunction === true ? 
+              (
+                <button
+                  onClick={() => {
+                    setAnimations("rotation .4s")
+                    setBorders("4px solid red")
+                    buttonFunction ? setButtonFunction(false) : setButtonFunction(true)
 
-                  axios.delete(
-                    `${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`
-                  );
-                  setAnimations("rotationInv .4s");
-                  setBorders("1px solid black");
-                }}
-              >
-                Remove
-              </button>
-            )}
+                    axios.put(
+                      `${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`
+                    )
+                  }}
+                > Add to {categoryName} </button>
+              ) 
+              : 
+              (
+                <button
+                  onClick={() => {
+                    setButtonFunction(true)
+                    setAnimations("rotationInv .4s")
+                    setBorders("1px solid black")
+
+                    axios.delete(
+                      `${env.BACKEND_URL}/category/${categId}/${props.recipe.id}`
+                    )
+                  }}
+                > Remove </button>
+              )
+            }
           </>
         ) : null}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default SingleRecipe;
+export default SingleRecipe

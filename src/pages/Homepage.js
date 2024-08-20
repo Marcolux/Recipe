@@ -17,7 +17,7 @@ const Homepage = () => {
       </h2>
       <HomePageBody />
     </div>
-  );
-};
+  )
+}
 
-export default Homepage;
+export default Homepage

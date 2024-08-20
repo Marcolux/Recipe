@@ -9,10 +9,11 @@ const AddCategoryInitialState = (props) => {
       <button
         className="addFromBackend button-orange"
         onClick={() => {
-          props.setCreateCategory(true);
+          props.setCreateCategory(true)
         }}
-      style={{fontWeight: "Bold"}}>
-        <FiPlus />
+        style={{fontWeight: "Bold"}}
+      >
+        <FiPlus/>
       </button>
     </div>
   )

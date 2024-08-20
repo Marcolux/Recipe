@@ -26,8 +26,8 @@ const UserPage = () => {
     axios.get(`${env.BACKEND_URL}/category/all/${userId}`).then((response) => {
       // after we have the response we set a state to store them
       setCategoriesUser(response.data);
-    });
-  };
+    })
+  }
 
   useEffect(getCategories, [createCategory]);
 
@@ -58,10 +58,10 @@ const UserPage = () => {
                         // axios call to backend to delete category and the relations with all the recipes
                         axios.delete(
                           `${env.BACKEND_URL}/category/${category.id}`
-                        );
+                        )
                         // then we update the page
-                        categoriesUser.splice(i, 1);
-                        setCategoriesUser([...categoriesUser]);
+                        categoriesUser.splice(i, 1)
+                        setCategoriesUser([...categoriesUser])
                       }}
                     >
                       Remove
@@ -74,7 +74,7 @@ const UserPage = () => {
                       setCategoriesUser={categoriesUser}
                     />
                   </div>
-                );
+                )
               })}
             </div>
           </div>
@@ -87,4 +87,4 @@ const UserPage = () => {
   );
 };
 
-export default UserPage;
+export default UserPage
