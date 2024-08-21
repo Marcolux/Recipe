@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react/cjs/react.development";
-import { Link } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
 
 import axios from "axios";
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../components/navigation-bar/NavigationBar";
 import SingleRecipe from "./SingleRecipePage";
 
 import { useContext } from "react";

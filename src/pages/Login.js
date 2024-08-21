@@ -5,7 +5,7 @@ import axios from "axios";
 import env from "react-dotenv";
 
 // I need to show the navigation bar in this page so I import it
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../components/navigation-bar/NavigationBar";
 
 //using context to pass the user informations between components
 import { useContext } from "react";

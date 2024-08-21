@@ -31,7 +31,7 @@ const axios_1 = __importDefault(require("axios"));
 // env to switch between the local/heroku adresses
 const react_dotenv_1 = __importDefault(require("react-dotenv"));
 // I need to show the navigation bar in this page so I import it
-const NavigationBar_1 = __importDefault(require("../components/NavigationBar"));
+const NavigationBar_1 = __importDefault(require("../components/navigation-bar/NavigationBar"));
 const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);

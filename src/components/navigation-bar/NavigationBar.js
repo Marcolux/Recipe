@@ -25,8 +25,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const react_router_dom_1 = require("react-router-dom");
 //using context to pass the user informations between components
 const react_1 = __importStar(require("react"));
-const Context_1 = require("../context/Context");
-const UserInNavbar_1 = __importDefault(require("./UserInNavbar"));
+const Context_1 = require("../../context/Context");
+const UserInNavbar_1 = __importDefault(require("../UserInNavbar"));
+require("./style/navigationBar.css");
 // export default NavigationBar
 // export default NavigationBar
 const NavigationBar = () => {
@@ -36,17 +37,17 @@ const NavigationBar = () => {
         throw new Error('useContext must be used within a Provider');
     const { userState } = context;
     const [user, setUser] = userState;
-    return (localStorage.userId ? (react_1.default.createElement("div", { className: "NavigationBar" },
+    return (localStorage.userId ? (react_1.default.createElement("div", { className: "navigationBar" },
         react_1.default.createElement(UserInNavbar_1.default, null),
         react_1.default.createElement(react_router_dom_1.Link, { className: "links", to: "/search-recipe" },
             react_1.default.createElement("p", null, "Search")),
         react_1.default.createElement("button", { className: "button-orange mr-20", onClick: () => {
                 localStorage.removeItem("userId");
                 history("/");
-                setUser({});
+                setUser("");
             } }, "logout"))
     // </div>
-    ) : (react_1.default.createElement("div", { className: "homePageLinks" },
+    ) : (react_1.default.createElement("div", { className: "homePageLinks navigationBar" },
         react_1.default.createElement(react_router_dom_1.Link, { className: "links", to: "/" },
             " ",
             react_1.default.createElement("p", null, "Home"),

@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAEA,AAAA,SAAS,CAAA;EACL,gBAAgB,ECCX,OAAO,CDDc,UAAU;CACvC",
+    "sources": [
+        "hompage.scss",
+        "../../../styles/variables/variables.scss"
+    ],
+    "names": [],
+    "file": "hompage.css"
+}

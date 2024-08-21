@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import env from "react-dotenv";
 
-import NavigationBar from "../components/NavigationBar";
+import NavigationBar from "../components/navigation-bar/NavigationBar";
 import  AlertMessage  from "../components/AlertMessage"
 import AddCategory from "../components/AddCategory";
 import AddCategoryInitialState from "../components/AddCategoryInitialState"

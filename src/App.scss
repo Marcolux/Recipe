@@ -1,0 +1,1047 @@
+@import './styles/variables/variables.css';                
+
+@font-face {
+    font-family: "Quicksand";
+    src: url("./fonts/Quicksand-VariableFont_wght.ttf");
+}                
+                html {
+                    opacity: 1;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    padding: 0;
+                    margin: 0;
+                    height: 100vh;
+                }
+                
+                .App {
+                    text-align: center;
+                    font-family: 'Luxurious Roman', cursive;
+                    background: -webkit-linear-gradient(0deg, #040404 10%, #ffffff 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(0deg, #000000 10%, #fefefe 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* W3C */
+                    opacity: 1;
+                    padding: 0;
+                    margin: 0;
+                    min-height: 100vh;
+                }
+                
+                body {
+                    background: -webkit-linear-gradient(0deg, #040404 10%, #ffffff 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(0deg, #000000 10%, #fefefe 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* W3C */
+                    height: 100vh;
+                }
+                /* _____________________NAVIGATION BAR____________________ */
+                
+                .links {
+                    text-decoration: none;
+                    color: #F2C53D;
+                }
+                
+                .links:hover {
+                    text-decoration: underline;
+                }
+                
+                .NavigationBar {
+                    position: fixed;
+                    z-index: 1;
+                    top: 0;
+                    display: flex;
+                    border: 1px solid #0D0D0D;
+                    width: 100%;
+                    height: 8vh;
+                    font-size: 30px;
+                    background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* W3C */
+                    align-items: center;
+                    justify-content: space-between;
+                    color: #F2C53D;
+                    box-shadow: 1px 1px 1px 1px #F2A922;
+                }
+                
+                .homePageLinks {
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;
+                    position: absolute;
+                    right: 3vw;
+                    font-size: 30px;
+                    color: #F2C53D;
+                }
+                
+                .homePageLinks p {
+                    margin-left: 2vw;
+                }
+                /* .userNavigation {
+                    display: flex;
+                    justify-content: space-around;
+                    position: relative;
+                    right: 3vw;
+                    width: 100%;
+                } */
+                
+                .userNavigation p {
+                    margin-left: 6vw;
+                }
+                /*USER MENU  */
+                
+                .menuBar {
+                    position: relative;
+                    margin-left: 20px;
+                    display: inline-block;
+                }
+                
+                .menuBar p:hover {
+                    color: rgb(184, 184, 184);
+                    text-shadow: 1px 1px #000000;
+                    cursor: pointer;
+                }
+                
+                .menuLinks {
+                    position: absolute;
+                    /* left: -4vw; */
+                    display: none;
+                    background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* W3C */
+                    z-index: 1;
+                    animation: growDown 300ms;
+                    padding: 20px;
+                    border-radius: 10px;
+                    border: 2px solid black;
+                }
+                
+                @keyframes growDown {
+                    0% {
+                        transform: translateX(-70%);
+                    }
+                    100% {
+                        transform: translateX(0%);
+                    }
+                }
+                
+                .menuBar:hover .menuLinks {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .menuNavLink:hover {
+                    color: #F27F1B;
+                }
+                /*USER MENU END */
+                /* ________________NAVIGATION BAR END____________________ */
+                /* ________________Home page END____________________ */
+                
+                .HomePage {
+                    width: 100vw;
+                    height: 100vh;
+                    background: rgb(255, 255, 255);
+                }
+                
+                .HomePage h1 {
+                    margin-top: 0;
+                    font-size: 12vh;
+                }
+                
+                .homepageBanner {
+                    width: 100%;
+                    height: 60vh;
+                    object-fit: cover;
+                    background-size: cover;
+                    background-position: center;
+                    display: flex;
+                    flex-direction: row-reverse;
+                }
+                /* ________________Home page END____________________ */
+                /* ________________SIGNUP AND LOGIN FORMS____________________ */
+                
+                .FormBottomBanner {
+                    object-fit: cover;
+                    width: 100%;
+                    height: 30%;
+                    position: fixed;
+                    bottom: 0;
+                    padding: 0;
+                    margin: 0;
+                    border-top: 2px solid #F2A922;
+                    ;
+                    box-shadow: 2px 2px 8px 4px #F2A922;
+                }
+                
+                .AuthPage {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    height: 100vh;
+                    background: rgba(255, 255, 255, 0.899);
+                }
+                
+                .AuthForm {
+                    display: flex;
+                    flex-direction: column;
+                    box-shadow: -.5px -.5px 5px 5px #f2a922d0;
+                    align-items: center;
+                    margin-top: 15vh;
+                    margin-left: 3vw;
+                    border-radius: 1.5vh;
+                    width: 30vw;
+                    padding: 2vh;
+                    background-color: #F2C53D;
+                }
+                
+                .subAuthForm {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    margin: 3px;
+                    padding: 2vh;
+                }
+                
+                .formInput {
+                    margin-right: 1vw;
+                    font-size: 20px;
+                    margin-top: 1vh;
+                }
+                
+                .formInput input {
+                    font-size: 20px;
+                    margin-left: 10px;
+                    font-family: 'Luxurious Roman', cursive;
+                    padding: .1vh;
+                }
+                
+                .formButton {
+                    margin-right: 3vw;
+                    font-family: 'Luxurious Roman', cursive;
+                    font-weight: 800;
+                    letter-spacing: .05vw;
+                    font-size: large;
+                    border-radius: 1vh;
+                    background: #F2A922;
+                }
+                
+                .formButton:hover {
+                    background-color: #F27F1B;
+                }
+                /* ________________SIGNUP AND LOGIN FORMS END____________________ */
+                /* ________________USER PAGE____________________ */
+                
+                .UserPage {
+                    background: -webkit-linear-gradient(0deg, #040404 10%, #ffffff 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(0deg, #000000 10%, #fefefe 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(0deg, #000000 10%, #ffffff 80%);
+                    /* W3C */
+                    background-size: cover;
+                    background-position: center;
+                    margin-bottom: 0px;
+                    padding: 0%;
+                    height: 100%;
+                }
+                
+                .allCatBanner {
+                    background-image: url('./img/categoryBanner.jpg');
+                    margin-top: 8vh;
+                    height: 7vh;
+                    width: 100vw;
+                    background-size: cover;
+                    background-position: center;
+                    border: 1px solid #274001;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                }
+                
+                .Addcategory {
+                    margin-left: 85%;
+                    margin-top: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    width: fit-content;
+                    height: 80px;
+                    justify-self: center;
+                    border: 1px solid #0D0D0D;
+                    background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* W3C */
+                    padding: 15px;
+                    border-radius: 1vh;
+                    font-size: 18px;
+                    font-weight: 800;
+                    color: #F2C53D;
+                    letter-spacing: .8px;
+                }
+                /* ________________USER PAGE END____________________ */
+                /* ________________CATEGORY SECTION____________________ */
+                
+                .CategorySection {
+                    display: flex;
+                    flex-direction: column;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                    margin-top: 12vh;
+                    margin-left: 0;
+                    margin-right: 0;
+                    padding: 1.5vh;
+                    border-radius: 5px;
+                    background-image: url('./img/honeyBack.jpeg');
+                    background-size: cover;
+                    background-position: center;
+                    opacity: 1;
+                }
+                
+                .deleteCat {
+                    height: 3vh;
+                    position: absolute;
+                    right: 15vw;
+                    background: none;
+                    border: none;
+                    font-size: 20px;
+                    font-family: 'Luxurious Roman', cursive;
+                    font-weight: 900;
+                    letter-spacing: .8px;
+                }
+                
+                .deleteCat:hover {
+                    text-decoration: underline;
+                }
+                
+                .deleteCat:active {
+                    color: #F27F1B;
+                }
+                
+                .addRecipeButton {
+                    height: 3vh;
+                    background: none;
+                    border: none;
+                    font-size: 20px;
+                    font-family: 'Luxurious Roman', cursive;
+                    font-weight: 900;
+                    letter-spacing: .8px;
+                }
+                
+                .addRecipeButton:hover {
+                    text-decoration: underline;
+                }
+                
+                .addRecipeButton:active {
+                    color: #F27F1B;
+                }
+                
+                .allCategories {
+                    margin: 2vh;
+                }
+                
+                .allTheCategories {
+                    margin: 2vw;
+                    padding: 2vh;
+                    box-shadow: -1px -1px 8.5px 5.5px #274001d4;
+                    border-radius: 1vh;
+                }
+                
+                .removeRecipe {
+                    height: 23px;
+                    width: 23px;
+                    position: relative;
+                    margin-bottom: 1vh;
+                    margin-top: 1vh;
+                    border-radius: 50%;
+                    border: 2px solid black;
+                }
+                
+                .removeRecipe:hover {
+                    background: #F27F1B;
+                }
+                /* ________________CATEGORY SECTION END____________________ */
+                /* ________________SINGLE CATEGORY____________________ */
+                
+                .singleCat {
+                    border: 1px solid #0D0D0D;
+                    margin: 1vh;
+                    border-radius: 1vh;
+                    background-color: rgb(253, 252, 252);
+                    min-height: 33vh;
+                    margin-top: 7vh;
+                    margin-bottom: 2vh;
+                    padding: 1vw;
+                    display: flex;
+                    overflow: scroll;
+                    flex-wrap: wrap;
+                    opacity: 1;
+                }
+                
+                .categoryTitle {
+                    position: absolute;
+                    margin-left: 1vw;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                    border-radius: 3px;
+                    margin-top: 1vh;
+                    padding-bottom: 1vh;
+                    width: 25vw;
+                    height: 3vh;
+                    font-size: 25px;
+                    font-weight: 900;
+                    letter-spacing: 1px;
+                    background: #ffffff;
+                    opacity: 1;
+                    text-shadow: 1px 1px #274001;
+                }
+                
+                .linksRecipe:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+                /* ________________SINGLE CATEGORY END____________________ */
+                /* ________________ SEARCH PAGE____________________ */
+                
+                .SearchSection {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    border: 1px solid black;
+                    padding: 2vw;
+                    background-image: url('./img/eggs.jpg');
+                    background-position: center;
+                    background-size: cover;
+                    opacity: 1;
+                    height: 90vh;
+                    overflow: scroll;
+                }
+                
+                .resultsSection {
+                    display: flex;
+                    width: 90vw;
+                    height: 100%;
+                    flex-wrap: wrap;
+                    justify-self: center;
+                    justify-content: center;
+                    align-items: center;
+                    border-radius: 1vh;
+                    padding: 2vh;
+                    margin-top: 4vh;
+                    border: 1px solid #0D0D0D;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                    background-color: rgba(255, 255, 255, 0.81);
+                }
+                
+                .singleResult {
+                    font-weight: 900;
+                    letter-spacing: .2px;
+                    font-size: 16px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    width: 20vw;
+                    height: 30vh;
+                    padding: 1vh 2vw;
+                    border: 1px solid rgba(40, 36, 36, 0.783);
+                    margin: 1.7vw;
+                    border-radius: 1vw;
+                    box-shadow: -.5px -.5px 3.5px 1.5px #274001;
+                    background: #F2C53D;
+                }
+                
+                @keyframes rotation {
+                    0% {
+                        object-fit: cover;
+                    }
+                    50% {
+                        object-fit: none;
+                        width: 110%;
+                        height: 25vh;
+                    }
+                    100% {
+                        object-fit: cover;
+                    }
+                }
+                
+                @keyframes rotationInv {
+                    0% {
+                        object-fit: cover;
+                    }
+                    50% {
+                        object-fit: none;
+                        width: 90%;
+                        height: 18vh;
+                    }
+                    100% {
+                        object-fit: cover;
+                    }
+                }
+                
+                .resultPic {
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    border: 1px solid black;
+                    height: 75%;
+                    width: 100%;
+                    border-radius: .5vw;
+                    object-fit: cover;
+                    object-position: center;
+                }
+                
+                .resultPicSection {
+                    display: flex;
+                    height: 20%;
+                    margin-top: 1%;
+                    padding-bottom: 2%;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 2%;
+                    width: 100%;
+                }
+                
+                .SearchForm {
+                    display: flex;
+                    flex-direction: column;
+                    border: 1px solid #0D0D0D;
+                    box-shadow: -.5px -.5px 1.5px 1.5px #274001;
+                    background-color: rgba(255, 255, 255, 0.79);
+                    opacity: 1;
+                    align-items: center;
+                    border-radius: 1vh;
+                    width: 65vw;
+                }
+                
+                .searchAuthForm {
+                    display: flex;
+                    flex-direction: column;
+                    width: 50vw;
+                    justify-self: center;
+                    border: 1px solid black;
+                    padding: 1vw;
+                    text-align: left;
+                    border-radius: .5vh;
+                    margin-bottom: 2vh;
+                    margin-top: 1vh;
+                    font-size: 20px;
+                    font-weight: 700;
+                    letter-spacing: .7px;
+                }
+                
+                .beSpecific {
+                    display: flex;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                    background: -webkit-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Chrome 10+, Saf5.1+ */
+                    background: -moz-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* FF3.6+ */
+                    background: -ms-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* IE10 */
+                    background: -o-linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* Opera 11.10+ */
+                    background: linear-gradient(90deg, #274001 10%, #0D0D0D 80%);
+                    /* W3C */
+                    border-top-left-radius: 1vh;
+                    border-top-right-radius: 1vh;
+                    justify-content: space-evenly;
+                    align-items: center;
+                    padding: .5vh;
+                    width: 70vw;
+                    color: #F27F1B;
+                    font-size: 25px;
+                    letter-spacing: 1px;
+                }
+                
+                .beSpecificButton {
+                    width: 4vw;
+                    height: 4vh;
+                    border-radius: 2vh;
+                    border: 1px solid black;
+                }
+                
+                .searchSelection {
+                    width: 30vh;
+                    height: 3vh;
+                    text-align: center;
+                    margin: 2vw;
+                    font-size: large;
+                }
+                
+                .searchInput {
+                    width: 30vh;
+                    height: 2.5vh;
+                    text-align: center;
+                    margin: 2vw;
+                    font-size: large;
+                }
+                
+                .searchformInput {
+                    margin-right: 1vw;
+                    margin-top: 1vh;
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .searchformInputSubmit {
+                    display: flex;
+                    align-self: center;
+                    margin-top: 1vh;
+                    margin-left: 2vw;
+                }
+                /* ________________SEARCH PAGE END____________________ */
+                /* ________________SINGLE RECIPE____________________ */
+                
+                .recipe {
+                    border: 1px solid #274001;
+                    box-shadow: -1px -1px 8px 1px #274001;
+                    margin: .5vw;
+                    display: flex;
+                    flex-direction: column;
+                    background: white;
+                    padding: 1vh;
+                }
+                
+                .deleteRecipe {
+                    position: absolute;
+                    background: white;
+                    border: 1px solid black;
+                    border-radius: 4px;
+                }
+                
+                .deleteRecipe:hover {
+                    background: #274001;
+                    color: white;
+                }
+                
+                .recipeTitle {
+                    margin-bottom: 4vh;
+                    text-decoration: underline;
+                }
+                
+                .recipeHeader {
+                    display: flex;
+                    width: 100%;
+                    justify-content: space-evenly;
+                    align-items: center;
+                }
+                
+                .SingleRecipePage {
+                    display: flex;
+                    padding: 2vh;
+                    border: 1px solid #274001;
+                    box-shadow: -1px -1px 8px 1px #274001;
+                    border-radius: 1vh;
+                    margin: 2vh;
+                    background: white;
+                    font-size: 20px;
+                    height: 91vh;
+                    overflow: scroll;
+                    scrollbar-base-color: #fcfcfc00;
+                }
+                
+                .diet-Ingredients {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                }
+                
+                .RecipeDiets {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .RecipeDiets h3 {
+                    margin: 0;
+                    text-align: left;
+                }
+                
+                .RecipeDiets li {
+                    list-style-type: circle;
+                    text-align: left;
+                }
+                
+                .SingleRecipePic {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: 50%;
+                    object-fit: cover;
+                    object-position: center;
+                    display: flex;
+                    width: 60%;
+                    height: 50vh;
+                    justify-self: center;
+                    border: 1px solid #274001;
+                    box-shadow: -1px -1px 8px 1px #274001;
+                    border-radius: 1vh;
+                }
+                
+                .RecipeIngredients {
+                    margin-left: 5%;
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                }
+                
+                .RecipeIngredients h3 {
+                    text-align: left;
+                    padding: 1vw;
+                    margin: 0;
+                }
+                
+                .RecipeIngredients li {
+                    list-style: outside;
+                    list-style-type: circle;
+                    margin-top: 1vh;
+                }
+                
+                .RecipeInstructions {
+                    text-align: left;
+                    line-height: 3vh;
+                    word-spacing: 0.3vw;
+                }
+                
+                .singleRecipeButtons {
+                    margin-bottom: 5vh;
+                    display: flex;
+                    justify-content: space-between;
+                }
+                /* ________________SINGLE RECIPE END____________________ */
+                /* _____________ALL RECIPES PAGE______________ */
+                
+                .allRecipesPageBanner {
+                    object-fit: cover;
+                    object-position: center;
+                    height: 15vh;
+                    width: 100%;
+                    background-size: cover;
+                    background-position: center;
+                    border: 1px solid #274001;
+                    box-shadow: -1px -1px 2.5px 2.5px #274001;
+                }
+                
+                .backsRecipes {
+                    background: #F2A922;
+                    color: white;
+                    font-size: xx-large;
+                    height: fit-content;
+                    position: absolute;
+                    left: 1%;
+                    top: 50%;
+                    border: 2px solid #F2A922;
+                    border-radius: 5px;
+                }
+                
+                .backsRecipes:hover {
+                    background: #F27F1B;
+                    color: #fcfcfc;
+                }
+                
+                .allTheRecipeSection {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                /* _____________ALL RECIPES PAGE END______________ */
+                /* ______________DON'T CHANGE BELOW CODES_________ */
+                
+                .res {
+                    width: 90vw;
+                    height: 90vh;
+                    border: 1px solid black;
+                }
+                /*_________ INGREDIENTS LIST__________ */
+                
+                #spoonacular-ingredient-vis-list {
+                    display: none;
+                }
+                
+                #spoonacular-ingredients-menu a {
+                    display: none;
+                }
+                
+                #spoonacularView {
+                    display: none;
+                }
+                
+                .pic {
+                    width: 50vw;
+                    height: 50vh;
+                    background-position: center;
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    object-fit: cover;
+                }
+                /* ------LOADING PAGE-------- */
+                
+                .spin::before {
+                    animation: .4s linear infinite spinner;
+                    animation-play-state: inherit;
+                    border: solid 5px #2499bdee;
+                    border-bottom-color: #0412acac;
+                    border-radius: 50%;
+                    content: "";
+                    height: 50px;
+                    width: 50px;
+                    position: fixed;
+                    top: 50vh;
+                    left: 50vw;
+                    transform: translate3d(-50%, -50%, 0);
+                    will-change: transform;
+                }
+                
+                @keyframes spinner {
+                    0% {
+                        transform: translate3d(-50%, -50%, 0) rotate(0deg);
+                    }
+                    100% {
+                        transform: translate3d(-50%, -50%, 0) rotate(360deg);
+                    }
+                }
+                
+                @media only screen and (max-width: 600px) {
+                    .singleResult {
+                        font-size: 15px;
+                        align-items: center;
+                        width: 80vw;
+                        height: 30vh;
+                    }
+                    .AuthForm {
+                        width: 80%;
+                    }
+                    .diet-Ingredients {
+                        flex-direction: column;
+                        align-items: flex-start;
+                    }
+                    .SingleRecipePic {
+                        width: 100%;
+                    }
+                    .allRecipesPageBanner {
+                        position: absolute;
+                        top: 8vh;
+                        left: 0%;
+                        /* z-index: 1; */
+                    }
+                    .allTheRecipes {
+                        position: absolute;
+                        margin-top: 25vh;
+                        z-index: 0;
+                    }
+                    .menuLinks {
+                        z-index: 1;
+                    }
+                    html {
+                        background: white;
+                    }
+                    .backsRecipes {
+                        position: fixed;
+                        top: 10%;
+                        left: 0%;
+                        z-index: +1;
+                    }
+                }
+                
+                @media only screen and (min-width: 600px) and (max-width:900px) {
+                    .singleResult {
+                        font-size: 15px;
+                        width: 50vw;
+                        height: 30vh;
+                    }
+                    .AuthForm {
+                        width: 70%;
+                    }
+                }
+                
+                @media only screen and (min-width: 1500px) {
+                    .singleResult {
+                        font-size: 15px;
+                        width: 10vw;
+                        height: 30vh;
+                    }
+                    .singleCat {
+                        justify-content: left;
+                    }
+                    .SingleRecipePage {
+                        width: 85%;
+                        margin-left: 7.5%;
+                    }
+                }
+                
+                @media only screen and (min-width: 1200px) {
+                    .SingleRecipePic {
+                        width: 40%;
+                    }
+                    .diet-Ingredients {
+                        justify-content: center
+                    }
+                }
+                /* Commmon class */
+                
+                .flex-column {
+                    display: flex;
+                    flex-direction: column;
+                }
+                
+                .width-90 {
+                    width: 90%
+                }
+                
+                .height-50 {
+                    height: 50%;
+                }
+                
+                .justifyBetween {
+                    justify-content: space-between;
+                }
+                
+                .flex-align-items-center {
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .mt-5 {
+                    margin-top: 5px;
+                }
+                
+                .mt-10 {
+                    margin-top: 10px;
+                }
+                
+                .mt-15 {
+                    margin-top: 15px;
+                }
+                
+                .mt-20 {
+                    margin-top: 20px;
+                }
+                
+                .mb-5 {
+                    margin-bottom: 5px;
+                }
+                
+                .mb-10 {
+                    margin-bottom: 10px;
+                }
+                
+                .mb-15 {
+                    margin-bottom: 15px;
+                }
+                
+                .mb-20 {
+                    margin-bottom: 20px;
+                }
+                
+                .ml-5 {
+                    margin-left: 5px;
+                }
+                
+                .ml-10 {
+                    margin-left: 10px;
+                }
+                
+                .ml-15 {
+                    margin-left: 15px;
+                }
+                
+                .ml-20 {
+                    margin-left: 20px;
+                }
+                
+                .mr-5 {
+                    margin-right: 5px;
+                }
+                
+                .mr-10 {
+                    margin-right: 10px;
+                }
+                
+                .mr-15 {
+                    margin-right: 15px;
+                }
+                
+                .mr-20 {
+                    margin-right: 20px;
+                }
+                
+                .justify-center {
+                    display: flex;
+                    justify-items: center;
+                }
+                
+                .align-center {
+                    display: flex;
+                    align-items: center;
+                }
+                
+                .hover-darker:hover {
+                    color: #F27F1B;
+                }
+                
+                .button-orange {
+                    display: flex;
+                    padding: 5px 15px;
+                    background: #F2A922;
+                    color: rgb(0, 0, 0);
+                    justify-self: center;
+                    border: none;
+                    border-radius: 4px;
+                    justify-content: center;
+                    font-family: 'Luxurious Roman', cursive;
+                    font-weight: bolder;
+                }
+                
+                .button-orange:hover {
+                    box-shadow: 1px 1px 5px 1px orange;
+                }
+                
+                .alert {
+                    padding: 10px;
+                    background-color: #F27F1B;
+                    font-weight: bold;
+                    font-size: 23px;
+                }
+                
+                .closebtn {
+                    margin-right: 15px;
+                    color: black;
+                    font-weight: bold;
+                    float: right;
+                    font-size: 22px;
+                    cursor: pointer;
+                    transition: 0.5s;
+                }
+                
+                .closebtn:hover {
+                    color: white;
+                }

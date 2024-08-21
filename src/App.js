@@ -23,7 +23,7 @@ import { Context } from "./context/Context";
 import axios from "axios";
 
 // all the components I need for the routes setup
-import Homepage from "./pages/Homepage";
+import Homepage from "./pages/HomePage/Homepage";
 // import Test from './components/Test';
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";

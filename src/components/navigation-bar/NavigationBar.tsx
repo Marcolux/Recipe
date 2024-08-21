@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 
 //using context to pass the user informations between components
 import React, { useContext } from "react";
-import { Context } from "../context/Context";
-import UserInNavBar from "./UserInNavbar";
+import { Context } from "../../context/Context";
+import UserInNavBar from "../UserInNavbar";
+
+import './style/navigationBar.css'
 
 // export default NavigationBar
 // export default NavigationBar
@@ -20,7 +22,7 @@ const NavigationBar = () => {
   return (
     
     localStorage.userId ? (
-      <div className="NavigationBar">
+      <div className="navigationBar">
         {/* <div className="userNavigation"> */}
         <UserInNavBar />
           <Link className="links" to={"/search-recipe"}>
@@ -41,7 +43,7 @@ const NavigationBar = () => {
         
       // </div>
     ) : (
-      <div className="homePageLinks">
+      <div className="homePageLinks navigationBar">
         <Link className="links" to="/"> <p>Home</p> </Link>
         <Link className="links" to="/login"> <p>Login</p> </Link>
         <Link className="links" to="/signup"> <p>Signup</p> </Link>

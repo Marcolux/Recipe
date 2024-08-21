@@ -1,0 +1,9 @@
+@import '../../../styles/variables/variables.scss';
+
+.navigationBar{
+    a.links{
+        color: $textColor;
+        font-family: $mainFont;
+        
+    }
+}
