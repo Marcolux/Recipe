@@ -9,8 +9,8 @@ const react_router_dom_1 = require("react-router-dom");
 require("./style/hompage.css");
 const Homepage = () => {
     return (react_1.default.createElement("div", { className: "homePage" },
-        react_1.default.createElement("img", { className: "homepageBanner" }),
-        react_1.default.createElement("h1", null, " My Recipe Collection "),
+        react_1.default.createElement("div", { className: "homepageBanner" }),
+        react_1.default.createElement("h1", null, "Welcome to Cuisine Cove"),
         react_1.default.createElement("button", { className: "buttonLight" },
             react_1.default.createElement(react_router_dom_1.Link, { to: "/signup" }, " Signup "),
             " To Start Your Recipe Collection"),

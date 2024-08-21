@@ -6,8 +6,8 @@ import './style/hompage.css'
 const Homepage = () => {
   return (
     <div className="homePage">
-      <img className="homepageBanner"/>
-      <h1> My Recipe Collection </h1>
+      <div className="homepageBanner"></div>
+      <h1>Welcome to Cuisine Cove</h1>
       <button
         className="buttonLight"
       >
