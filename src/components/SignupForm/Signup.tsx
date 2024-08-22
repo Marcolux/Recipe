@@ -45,8 +45,8 @@ const Signup = () => {
         
         const response = await axios.post(`${env.BACKEND_URL}/user/`, { name, email, password })
         if (response.data.newUser) {
-          localStorage.setItem("userId", response.data.newUser.id);
-          setUser(response.data.newUser);
+          localStorage.setItem("userId", response.data.newUser.id)
+          setUser(response.data.newUser)
         } 
       }
     } else { setShowEmailMsg(true) }
