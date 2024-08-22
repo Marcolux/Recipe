@@ -24,9 +24,10 @@ import axios from "axios";
 
 // all the components I need for the routes setup
 import Homepage from "./pages/HomePage/Homepage";
+import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage"
 // import Test from './components/Test';
-import Signup from "./pages/Signup";
-import Login from "./pages/Login";
+import Signup from "./components/SignupForm/Signup";
+import Login from "./components/LoginForm/Login";
 import UserPage from "./pages/UserPage";
 import SearchFromApi from "./pages/SearchFromApi";
 import SingleRecipePage from "./pages/SingleRecipePage";
@@ -63,17 +64,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route
-          path="/login"
+          path="/loginSignupPage"
           element={
-            localStorage.userId ? <Navigate to="/user-page" /> : <Login />
+            localStorage.userId ? <Navigate to="/user-page" /> : <LoginSignupPage/>
           }
         />
-        <Route
-          path="/signup"
-          element={
-            localStorage.userId ? <Navigate to="/user-page" /> : <Signup />
-          }
-        />
+
         <Route
           path="/user-page"
           element={localStorage.userId ? <UserPage /> : <Navigate to="/" />}

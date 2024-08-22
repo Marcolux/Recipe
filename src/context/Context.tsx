@@ -2,6 +2,7 @@ import React, { useState, createContext, ReactNode } from "react"
 
 interface MyContextType {
     userState: [Record<string, any>, React.Dispatch<React.SetStateAction<string>>];
+    loginSignupState:[string, React.Dispatch<React.SetStateAction<string>>];
     recipeIdState: [string, React.Dispatch<React.SetStateAction<string>>];
     recipeImageState: [string, React.Dispatch<React.SetStateAction<string>>];
     SingleRecipePageState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
@@ -17,6 +18,7 @@ const Context = createContext<MyContextType | undefined>(undefined);
 
 const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
   const [user, setUser] = useState({})
+  const [loginSignup, setLoginSignup] = useState('')
   const [recipeId, setUserId] = useState("")
   const [recipeImage, setRecipeImage] = useState("")
   const [SingleRecipePage, setSingleRecipePage] = useState(false)
@@ -29,6 +31,7 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
 
   const state: MyContextType = {
     userState: [user, setUser],
+    loginSignupState: [loginSignup, setLoginSignup],
     recipeIdState: [recipeId, setUserId],
     recipeImageState: [recipeImage, setRecipeImage],
     SingleRecipePageState: [SingleRecipePage, setSingleRecipePage],

@@ -1,9 +1,171 @@
-@import './styles/variables/variables.css';                
+@import './styles/variables/variables.scss';                
 
 @font-face {
     font-family: "Quicksand";
     src: url("./fonts/Quicksand-VariableFont_wght.ttf");
-}                
+}    
+
+
+
+
+// * _______ Common styles
+
+
+.button{
+    
+    border-radius: $radiusLg;
+    font-family: $mainFont;
+    font-size: $fontSizeLg;
+    
+    a{
+        text-decoration: none;
+        color: $textColorDK;
+    }
+    
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    margin: 0px 10px;
+    width: 105px;
+    padding: 3px 0;
+    transition: scale ease-in-out 0.2s;
+
+    &.light{
+        background-color: $textColorLt;
+    }
+    &.dark{
+        background-color: $textColorDK;
+        color: $textColorLt !important;
+        a{
+            text-decoration: none;
+            color: $textColorLt !important;
+        }
+    }
+    &:hover{
+        cursor: pointer;
+        scale: 1.1;
+        &.light{
+            background-color: $textColorDK;
+            color: $textColorLt !important;
+            box-shadow: 4px 4px 4px $textColorLt;
+            a{
+                text-decoration: none;
+                color: $textColorLt !important;
+            }
+        }
+        &.dark{
+            background-color: $textColorLt;
+            color: $textColorDK !important;
+            box-shadow: 4px 4px 4px $textColorDK;
+            a{
+                text-decoration: none;
+                color: $textColorDK !important;
+            }
+        }
+    }
+    &:active{
+        scale: 1;
+        box-shadow: none;
+    }
+}
+.error{
+    color: rgba(217, 6, 6, 0.846) !important;
+    font-size: $fontSizeSm !important;
+    margin: $marginSm 0px !important;
+}
+
+// * _______ signupLoginForm 
+
+.signupLoginForm{
+    font-family: $mainFont;
+    color: $textColorDK;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 390px;
+    h1{
+        margin: 20px 0px !important;
+        font-weight: 600 !important;
+        font-size: 34px;
+        position: relative;
+        display: flex;
+        width: fit-content;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        position: relative;
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 12px;
+            display: flex;
+            width: 110%;
+            height: 40%;
+            background-color: #ffa69e81;
+            z-index: -1;
+        }
+    }
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        .formInput{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+            label{
+                font-size: $fontSizeMd;
+                font-weight: 600;
+                text-align: left;
+            }
+            input{
+                // height: 26px;
+                font-size: $fontSizeMd;
+                padding: $paddingSm;
+                box-shadow: 4px 4px 4px #00000035;
+                border: none;
+                outline:  none;
+            }
+        }
+        .buttonsForm{
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+            align-items: center;
+
+            .loginLink{
+                color: $textColorDK;
+                text-decoration: none;
+                font-weight: bolder;
+                font-size: $fontSizeLg;
+                display: flex;
+                align-items: center;
+                &:hover{
+                    scale: 1.1;
+                    cursor: pointer;
+                }
+            }
+            .logSignCont{
+
+                display: flex;
+                align-items: center;
+                p{
+                    font-weight: bolder;
+                    font-size: $fontSizeLg;
+                    margin-left: $marginSm;
+                    &:hover{
+                        scale: 1.1;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+    }
+}
                 html {
                     opacity: 1;
                     background-size: cover;
@@ -12,6 +174,7 @@
                     padding: 0;
                     margin: 0;
                     height: 100vh;
+                    font-family: $mainFont;
                 }
                 
                 .App {
@@ -175,76 +338,7 @@
                 
 
                 /* ________________Home page END____________________ */
-                /* ________________SIGNUP AND LOGIN FORMS____________________ */
-                
-                .FormBottomBanner {
-                    object-fit: cover;
-                    width: 100%;
-                    height: 30%;
-                    position: fixed;
-                    bottom: 0;
-                    padding: 0;
-                    margin: 0;
-                    border-top: 2px solid #F2A922;
-                    ;
-                    box-shadow: 2px 2px 8px 4px #F2A922;
-                }
-                
-                .AuthPage {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    height: 100vh;
-                    background: rgba(255, 255, 255, 0.899);
-                }
-                
-                .AuthForm {
-                    display: flex;
-                    flex-direction: column;
-                    box-shadow: -.5px -.5px 5px 5px #f2a922d0;
-                    align-items: center;
-                    margin-top: 15vh;
-                    margin-left: 3vw;
-                    border-radius: 1.5vh;
-                    width: 30vw;
-                    padding: 2vh;
-                    background-color: #F2C53D;
-                }
-                
-                .subAuthForm {
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-                    margin: 3px;
-                    padding: 2vh;
-                }
-                
-                .formInput {
-                    margin-right: 1vw;
-                    font-size: 20px;
-                    margin-top: 1vh;
-                }
-                
-                .formInput input {
-                    font-size: 20px;
-                    margin-left: 10px;
-                    font-family: 'Luxurious Roman', cursive;
-                    padding: .1vh;
-                }
-                
-                .formButton {
-                    margin-right: 3vw;
-                    font-family: 'Luxurious Roman', cursive;
-                    font-weight: 800;
-                    letter-spacing: .05vw;
-                    font-size: large;
-                    border-radius: 1vh;
-                    background: #F2A922;
-                }
-                
-                .formButton:hover {
-                    background-color: #F27F1B;
-                }
+
                 /* ________________SIGNUP AND LOGIN FORMS END____________________ */
                 /* ________________USER PAGE____________________ */
                 

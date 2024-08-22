@@ -1,28 +1,34 @@
-import { useState } from "react";
-// axios for the call to the backend
+import React, { useState } from "react";
 import axios from "axios";
 // env to switch between the adresses
 import env from "react-dotenv";
 
-// I need to show the navigation bar in this page so I import it
-import NavigationBar from "../components/navigation-bar/NavigationBar";
+import { Link } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 //using context to pass the user informations between components
 import { useContext } from "react";
-import { Context } from "../context/Context";
+import { Context } from "../../context/Context";
 
-import img from "../img/assorted.jpg";
+
 
 const Login = () => {
-  const { userState } = useContext(Context);
+  const context = useContext(Context)
+  if (!context) throw new Error('useContext must be used within a Provider')
+
+  const { userState } = context;
   const [user, setUser] = userState;
+    
+  const { loginSignupState } = context;
+  const [loginSignup, setLoginSignup] = loginSignupState;
+
   // setting the info for the call to the backend
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   //function to "fetch" a user in the backend database
-  const loginForm = (e) => {
-    e.preventDefault();
+  const loginForm = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     axios
       .post(`${env.BACKEND_URL}/user/login`, { email, password })
       .then((response) => {
@@ -37,21 +43,22 @@ const Login = () => {
           // if not send an alert
           alert("wrong email address or password!");
         }
-      });
-  };
+      })
+  }
 
   return (
-    <div className="AuthPage">
-      <NavigationBar />
-      {/* login form */}
-      <form className="AuthForm" onSubmit={loginForm}>
-        <div className="subAuthForm">
-          <div className="formInput">
+
+    <div className="signupLoginForm">
+      <h1 className="mg-bt-Xl">Login To Your Account</h1>
+
+      <form onSubmit={loginForm} className="mg-t-Xl">
+        <div>
+          <div className="formInput mg-t-Xl">
             <label htmlFor="email">Email:</label>
             {/* using useState to save the info I need for the call to the backend */}
             <input value={email} onChange={(e) => setEmail(e.target.value)} />
           </div>
-          <div className="formInput">
+          <div className="formInput mg-bt-Xl">
             <label htmlFor="password">Password:</label>
             {/* using useState to save the info I need for the call to the backend */}
             <input
@@ -60,13 +67,23 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <div className="formInput">
-            <input className="formButton" type="submit" value="Log In" />
+          <div className="buttonsForm pd-t-Xl">
+            <Link className="loginLink" to={'/'}><FaArrowLeft className="mg-r-Sm" />Back</Link>
+            
+            <div className="logSignCont">
+              <input className="button dark" type="submit" value="Login"/>
+              <p 
+                onClick={() => {
+                  setLoginSignup('signup')
+                }}
+              ><u>Signup</u></p>
+            </div>
           </div>
         </div>
       </form>
-      <img className="FormBottomBanner" src={img} />
+      
     </div>
+  
   );
 };
 

@@ -25,6 +25,7 @@ const Context = (0, react_1.createContext)(undefined);
 exports.Context = Context;
 const Provider = ({ children }) => {
     const [user, setUser] = (0, react_1.useState)({});
+    const [loginSignup, setLoginSignup] = (0, react_1.useState)('');
     const [recipeId, setUserId] = (0, react_1.useState)("");
     const [recipeImage, setRecipeImage] = (0, react_1.useState)("");
     const [SingleRecipePage, setSingleRecipePage] = (0, react_1.useState)(false);
@@ -36,6 +37,7 @@ const Provider = ({ children }) => {
     const [alert, setAlert] = (0, react_1.useState)(false);
     const state = {
         userState: [user, setUser],
+        loginSignupState: [loginSignup, setLoginSignup],
         recipeIdState: [recipeId, setUserId],
         recipeImageState: [recipeImage, setRecipeImage],
         SingleRecipePageState: [SingleRecipePage, setSingleRecipePage],

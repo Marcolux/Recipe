@@ -1,3 +1,4 @@
+@import url(c:\Development\recipe-app\Recipe\src\styles\variables\variables.css);
 .mg-l-Sm {
   margin-left: 5px !important;
 }
@@ -214,60 +215,21 @@
   width: 100% !important;
 }
 
-.homePage {
-  background-color: #FFE0B5;
-  font-family: "Quicksand";
-  color: #333333;
+.loginSignupPage {
+  background-image: url("https://res.cloudinary.com/drdrs6pdq/image/upload/c_scale,q_72,w_1650/v1724269655/recipe%20app/SignupLoginBg.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100vh;
-}
-
-.homePage h1 {
-  margin: 0px !important;
-  font-weight: 600 !important;
-  font-size: 64px;
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  z-index: 99;
 }
-
-.homePage h1::before {
-  content: '';
-  position: absolute;
-  bottom: 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 110%;
-  height: 40%;
-  background-color: #ffa69e81;
-  z-index: -1;
-}
-
-.homePage .homepageBanner {
-  background-image: url("https://res.cloudinary.com/drdrs6pdq/image/upload/c_scale,h_438,q_71/v1724200597/recipe%20app/landing%20bg.png");
-  width: 100%;
-  height: 60%;
-  -o-object-fit: cover;
-     object-fit: cover;
-  background-size: cover;
-  background-position: center;
-}
-/*# sourceMappingURL=hompage.css.map */
+/*# sourceMappingURL=loginSignup.css.map */

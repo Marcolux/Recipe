@@ -1,7 +1,437 @@
-@import url(c:\Development\recipe-app\Recipe\src\styles\variables\variables.css);
+.mg-l-Sm {
+  margin-left: 5px !important;
+}
+
+.mg-r-Sm {
+  margin-right: 5px !important;
+}
+
+.mg-t-Sm {
+  margin-top: 5px !important;
+}
+
+.mg-b-Sm {
+  margin-bottom: 5px !important;
+}
+
+.mg-x-Sm {
+  margin: 0px 5px !important;
+}
+
+.mg-y-Sm {
+  margin: 5px !important;
+}
+
+.mg-l-Md {
+  margin-left: 10px !important;
+}
+
+.mg-r-Md {
+  margin-right: 10px !important;
+}
+
+.mg-t-Md {
+  margin-top: 10px !important;
+}
+
+.mg-b-Md {
+  margin-bottom: 10px !important;
+}
+
+.mg-x-Md {
+  margin: 0px 10px !important;
+}
+
+.mg-y-Md {
+  margin: 10px !important;
+}
+
+.mg-l-Lg {
+  margin-left: 12px !important;
+}
+
+.mg-r-Lg {
+  margin-right: 12px !important;
+}
+
+.mg-t-Lg {
+  margin-top: 12px !important;
+}
+
+.mg-b-Lg {
+  margin-bottom: 12px !important;
+}
+
+.mg-x-Lg {
+  margin: 0px 12px !important;
+}
+
+.mg-y-Lg {
+  margin: 12px !important;
+}
+
+.mg-l-Xl {
+  margin-left: 15px !important;
+}
+
+.mg-r-Xl {
+  margin-right: 15px !important;
+}
+
+.mg-t-Xl {
+  margin-top: 15px !important;
+}
+
+.mg-b-Xl {
+  margin-bottom: 15px !important;
+}
+
+.mg-x-Xl {
+  margin: 0px 15px !important;
+}
+
+.mg-y-Xl {
+  margin: 15px !important;
+}
+
+.pd-l-Sm {
+  padding-left: 5px !important;
+}
+
+.pd-r-Sm {
+  padding-right: 5px !important;
+}
+
+.pd-t-Sm {
+  padding-top: 5px !important;
+}
+
+.pd-b-Sm {
+  padding-bottom: 5px !important;
+}
+
+.pd-x-Sm {
+  padding: 0px 5px !important;
+}
+
+.pd-y-Sm {
+  padding: 5px !important;
+}
+
+.pd-l-Md {
+  padding-left: 10px !important;
+}
+
+.pd-r-Md {
+  padding-right: 10px !important;
+}
+
+.pd-t-Md {
+  padding-top: 10px !important;
+}
+
+.pd-b-Md {
+  padding-bottom: 10px !important;
+}
+
+.pd-x-Md {
+  padding: 0px 10px !important;
+}
+
+.pd-y-Md {
+  padding: 10px !important;
+}
+
+.pd-l-Lg {
+  padding-left: 12px !important;
+}
+
+.pd-r-Lg {
+  padding-right: 12px !important;
+}
+
+.pd-t-Lg {
+  padding-top: 12px !important;
+}
+
+.pd-b-Lg {
+  padding-bottom: 12px !important;
+}
+
+.pd-x-Lg {
+  padding: 0px 12px !important;
+}
+
+.pd-y-Lg {
+  padding: 12px !important;
+}
+
+.pd-l-Xl {
+  padding-left: 15px !important;
+}
+
+.pd-r-Xl {
+  padding-right: 15px !important;
+}
+
+.pd-t-Xl {
+  padding-top: 15px !important;
+}
+
+.pd-b-Xl {
+  padding-bottom: 15px !important;
+}
+
+.pd-x-Xl {
+  padding: 0px 15px !important;
+}
+
+.pd-y-Xl {
+  padding: 15px !important;
+}
+
+.flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hg-100 {
+  height: 100% !important;
+}
+
+.wdt-100 {
+  width: 100% !important;
+}
+
 @font-face {
   font-family: "Quicksand";
   src: url("./fonts/Quicksand-VariableFont_wght.ttf");
+}
+
+.button {
+  border-radius: 10px;
+  font-family: "Quicksand";
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  border: none;
+  margin: 0px 10px;
+  width: 105px;
+  padding: 3px 0;
+  -webkit-transition: scale ease-in-out 0.2s;
+  transition: scale ease-in-out 0.2s;
+}
+
+.button a {
+  text-decoration: none;
+  color: #333333;
+}
+
+.button.light {
+  background-color: #A3D9A5;
+}
+
+.button.dark {
+  background-color: #333333;
+  color: #A3D9A5 !important;
+}
+
+.button.dark a {
+  text-decoration: none;
+  color: #A3D9A5 !important;
+}
+
+.button:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+.button:hover.light {
+  background-color: #333333;
+  color: #A3D9A5 !important;
+  -webkit-box-shadow: 4px 4px 4px #A3D9A5;
+          box-shadow: 4px 4px 4px #A3D9A5;
+}
+
+.button:hover.light a {
+  text-decoration: none;
+  color: #A3D9A5 !important;
+}
+
+.button:hover.dark {
+  background-color: #A3D9A5;
+  color: #333333 !important;
+  -webkit-box-shadow: 4px 4px 4px #333333;
+          box-shadow: 4px 4px 4px #333333;
+}
+
+.button:hover.dark a {
+  text-decoration: none;
+  color: #333333 !important;
+}
+
+.button:active {
+  scale: 1;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.error {
+  color: rgba(217, 6, 6, 0.846) !important;
+  font-size: 14px !important;
+  margin: 5px 0px !important;
+}
+
+.signupLoginForm {
+  font-family: "Quicksand";
+  color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 390px;
+}
+
+.signupLoginForm h1 {
+  margin: 20px 0px !important;
+  font-weight: 600 !important;
+  font-size: 34px;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  z-index: 99;
+  position: relative;
+}
+
+.signupLoginForm h1::before {
+  content: '';
+  position: absolute;
+  bottom: 12px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 110%;
+  height: 40%;
+  background-color: #ffa69e81;
+  z-index: -1;
+}
+
+.signupLoginForm form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.signupLoginForm form .formInput {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.signupLoginForm form .formInput label {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: left;
+}
+
+.signupLoginForm form .formInput input {
+  font-size: 16px;
+  padding: 5px;
+  -webkit-box-shadow: 4px 4px 4px #00000035;
+          box-shadow: 4px 4px 4px #00000035;
+  border: none;
+  outline: none;
+}
+
+.signupLoginForm form .buttonsForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signupLoginForm form .buttonsForm .loginLink {
+  color: #333333;
+  text-decoration: none;
+  font-weight: bolder;
+  font-size: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signupLoginForm form .buttonsForm .loginLink:hover {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.signupLoginForm form .buttonsForm .logSignCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.signupLoginForm form .buttonsForm .logSignCont p {
+  font-weight: bolder;
+  font-size: 18px;
+  margin-left: 5px;
+}
+
+.signupLoginForm form .buttonsForm .logSignCont p:hover {
+  scale: 1.1;
+  cursor: pointer;
 }
 
 html {
@@ -12,6 +442,7 @@ html {
   padding: 0;
   margin: 0;
   height: 100vh;
+  font-family: "Quicksand";
 }
 
 .App {
@@ -193,99 +624,6 @@ body {
 }
 
 /* ________________Home page END____________________ */
-/* ________________SIGNUP AND LOGIN FORMS____________________ */
-.FormBottomBanner {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
-  height: 30%;
-  position: fixed;
-  bottom: 0;
-  padding: 0;
-  margin: 0;
-  border-top: 2px solid #F2A922;
-  -webkit-box-shadow: 2px 2px 8px 4px #F2A922;
-          box-shadow: 2px 2px 8px 4px #F2A922;
-}
-
-.AuthPage {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  height: 100vh;
-  background: rgba(255, 255, 255, 0.899);
-}
-
-.AuthForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-shadow: -.5px -.5px 5px 5px #f2a922d0;
-          box-shadow: -.5px -.5px 5px 5px #f2a922d0;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-top: 15vh;
-  margin-left: 3vw;
-  border-radius: 1.5vh;
-  width: 30vw;
-  padding: 2vh;
-  background-color: #F2C53D;
-}
-
-.subAuthForm {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  margin: 3px;
-  padding: 2vh;
-}
-
-.formInput {
-  margin-right: 1vw;
-  font-size: 20px;
-  margin-top: 1vh;
-}
-
-.formInput input {
-  font-size: 20px;
-  margin-left: 10px;
-  font-family: 'Luxurious Roman', cursive;
-  padding: .1vh;
-}
-
-.formButton {
-  margin-right: 3vw;
-  font-family: 'Luxurious Roman', cursive;
-  font-weight: 800;
-  letter-spacing: .05vw;
-  font-size: large;
-  border-radius: 1vh;
-  background: #F2A922;
-}
-
-.formButton:hover {
-  background-color: #F27F1B;
-}
-
 /* ________________SIGNUP AND LOGIN FORMS END____________________ */
 /* ________________USER PAGE____________________ */
 .UserPage {

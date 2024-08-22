@@ -1,0 +1,15 @@
+@import '../../../../src/styles/variables/variables.scss';
+@import '../../../../src/styles/variables/variables.css';
+
+
+.loginSignupPage{
+    background-image: url('https://res.cloudinary.com/drdrs6pdq/image/upload/c_scale,q_72,w_1650/v1724269655/recipe%20app/SignupLoginBg.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
