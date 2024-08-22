@@ -31,7 +31,7 @@ const Homepage = () => {
         </button>
 
         <button
-          className="button dark"
+          className="button dark mg-l-Lg"
           onClick={() => {setLoginSignup('login')}}
         >
           <Link to="/loginSignupPage"> Login </Link>

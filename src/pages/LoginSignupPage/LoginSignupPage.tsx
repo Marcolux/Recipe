@@ -21,7 +21,8 @@ const LoginSignupPage = () => {
 
         <div className="loginSignupPage">
             {
-                loginSignup === 'signup' ?
+                loginSignup === 'signup' 
+                ?
                 <Signup/> 
                 :
                 <Login/>

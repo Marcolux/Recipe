@@ -1,10 +1,11 @@
-import React, { useState, useContext } from "react";
-import axios from "axios";
+import React, { useState, useContext } from "react"
+import axios from "axios"
 import env from "react-dotenv"
+import { Context } from "../../context/Context"
+import { AiOutlineStop } from "react-icons/ai"
+import { TiInputChecked } from "react-icons/ti"
 
-import { Context } from "../../context/Context";
-import { Link } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"
+
 
 const validateEmail = (email: string) => {
   const re = /\S+@\S+\.\S+/
@@ -21,92 +22,114 @@ const Signup = () => {
   const { loginSignupState } = context
   const [loginSignup, setLoginSignup] = loginSignupState
 
-  const [email, setEmail] = useState("")
   const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-
+  const [confirmPasswordValue, setConfirmPasswordValue] = useState("")
+ 
   const [showEmailMsg, setShowEmailMsg] = useState(false)
+  const [confirmedPassword, setconfirmedPassword] = useState(true)
 
   const signupForm = async (e: React.FormEvent<HTMLFormElement>) => {
     
     if (!validateEmail(email)) {
       alert("Please enter a valid email address.")
-      return;
+      return
     }
     e.preventDefault()
 
     const response = await axios.post(`${env.BACKEND_URL}/user/checkEmail`, { email })
 
-    console.log(response)
-
     if (!response.data.exists) {
-
-      const response = await axios.post(`${env.BACKEND_URL}/user/`, { name, email, password })
-      if (response.data.newUser) {
-        localStorage.setItem("userId", response.data.newUser.id);
-        setUser(response.data.newUser);
-      } 
-
+      if (name && email && password && confirmedPassword) {
+        
+        const response = await axios.post(`${env.BACKEND_URL}/user/`, { name, email, password })
+        if (response.data.newUser) {
+          localStorage.setItem("userId", response.data.newUser.id);
+          setUser(response.data.newUser);
+        } 
+      }
     } else { setShowEmailMsg(true) }
 
   }
+
+  const checkPasswordConfirm = () => {
+    password === confirmPasswordValue ? setconfirmedPassword(true) : setconfirmedPassword(false)
+  }
+
   return (
     
     <div className="signupLoginForm">
       <h1>Create a New Account</h1>
       <form onSubmit={signupForm}>
-        <div>
+
+          {/* ==== User Name */}
           <div className="formInput">
             <label htmlFor="name" id="userName"> User Name: </label>
-            {/* useState to temporary storage the info for the call to the backend */}
-            <input id="name" value={name} onChange={(e) => setName(e.target.value)} />
+            <input id="name" value={name} onChange={(e) => setName(e.target.value)} required/>
           </div>
-          <div className="formInput">
+
+          {/* ==== Email */}
+          <div className={showEmailMsg ? 'error formInput' : 'formInput'}>
             <label htmlFor="email"> Email: </label>
-            {/* useState to temporary storage the info for the call to the backend */}
-            <input id="email" className={showEmailMsg ? 'error' : ''} value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input 
+              id="email" 
+              className={showEmailMsg ? 'error' : ''} 
+              value={email} 
+              onChange={(e) => {
+                setEmail(e.target.value)
+                setShowEmailMsg(false)
+
+              }}
+              type="email"
+              required 
+            />
             { 
               showEmailMsg ?
               <p className="error">Email already in use, Please select a different address</p> 
               : null 
             }
           </div>
+
+          {/* ==== Password */}
           <div className="formInput">
             <label htmlFor="password"> Password: </label>
-            {/* useState to temporary storage the info for the call to the backend */}
             <input
               type="password"
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            />
+              onChange={(e) => { setPassword(e.target.value) }}
+              onKeyUp={() => { checkPasswordConfirm() }}
+              required
+            /> 
           </div>
+
+          {/* ==== Confirm Password */}
           <div className="formInput">
-            <label htmlFor="password"> Confirm Password: </label>
-            {/* useState to temporary storage the info for the call to the backend */}
+            <div className="flex alignItems-center">
+              <label htmlFor="password" className="mg-r-Sm"> Confirm Password: </label>
+              {!confirmedPassword ? <AiOutlineStop className="notValid"/> : <TiInputChecked className="valid" style={{height: "20px", width: '20px'}}/> }
+            </div>
             <input
               type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={confirmPasswordValue}
+              onChange={(e) => { setConfirmPasswordValue(e.target.value) }}
+              onKeyUp={() => { checkPasswordConfirm() }}
+              required
             />
-          </div>
-          <div className="buttonsForm">
-            <Link className="loginLink" to={'/'}><FaArrowLeft className="mg-r-Sm" />Back</Link>
-            
+          </div> 
+
+          {/* ==== Buttons */}
+          <div className="buttonsForm"> 
             <div className="logSignCont">
-              <input className="button dark" type="submit" value="Signup"/>
+              <input className="button dark mg-r-Lg" type="submit" value="Signup"/>
               <p 
-                onClick={() => {
-                  setLoginSignup('login')
-                }}
+                onClick={() => { setLoginSignup('login')}}
               ><u>Login</u></p>
             </div>
           </div>
-        </div>
       </form>
-      <div className="SomeDecoration"> </div>
-      {/* <div className="NavigateHome"> */}
     </div>
-  );
-};
+  )
+}
 
-export default Signup;
+export default Signup

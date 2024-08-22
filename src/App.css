@@ -206,6 +206,26 @@
           flex-direction: column;
 }
 
+.alignItems-center {
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.justifyContent-center {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.notValid {
+  color: rgba(181, 6, 6, 0.846) !important;
+}
+
+.valid {
+  color: rgba(6, 141, 6, 0.921) !important;
+}
+
 .hg-100 {
   height: 100% !important;
 }
@@ -226,7 +246,7 @@
   font-weight: 500;
   text-decoration: none;
   border: none;
-  margin: 0px 10px;
+  margin: 0px;
   width: 105px;
   padding: 3px 0;
   -webkit-transition: scale ease-in-out 0.2s;
@@ -291,6 +311,7 @@
   color: rgba(217, 6, 6, 0.846) !important;
   font-size: 14px !important;
   margin: 5px 0px !important;
+  font-weight: 600;
 }
 
 .signupLoginForm {
@@ -382,6 +403,11 @@
           box-shadow: 4px 4px 4px #00000035;
   border: none;
   outline: none;
+}
+
+.signupLoginForm form .formInput.error {
+  color: rgba(217, 6, 6, 0.846) !important;
+  margin-bottom: 5px;
 }
 
 .signupLoginForm form .buttonsForm {

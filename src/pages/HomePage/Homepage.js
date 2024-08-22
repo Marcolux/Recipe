@@ -38,7 +38,7 @@ const Homepage = () => {
         react_1.default.createElement("div", { className: "flex mg-y-Xl" },
             react_1.default.createElement("button", { className: "button light", onClick: () => { setLoginSignup('signup'); } },
                 react_1.default.createElement(react_router_dom_1.Link, { to: "/loginSignupPage" }, " Signup ")),
-            react_1.default.createElement("button", { className: "button dark", onClick: () => { setLoginSignup('login'); } },
+            react_1.default.createElement("button", { className: "button dark mg-l-Lg", onClick: () => { setLoginSignup('login'); } },
                 react_1.default.createElement(react_router_dom_1.Link, { to: "/loginSignupPage" }, " Login ")))));
 };
 exports.default = Homepage;

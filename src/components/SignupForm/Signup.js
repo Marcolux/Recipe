@@ -35,8 +35,8 @@ const react_1 = __importStar(require("react"));
 const axios_1 = __importDefault(require("axios"));
 const react_dotenv_1 = __importDefault(require("react-dotenv"));
 const Context_1 = require("../../context/Context");
-const react_router_dom_1 = require("react-router-dom");
-const fa_1 = require("react-icons/fa");
+const ai_1 = require("react-icons/ai");
+const ti_1 = require("react-icons/ti");
 const validateEmail = (email) => {
     const re = /\S+@\S+\.\S+/;
     return re.test(email);
@@ -49,10 +49,12 @@ const Signup = () => {
     const [user, setUser] = userState;
     const { loginSignupState } = context;
     const [loginSignup, setLoginSignup] = loginSignupState;
-    const [email, setEmail] = (0, react_1.useState)("");
     const [name, setName] = (0, react_1.useState)("");
+    const [email, setEmail] = (0, react_1.useState)("");
     const [password, setPassword] = (0, react_1.useState)("");
+    const [confirmPasswordValue, setConfirmPasswordValue] = (0, react_1.useState)("");
     const [showEmailMsg, setShowEmailMsg] = (0, react_1.useState)(false);
+    const [confirmedPassword, setconfirmedPassword] = (0, react_1.useState)(true);
     const signupForm = (e) => __awaiter(void 0, void 0, void 0, function* () {
         if (!validateEmail(email)) {
             alert("Please enter a valid email address.");
@@ -60,47 +62,49 @@ const Signup = () => {
         }
         e.preventDefault();
         const response = yield axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/user/checkEmail`, { email });
-        console.log(response);
         if (!response.data.exists) {
-            const response = yield axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/user/`, { name, email, password });
-            if (response.data.newUser) {
-                localStorage.setItem("userId", response.data.newUser.id);
-                setUser(response.data.newUser);
+            if (name && email && password && confirmedPassword) {
+                const response = yield axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/user/`, { name, email, password });
+                if (response.data.newUser) {
+                    localStorage.setItem("userId", response.data.newUser.id);
+                    setUser(response.data.newUser);
+                }
             }
         }
         else {
             setShowEmailMsg(true);
         }
     });
+    const checkPasswordConfirm = () => {
+        password === confirmPasswordValue ? setconfirmedPassword(true) : setconfirmedPassword(false);
+    };
     return (react_1.default.createElement("div", { className: "signupLoginForm" },
         react_1.default.createElement("h1", null, "Create a New Account"),
         react_1.default.createElement("form", { onSubmit: signupForm },
-            react_1.default.createElement("div", null,
-                react_1.default.createElement("div", { className: "formInput" },
-                    react_1.default.createElement("label", { htmlFor: "name", id: "userName" }, " User Name: "),
-                    react_1.default.createElement("input", { id: "name", value: name, onChange: (e) => setName(e.target.value) })),
-                react_1.default.createElement("div", { className: "formInput" },
-                    react_1.default.createElement("label", { htmlFor: "email" }, " Email: "),
-                    react_1.default.createElement("input", { id: "email", className: showEmailMsg ? 'error' : '', value: email, onChange: (e) => setEmail(e.target.value) }),
-                    showEmailMsg ?
-                        react_1.default.createElement("p", { className: "error" }, "Email already in use, Please select a different address")
-                        : null),
-                react_1.default.createElement("div", { className: "formInput" },
-                    react_1.default.createElement("label", { htmlFor: "password" }, " Password: "),
-                    react_1.default.createElement("input", { type: "password", value: password, onChange: (e) => setPassword(e.target.value) })),
-                react_1.default.createElement("div", { className: "formInput" },
-                    react_1.default.createElement("label", { htmlFor: "password" }, " Confirm Password: "),
-                    react_1.default.createElement("input", { type: "password", value: password, onChange: (e) => setPassword(e.target.value) })),
-                react_1.default.createElement("div", { className: "buttonsForm" },
-                    react_1.default.createElement(react_router_dom_1.Link, { className: "loginLink", to: '/' },
-                        react_1.default.createElement(fa_1.FaArrowLeft, { className: "mg-r-Sm" }),
-                        "Back"),
-                    react_1.default.createElement("div", { className: "logSignCont" },
-                        react_1.default.createElement("input", { className: "button dark", type: "submit", value: "Signup" }),
-                        react_1.default.createElement("p", { onClick: () => {
-                                setLoginSignup('login');
-                            } },
-                            react_1.default.createElement("u", null, "Login")))))),
-        react_1.default.createElement("div", { className: "SomeDecoration" }, " ")));
+            react_1.default.createElement("div", { className: "formInput" },
+                react_1.default.createElement("label", { htmlFor: "name", id: "userName" }, " User Name: "),
+                react_1.default.createElement("input", { id: "name", value: name, onChange: (e) => setName(e.target.value), required: true })),
+            react_1.default.createElement("div", { className: showEmailMsg ? 'error formInput' : 'formInput' },
+                react_1.default.createElement("label", { htmlFor: "email" }, " Email: "),
+                react_1.default.createElement("input", { id: "email", className: showEmailMsg ? 'error' : '', value: email, onChange: (e) => {
+                        setEmail(e.target.value);
+                        setShowEmailMsg(false);
+                    }, type: "email", required: true }),
+                showEmailMsg ?
+                    react_1.default.createElement("p", { className: "error" }, "Email already in use, Please select a different address")
+                    : null),
+            react_1.default.createElement("div", { className: "formInput" },
+                react_1.default.createElement("label", { htmlFor: "password" }, " Password: "),
+                react_1.default.createElement("input", { type: "password", value: password, onChange: (e) => { setPassword(e.target.value); }, onKeyUp: () => { checkPasswordConfirm(); }, required: true })),
+            react_1.default.createElement("div", { className: "formInput" },
+                react_1.default.createElement("div", { className: "flex alignItems-center" },
+                    react_1.default.createElement("label", { htmlFor: "password", className: "mg-r-Sm" }, " Confirm Password: "),
+                    !confirmedPassword ? react_1.default.createElement(ai_1.AiOutlineStop, { className: "notValid" }) : react_1.default.createElement(ti_1.TiInputChecked, { className: "valid", style: { height: "20px", width: '20px' } })),
+                react_1.default.createElement("input", { type: "password", value: confirmPasswordValue, onChange: (e) => { setConfirmPasswordValue(e.target.value); }, onKeyUp: () => { checkPasswordConfirm(); }, required: true })),
+            react_1.default.createElement("div", { className: "buttonsForm" },
+                react_1.default.createElement("div", { className: "logSignCont" },
+                    react_1.default.createElement("input", { className: "button dark mg-r-Lg", type: "submit", value: "Signup" }),
+                    react_1.default.createElement("p", { onClick: () => { setLoginSignup('login'); } },
+                        react_1.default.createElement("u", null, "Login")))))));
 };
 exports.default = Signup;

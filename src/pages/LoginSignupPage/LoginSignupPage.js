@@ -34,8 +34,9 @@ const LoginSignupPage = () => {
     const { loginSignupState } = context;
     const [loginSignup, setLoginSignup] = loginSignupState;
     console.log(loginSignup);
-    return (react_1.default.createElement("div", { className: "loginSignupPage" }, loginSignup === 'signup' ?
-        react_1.default.createElement(Signup_1.default, null)
+    return (react_1.default.createElement("div", { className: "loginSignupPage" }, loginSignup === 'signup'
+        ?
+            react_1.default.createElement(Signup_1.default, null)
         :
             react_1.default.createElement(Login_1.default, null)));
 };
