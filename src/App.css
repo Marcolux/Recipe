@@ -1040,22 +1040,6 @@ html .App {
   border: 1px solid black;
 }
 
-.searchSelection {
-  width: 30vh;
-  height: 3vh;
-  text-align: center;
-  margin: 2vw;
-  font-size: large;
-}
-
-.searchInput {
-  width: 30vh;
-  height: 2.5vh;
-  text-align: center;
-  margin: 2vw;
-  font-size: large;
-}
-
 .searchformInput {
   margin-right: 1vw;
   margin-top: 1vh;

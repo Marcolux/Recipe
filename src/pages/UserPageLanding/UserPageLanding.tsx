@@ -5,7 +5,7 @@ import './style/user-page.css'
 import { Context } from "../../context/Context"
 
 import TabCategories from "../../components/TabCategories/TabCategories"
-import TabRecepies from "../../components/TabRecepies/TabRecepies"
+import TabRecepies from "../../components/TabRecepies/TabRecipies"
 import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 
 const UserPageLanding = () => {
@@ -23,8 +23,8 @@ const UserPageLanding = () => {
     switch (tabSwitch) {
       case 'categories' :
         return <TabCategories tabSwitch='categories'/>
-      case 'recepies' :
-        return <TabRecepies tabSwitch='recepies'/>
+      case 'Recipies' :
+        return <TabRecepies tabSwitch='Recipies'/>
       case 'searchApi' :
         return <TabSearchAPI tabSwitch='searchApi'/>
       default:
@@ -58,9 +58,9 @@ const UserPageLanding = () => {
           </button>
           
           <button
-            className={tabSwitch === 'recepies' ? 'active' : ''}
-            onClick={(e) => {setTabSwitch('recepies')}}
-          >All Your Recepies
+            className={tabSwitch === 'Recipies' ? 'active' : ''}
+            onClick={(e) => {setTabSwitch('Recipies')}}
+          >All Your Recipies
           </button>
           
           <button

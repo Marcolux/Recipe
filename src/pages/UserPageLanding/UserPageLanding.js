@@ -27,7 +27,7 @@ const react_router_dom_1 = require("react-router-dom");
 require("./style/user-page.css");
 const Context_1 = require("../../context/Context");
 const TabCategories_1 = __importDefault(require("../../components/TabCategories/TabCategories"));
-const TabRecepies_1 = __importDefault(require("../../components/TabRecepies/TabRecepies"));
+const TabRecipies_1 = __importDefault(require("../../components/TabRecepies/TabRecipies"));
 const TabSearchApi_1 = __importDefault(require("../../components/TabSearchApi/TabSearchApi"));
 const UserPageLanding = () => {
     const [tabSwitch, setTabSwitch] = (0, react_1.useState)('categories');
@@ -41,8 +41,8 @@ const UserPageLanding = () => {
         switch (tabSwitch) {
             case 'categories':
                 return react_1.default.createElement(TabCategories_1.default, { tabSwitch: 'categories' });
-            case 'recepies':
-                return react_1.default.createElement(TabRecepies_1.default, { tabSwitch: 'recepies' });
+            case 'Recipies':
+                return react_1.default.createElement(TabRecipies_1.default, { tabSwitch: 'Recipies' });
             case 'searchApi':
                 return react_1.default.createElement(TabSearchApi_1.default, { tabSwitch: 'searchApi' });
             default:
@@ -62,7 +62,7 @@ const UserPageLanding = () => {
                     } }, "Logout")),
             react_1.default.createElement("div", { className: "flex" },
                 react_1.default.createElement("button", { className: tabSwitch === 'categories' ? ' active' : '', onClick: (e) => { setTabSwitch('categories'); } }, " Categories"),
-                react_1.default.createElement("button", { className: tabSwitch === 'recepies' ? 'active' : '', onClick: (e) => { setTabSwitch('recepies'); } }, "All Your Recepies"),
+                react_1.default.createElement("button", { className: tabSwitch === 'Recipies' ? 'active' : '', onClick: (e) => { setTabSwitch('Recipies'); } }, "All Your Recipies"),
                 react_1.default.createElement("button", { className: tabSwitch === 'searchApi' ? 'active' : '', onClick: (e) => { setTabSwitch('searchApi'); } }, " Search From Spoonacular"))),
         react_1.default.createElement("div", { className: "flex hg-100" }, renderComponent())));
 };
