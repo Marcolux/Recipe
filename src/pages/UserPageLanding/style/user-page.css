@@ -1,4 +1,3 @@
-@import url(c:\Development\recipe-app\Recipe\src\styles\variables\variables.css);
 .mg-l-Sm {
   margin-left: 5px !important;
 }
@@ -235,21 +234,87 @@
   width: 100% !important;
 }
 
-.loginSignupPage {
-  background-image: url("https://res.cloudinary.com/drdrs6pdq/image/upload/c_scale,q_72,w_1650/v1724269655/recipe%20app/SignupLoginBg.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 100vw;
-  height: 100vh;
+.userPageLanding {
+  background: #FFE0B5;
+  font-family: "Quicksand";
+  color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.userPageLanding .navTabs {
+  padding: 10px 12px 0px 12px;
+  background-color: #F2CC8F;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
 }
-/*# sourceMappingURL=loginSignup.css.map */
+
+.userPageLanding .navTabs button {
+  font-family: "Quicksand";
+  padding: 10px;
+  border: 0px solid #A3D9A5;
+  font-size: 14px;
+  color: #Ffffff;
+  font-weight: 700;
+}
+
+.userPageLanding .navTabs button:first-child {
+  border-top-left-radius: 10px;
+  color: #A3D9A5;
+  background-color: #333333;
+}
+
+.userPageLanding .navTabs button:nth-child(2) {
+  color: #333333;
+  background-color: #A3D9A5;
+}
+
+.userPageLanding .navTabs button:nth-child(3) {
+  border-top-right-radius: 10px;
+  background-color: #6B8E23;
+  color: #333333;
+}
+
+.userPageLanding .pageContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding-top: 10px;
+}
+
+.userPageLanding .pageContent.searchApi {
+  background-color: #6B8E23;
+}
+
+.userPageLanding .pageContent.recepies {
+  background-color: #A3D9A5;
+}
+
+.userPageLanding .pageContent.categories {
+  background-color: #333333;
+}
+
+.userPageLanding .pageContent div {
+  background-color: #FFE0B5;
+  width: 100%;
+}
+/*# sourceMappingURL=user-page.css.map */

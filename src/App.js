@@ -25,10 +25,8 @@ import axios from "axios";
 // all the components I need for the routes setup
 import Homepage from "./pages/HomePage/Homepage";
 import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage"
+import UserPageLanding from "./pages/UserPageLanding/UserPageLanding"
 // import Test from './components/Test';
-import Signup from "./components/SignupForm/Signup";
-import Login from "./components/LoginForm/Login";
-import UserPage from "./pages/UserPage";
 import SearchFromApi from "./pages/SearchFromApi";
 import SingleRecipePage from "./pages/SingleRecipePage";
 import AllTheRecipes from "./pages/AllTheRecipes";
@@ -41,8 +39,7 @@ function App() {
   // create a function to verify a user from the backend and store it in useContext
   useEffect(() => {
     const fetchUser = () => {
-      const userId = localStorage.getItem("userId");
-
+      const userId = localStorage.getItem("userId")
       if (userId) {
         axios
           .get(`${env.BACKEND_URL}/user/verify`, {
@@ -72,7 +69,7 @@ function App() {
 
         <Route
           path="/user-page"
-          element={localStorage.userId ? <UserPage /> : <Navigate to="/" />}
+          element={localStorage.userId ? <UserPageLanding /> : <Navigate to="/" />}
         />
         <Route
           path="/search-recipe"

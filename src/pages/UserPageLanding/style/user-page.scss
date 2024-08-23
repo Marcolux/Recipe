@@ -1,0 +1,64 @@
+@import '../../../../src/styles/variables/variables.scss';
+
+.userPageLanding{
+    background: $mainBg;
+    font-family: $mainFont;
+    color: $textColorDK;
+
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    .navTabs{
+        padding: $paddingMd $paddingLg 0px $paddingLg;
+        background-color: #F2CC8F;
+        
+        display: flex;
+        align-items: center;
+        justify-content: left;
+        button{
+            font-family: $mainFont;
+            padding: $paddingMd;
+            border: 0px solid $textColorLt;
+            font-size: $fontSizeSm;
+            color: #Ffffff;
+            font-weight: 700;
+
+            &:first-child{
+                border-top-left-radius: $radiusLg;
+                color: $textColorLt;
+                background-color: $textColorDK;
+            }
+            &:nth-child(2) {
+                color: $textColorDK;
+                background-color: $textColorLt;
+            }
+            &:nth-child(3){
+                border-top-right-radius: $radiusLg;
+                background-color: #6B8E23;
+                color: $textColorDK;
+            }
+        }
+        
+    }
+    .pageContent{
+        display: flex;
+        flex-grow: 1;
+        padding-top: $paddingMd;
+        &.searchApi {
+            background-color: #6B8E23;
+            // background-color: #757575;
+        }
+        &.recepies{
+            background-color: $textColorLt;
+            // background-color: #8f8f8f;
+        }
+        &.categories{
+            background-color: $textColorDK;
+        }
+        div{
+            background-color: $mainBg;
+            width: 100%;
+        }
+    }
+}
