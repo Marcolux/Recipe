@@ -234,6 +234,14 @@
   width: 100% !important;
 }
 
+.text-bold {
+  font-weight: 700;
+}
+
+.hide {
+  display: none !important;
+}
+
 .homePage {
   background-color: #FFE0B5;
   font-family: "Quicksand";

@@ -238,6 +238,10 @@
   font-weight: 700;
 }
 
+.hide {
+  display: none !important;
+}
+
 @font-face {
   font-family: "Quicksand";
   src: url("./fonts/Quicksand-VariableFont_wght.ttf");

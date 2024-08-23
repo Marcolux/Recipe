@@ -1,1 +1,56 @@
 @import '../../../../src/styles/variables/variables.scss'; 
+.pageContent.categories{
+    display: flex;
+    flex-direction: column;
+
+    .leftTabCat{
+        background-color: $textColorLt !important;
+        // padding: $paddingMd;
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    }
+    .recipesCont{
+        .recipeInCat{
+            display: flex;
+            flex-direction: column;
+            .categoryHeader{
+                display: flex;
+                align-items: center;
+                width: 100%;
+                p{
+                    padding: 0px $paddingXl;
+                    font-size: $fontSizeXl !important;
+                    
+                    display: flex;
+                    flex-grow: 1;
+                    justify-content: center;
+                    font-weight: 800;
+                }
+                .button {
+                    width: fit-content !important;
+                    padding: $paddingSm $paddingLg !important;
+                    margin-right: $marginXl !important;
+                    font-size: $fontSizeSm !important;
+                }
+        
+            }
+        }
+    }
+    .addCategorySec{
+        background-color: $textColorLt !important;
+        .inputCategory{
+            display: flex;
+            align-items: baseline;
+            background-color: $textColorLt !important;
+            p{
+                text-decoration: underline;
+                font-weight: 600;
+                &:hover{
+                    cursor: pointer;
+                    font-weight: 800;
+                }
+            }
+        }
+    }
+}

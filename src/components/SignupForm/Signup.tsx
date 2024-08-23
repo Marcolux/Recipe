@@ -47,6 +47,7 @@ const Signup = () => {
         if (response.data.newUser) {
           localStorage.setItem("userId", response.data.newUser.id)
           setUser(response.data.newUser)
+          createInitialCategories(response.data.newUser.id)
         } 
       }
     } else { setShowEmailMsg(true) }
@@ -55,6 +56,12 @@ const Signup = () => {
 
   const checkPasswordConfirm = () => {
     password === confirmPasswordValue ? setconfirmedPassword(true) : setconfirmedPassword(false)
+  }
+
+  const createInitialCategories = (newUser: string) => {
+    axios.post(`${env.BACKEND_URL}/category/${newUser}`, { categoryName: 'Breakfast'})
+    axios.post(`${env.BACKEND_URL}/category/${newUser}`, { categoryName: 'Lunch'})
+    axios.post(`${env.BACKEND_URL}/category/${newUser}`, { categoryName: 'Dinner'})
   }
 
   return (

@@ -237,4 +237,8 @@
 .text-bold {
   font-weight: 700;
 }
+
+.hide {
+  display: none !important;
+}
 /*# sourceMappingURL=variables.css.map */

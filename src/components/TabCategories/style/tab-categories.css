@@ -233,4 +233,104 @@
 .wdt-100 {
   width: 100% !important;
 }
+
+.text-bold {
+  font-weight: 700;
+}
+
+.hide {
+  display: none !important;
+}
+
+.pageContent.categories {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pageContent.categories .leftTabCat {
+  background-color: #A3D9A5 !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.pageContent.categories .recipesCont .recipeInCat {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.pageContent.categories .recipesCont .recipeInCat .categoryHeader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.pageContent.categories .recipesCont .recipeInCat .categoryHeader p {
+  padding: 0px 15px;
+  font-size: 20px !important;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: 800;
+}
+
+.pageContent.categories .recipesCont .recipeInCat .categoryHeader .button {
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  padding: 5px 12px !important;
+  margin-right: 15px !important;
+  font-size: 14px !important;
+}
+
+.pageContent.categories .addCategorySec {
+  background-color: #A3D9A5 !important;
+}
+
+.pageContent.categories .addCategorySec .inputCategory {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  background-color: #A3D9A5 !important;
+}
+
+.pageContent.categories .addCategorySec .inputCategory p {
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.pageContent.categories .addCategorySec .inputCategory p:hover {
+  cursor: pointer;
+  font-weight: 800;
+}
 /*# sourceMappingURL=tab-categories.css.map */

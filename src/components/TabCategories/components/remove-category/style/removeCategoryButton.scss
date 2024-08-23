@@ -1,0 +1,24 @@
+@import '../../../../../styles/variables/variables.scss';
+
+.categoryButton{
+    background-color: #F2CC8F;
+    font-family: $mainFont;
+    padding: $paddingSm $paddingMd;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid $textColorDK;
+
+    font-weight: 600;
+    text-align: right;
+    &:first-child{
+        border-top-left-radius: $radiusLg;
+    }
+    &:last-child{
+        border-bottom-left-radius: $radiusLg;
+        border-bottom: none !important;
+    }
+    &.active {
+        background-color: $mainBg;
+    }
+}

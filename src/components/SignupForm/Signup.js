@@ -68,6 +68,7 @@ const Signup = () => {
                 if (response.data.newUser) {
                     localStorage.setItem("userId", response.data.newUser.id);
                     setUser(response.data.newUser);
+                    createInitialCategories(response.data.newUser.id);
                 }
             }
         }
@@ -77,6 +78,11 @@ const Signup = () => {
     });
     const checkPasswordConfirm = () => {
         password === confirmPasswordValue ? setconfirmedPassword(true) : setconfirmedPassword(false);
+    };
+    const createInitialCategories = (newUser) => {
+        axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/category/${newUser}`, { categoryName: 'Breakfast' });
+        axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/category/${newUser}`, { categoryName: 'Lunch' });
+        axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/category/${newUser}`, { categoryName: 'Dinner' });
     };
     return (react_1.default.createElement("div", { className: "signupLoginForm" },
         react_1.default.createElement("h1", null, "Create a New Account"),

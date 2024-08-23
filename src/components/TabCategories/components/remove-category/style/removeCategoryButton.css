@@ -241,4 +241,29 @@
 .hide {
   display: none !important;
 }
-/*# sourceMappingURL=tab-search-api.css.map */
+
+.categoryButton {
+  background-color: #F2CC8F;
+  font-family: "Quicksand";
+  padding: 5px 10px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid #333333;
+  font-weight: 600;
+  text-align: right;
+}
+
+.categoryButton:first-child {
+  border-top-left-radius: 10px;
+}
+
+.categoryButton:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom: none !important;
+}
+
+.categoryButton.active {
+  background-color: #FFE0B5;
+}
+/*# sourceMappingURL=removeCategoryButton.css.map */
