@@ -1,1 +1,33 @@
 @import '../../../../src/styles/variables/variables.scss';
+
+
+.searchFromApiCont{
+    display: flex;
+    flex-direction: column;
+    .apiSearchHeader{
+        font-family: $mainFont;
+        font-size: $fontSizeXl;
+        font-weight: 700;
+        text-align: center;
+    }
+    .formApi{
+        background-color: $darkerBg;
+        padding: $paddingXl;
+        margin: $marginSm $marginXl;
+        border-radius: $radiusLg;
+        box-shadow: 4px 4px 4px #0000003b;
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        .searchLabel{
+            font-size: $fontSizeMd;
+            font-weight: 600;
+        }
+        .searchInput{
+            font-size: $fontSizeLg;
+            outline: none;
+            border: none; 
+            padding: $paddingSm;
+        }
+    }
+}

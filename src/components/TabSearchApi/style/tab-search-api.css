@@ -241,4 +241,51 @@
 .hide {
   display: none !important;
 }
+
+.searchFromApiCont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.searchFromApiCont .apiSearchHeader {
+  font-family: "Quicksand";
+  font-size: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.searchFromApiCont .formApi {
+  background-color: #F2CC8F;
+  padding: 15px;
+  margin: 5px 15px;
+  border-radius: 10px;
+  -webkit-box-shadow: 4px 4px 4px #0000003b;
+          box-shadow: 4px 4px 4px #0000003b;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.searchFromApiCont .formApi .searchLabel {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.searchFromApiCont .formApi .searchInput {
+  font-size: 18px;
+  outline: none;
+  border: none;
+  padding: 5px;
+}
 /*# sourceMappingURL=tab-search-api.css.map */
