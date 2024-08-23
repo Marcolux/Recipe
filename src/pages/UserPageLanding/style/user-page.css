@@ -257,38 +257,69 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.userPageLanding .navTabs .headerUserPage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.userPageLanding .navTabs .headerUserPage h1 {
+  font-size: 24px;
+  margin: 5px;
+  width: 100%;
+  text-align: center;
 }
 
 .userPageLanding .navTabs button {
   font-family: "Quicksand";
   padding: 10px;
-  border: 0px solid #A3D9A5;
+  border-top: 1px solid #A3D9A5;
+  border-left: 1px solid #A3D9A5;
+  border-right: 1px solid #A3D9A5;
+  border-bottom: 0px solid #A3D9A5;
   font-size: 14px;
   color: #Ffffff;
   font-weight: 700;
-}
-
-.userPageLanding .navTabs button:first-child {
-  border-top-left-radius: 10px;
   color: #A3D9A5;
   background-color: #333333;
 }
 
-.userPageLanding .navTabs button:nth-child(2) {
-  color: #333333;
+.userPageLanding .navTabs button.active {
   background-color: #A3D9A5;
+  color: #333333;
+  border-top: 1px solid #333333;
+  border-left: 1px solid #333333;
+  border-right: 1px solid #333333;
+  scale: 1.05;
+}
+
+.userPageLanding .navTabs button:first-child {
+  border-top-left-radius: 10px;
 }
 
 .userPageLanding .navTabs button:nth-child(3) {
   border-top-right-radius: 10px;
-  background-color: #6B8E23;
-  color: #333333;
+}
+
+.userPageLanding .navTabs button:hover {
+  cursor: pointer;
 }
 
 .userPageLanding .pageContent {
@@ -298,7 +329,8 @@
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  padding-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #A3D9A5;
 }
 
 .userPageLanding .pageContent.searchApi {
@@ -316,5 +348,9 @@
 .userPageLanding .pageContent div {
   background-color: #FFE0B5;
   width: 100%;
+}
+
+.userPageLanding .pageContent.active {
+  background-color: #A3D9A5;
 }
 /*# sourceMappingURL=user-page.css.map */

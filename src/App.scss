@@ -20,56 +20,68 @@ html {
 
 .button{
     
-    border-radius: $radiusLg;
-    font-family: $mainFont;
-    font-size: $fontSizeLg;
+    border-radius: $radiusLg !important;
+    font-family: $mainFont !important;
+    font-size: $fontSizeLg !important;
     
     a{
         text-decoration: none;
-        color: $textColorDK;
+        color: $textColorDK !important;
     }
     
     font-weight: 500;
-    text-decoration: none;
-    border: none;
-    margin: 0px;
-    width: 105px;
-    padding: 3px 0;
-    transition: scale ease-in-out 0.2s;
+    text-decoration: none !important;
+    border: none !important;
+    margin: 0px !important;
+    width: 105px !important;
+    padding: 3px 0 !important;
+    transition: scale ease-in-out 0.2s !important;
+
+    &.small {
+        font-size: $fontSizeSm !important;
+        width: fit-content !important;
+        padding: 2px $paddingMd !important;
+    }
 
     &.light{
-        background-color: $textColorLt;
+        background-color: $textColorLt !important;
+        color: $textColorDK !important;
+        border: 1px solid $textColorDK !important;
+
+        &:hover{
+            cursor: pointer;
+            scale: 1.1;
+            background-color: $textColorDK !important;
+            color: $textColorLt !important;
+            box-shadow: 4px 4px 4px $textColorLt !important;
+            a{
+                text-decoration: none !important;
+                color: $textColorLt !important;
+            }
+            
+        }
     }
+
     &.dark{
-        background-color: $textColorDK;
+        background-color: $textColorDK !important;
         color: $textColorLt !important;
         a{
             text-decoration: none;
             color: $textColorLt !important;
         }
-    }
-    &:hover{
-        cursor: pointer;
-        scale: 1.1;
-        &.light{
-            background-color: $textColorDK;
-            color: $textColorLt !important;
-            box-shadow: 4px 4px 4px $textColorLt;
-            a{
-                text-decoration: none;
-                color: $textColorLt !important;
-            }
-        }
-        &.dark{
-            background-color: $textColorLt;
+        &:hover{
+            cursor: pointer;
+            scale: 1.1;
+            background-color: $textColorLt !important;
             color: $textColorDK !important;
-            box-shadow: 4px 4px 4px $textColorDK;
+            box-shadow: 4px 4px 4px $textColorDK !important;
             a{
                 text-decoration: none;
                 color: $textColorDK !important;
             }
         }
     }
+    
     &:active{
         scale: 1;
         box-shadow: none;

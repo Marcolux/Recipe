@@ -1,9 +1,9 @@
 import React from "react";
 
-const TabRecepies = () => {
+const TabRecepies = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
 
     return (
-        <div className="pageContent recepies">
+        <div className={tabSwitch === 'recepies' ? 'pageContent recepies active' : 'pageContent recepies'}>
             <div>Recepies</div>
         </div>
     )

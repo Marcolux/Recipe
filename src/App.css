@@ -234,6 +234,10 @@
   width: 100% !important;
 }
 
+.text-bold {
+  font-weight: 700;
+}
+
 @font-face {
   font-family: "Quicksand";
   src: url("./fonts/Quicksand-VariableFont_wght.ttf");
@@ -253,30 +257,54 @@ html .App {
 }
 
 .button {
-  border-radius: 10px;
-  font-family: "Quicksand";
-  font-size: 18px;
+  border-radius: 10px !important;
+  font-family: "Quicksand" !important;
+  font-size: 18px !important;
   font-weight: 500;
-  text-decoration: none;
-  border: none;
-  margin: 0px;
-  width: 105px;
-  padding: 3px 0;
-  -webkit-transition: scale ease-in-out 0.2s;
-  transition: scale ease-in-out 0.2s;
+  text-decoration: none !important;
+  border: none !important;
+  margin: 0px !important;
+  width: 105px !important;
+  padding: 3px 0 !important;
+  -webkit-transition: scale ease-in-out 0.2s !important;
+  transition: scale ease-in-out 0.2s !important;
 }
 
 .button a {
   text-decoration: none;
-  color: #333333;
+  color: #333333 !important;
+}
+
+.button.small {
+  font-size: 14px !important;
+  width: -webkit-fit-content !important;
+  width: -moz-fit-content !important;
+  width: fit-content !important;
+  padding: 2px 10px !important;
 }
 
 .button.light {
-  background-color: #A3D9A5;
+  background-color: #A3D9A5 !important;
+  color: #333333 !important;
+  border: 1px solid #333333 !important;
+}
+
+.button.light:hover {
+  cursor: pointer;
+  scale: 1.1;
+  background-color: #333333 !important;
+  color: #A3D9A5 !important;
+  -webkit-box-shadow: 4px 4px 4px #A3D9A5 !important;
+          box-shadow: 4px 4px 4px #A3D9A5 !important;
+}
+
+.button.light:hover a {
+  text-decoration: none !important;
+  color: #A3D9A5 !important;
 }
 
 .button.dark {
-  background-color: #333333;
+  background-color: #333333 !important;
   color: #A3D9A5 !important;
 }
 
@@ -285,31 +313,16 @@ html .App {
   color: #A3D9A5 !important;
 }
 
-.button:hover {
+.button.dark:hover {
   cursor: pointer;
   scale: 1.1;
-}
-
-.button:hover.light {
-  background-color: #333333;
-  color: #A3D9A5 !important;
-  -webkit-box-shadow: 4px 4px 4px #A3D9A5;
-          box-shadow: 4px 4px 4px #A3D9A5;
-}
-
-.button:hover.light a {
-  text-decoration: none;
-  color: #A3D9A5 !important;
-}
-
-.button:hover.dark {
-  background-color: #A3D9A5;
+  background-color: #A3D9A5 !important;
   color: #333333 !important;
-  -webkit-box-shadow: 4px 4px 4px #333333;
-          box-shadow: 4px 4px 4px #333333;
+  -webkit-box-shadow: 4px 4px 4px #333333 !important;
+          box-shadow: 4px 4px 4px #333333 !important;
 }
 
-.button:hover.dark a {
+.button.dark:hover a {
   text-decoration: none;
   color: #333333 !important;
 }

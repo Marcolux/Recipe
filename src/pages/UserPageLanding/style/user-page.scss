@@ -14,29 +14,53 @@
         background-color: #F2CC8F;
         
         display: flex;
-        align-items: center;
-        justify-content: left;
+        flex-direction: column;
+        align-items: start;
+        justify-content: center;
+        .headerUserPage{
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin-bottom: $marginSm;
+            h1{
+                font-size: 24px;
+                margin: 5px;
+                width: 100%;
+                text-align: center;
+            }
+        }
         button{
             font-family: $mainFont;
             padding: $paddingMd;
-            border: 0px solid $textColorLt;
+            border-top: 1px solid $textColorLt;
+            border-left: 1px solid $textColorLt;
+            border-right: 1px solid $textColorLt;
+            border-bottom: 0px solid $textColorLt;
+
             font-size: $fontSizeSm;
             color: #Ffffff;
             font-weight: 700;
+            color: $textColorLt;
+            background-color: $textColorDK;
+            &.active{
+                background-color: $textColorLt;
+                color: $textColorDK;
+                border-top: 1px solid $textColorDK;
+                border-left: 1px solid $textColorDK;
+                border-right: 1px solid $textColorDK;
+
+                scale: 1.05;
+            }
 
             &:first-child{
                 border-top-left-radius: $radiusLg;
-                color: $textColorLt;
-                background-color: $textColorDK;
-            }
-            &:nth-child(2) {
-                color: $textColorDK;
-                background-color: $textColorLt;
             }
             &:nth-child(3){
                 border-top-right-radius: $radiusLg;
-                background-color: #6B8E23;
-                color: $textColorDK;
+            }
+
+            &:hover{
+                cursor: pointer;
             }
         }
         
@@ -44,7 +68,8 @@
     .pageContent{
         display: flex;
         flex-grow: 1;
-        padding-top: $paddingMd;
+        padding: $paddingMd;
+        border-top: 1px solid $textColorLt;
         &.searchApi {
             background-color: #6B8E23;
             // background-color: #757575;
@@ -59,6 +84,10 @@
         div{
             background-color: $mainBg;
             width: 100%;
+        }
+        &.active{
+            background-color: $textColorLt;
+        
         }
     }
 }
