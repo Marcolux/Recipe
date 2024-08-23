@@ -1,10 +1,10 @@
-const API_service = () => {
+import axios from "axios";
+
+export const API_service = () => {
 
     // ___________GET RECIPE FROM NAME____________________________
     const get_recipe_from_name = (input) => {
-      setCategId();
-      setCategoryName();
-      let recipeName = input;
+      let recipeName = input
   
       const options = {
         method: "GET",
@@ -15,23 +15,19 @@ const API_service = () => {
             "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
           "x-rapidapi-key": "726fa2a7c2mshe40ce585ef7e075p1df5c9jsn1aac5454b25e",
         },
-      };
+      }
   
       axios
         .request(options)
-        .then(function (response) {
-          setResults(response.data.results);
-        })
+        .then(function (response) { return response })
         .catch(function (error) {
-          console.error(error, "recipe not found");
-        });
-    };
+          console.error(error, "recipe not found")
+        })
+    }
     // _______________________________________________________________
   
     //_______ function to get a recipe from ingredients:_____________
     const get_recipe_from_ingredients = (input) => {
-      setCategId();
-      setCategoryName();
       let ingredientsFromBody = input;
   
       const options = {
@@ -52,14 +48,7 @@ const API_service = () => {
   
       axios
         .request(options)
-        .then(function (response) {
-          setResults(response.data);
-          arr.push(results);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
+        .then(function (response) { return response})
+        .catch(function (error) { console.error(error) })
+    }
 }
-
-export default API_service

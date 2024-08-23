@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import './style/tab-search-api.css'
+// @ts-ignore
+import API_service from '../../spoonacular/api_service';
 
 
 const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     const classList = tabSwitch === 'searchApi' ? 'pageContent searchApi active' : 'pageContent searchApi'
-
+    const [searchString, setSearchString] = useState('')
     const searchForm = () => {
         return (
             <form className="formApi" onSubmit={() => {}}>
@@ -20,10 +22,13 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
 
                 <input
                     className="searchInput mg-x-Xl"
-                    value={""}
-                    onChange={(e) => {}}
+                    value={searchString}
+                    onChange={(e) => {setSearchString(e.target.value)}}
                 />
-                <button className="button dark small">Search</button>
+                <button 
+                    className="button dark small"
+                    onClick={() => {console.log(API_service.get_recipe_from_name(searchString))}}
+                >Search</button>
             </form>
         )
     }
