@@ -28,8 +28,8 @@ import LoginSignupPage from "./pages/LoginSignupPage/LoginSignupPage"
 import UserPageLanding from "./pages/UserPageLanding/UserPageLanding"
 // import Test from './components/Test';
 import SearchFromApi from "./pages/SearchFromApi";
-import SingleRecipePage from "./pages/SingleRecipePage";
 import AllTheRecipes from "./pages/AllTheRecipes";
+import SingleRecipePage from "./pages/SingleRecipePage/SingleRecipePage";
 import SinglePageFromBackend from "./pages/SinglePageFromBackend";
 
 library.add(fab, faCheckSquare, faCoffee)
@@ -78,7 +78,7 @@ function App() {
           }
         />
         <Route
-          path="/:recipe.id"
+          path="/recipe/:recipeId"
           element={
             localStorage.userId ? <SingleRecipePage /> : <Navigate to="/" />
           }

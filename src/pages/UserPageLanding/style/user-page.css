@@ -254,6 +254,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   display: flex;
+  max-width: 100%;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -339,18 +340,6 @@
           flex-grow: 1;
   padding: 10px;
   border-top: 1px solid #A3D9A5;
-}
-
-.userPageLanding .pageContent.searchApi {
-  background-color: #6B8E23;
-}
-
-.userPageLanding .pageContent.Recipies {
-  background-color: #A3D9A5;
-}
-
-.userPageLanding .pageContent.categories {
-  background-color: #333333;
 }
 
 .userPageLanding .pageContent div {

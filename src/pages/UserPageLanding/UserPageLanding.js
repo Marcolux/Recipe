@@ -31,6 +31,7 @@ const TabRecipies_1 = __importDefault(require("../../components/TabRecepies/TabR
 const TabSearchApi_1 = __importDefault(require("../../components/TabSearchApi/TabSearchApi"));
 const UserPageLanding = () => {
     const [tabSwitch, setTabSwitch] = (0, react_1.useState)('categories');
+    console.log(tabSwitch);
     const context = (0, react_1.useContext)(Context_1.Context);
     if (!context)
         throw new Error('useContext must be used within a Provider');
@@ -41,8 +42,8 @@ const UserPageLanding = () => {
         switch (tabSwitch) {
             case 'categories':
                 return react_1.default.createElement(TabCategories_1.default, { tabSwitch: 'categories' });
-            case 'Recipies':
-                return react_1.default.createElement(TabRecipies_1.default, { tabSwitch: 'Recipies' });
+            case 'recipies':
+                return react_1.default.createElement(TabRecipies_1.default, { tabSwitch: 'recipies' });
             case 'searchApi':
                 return react_1.default.createElement(TabSearchApi_1.default, { tabSwitch: 'searchApi' });
             default:
@@ -62,8 +63,8 @@ const UserPageLanding = () => {
                     } }, "Logout")),
             react_1.default.createElement("div", { className: "flex" },
                 react_1.default.createElement("button", { className: tabSwitch === 'categories' ? ' active' : '', onClick: (e) => { setTabSwitch('categories'); } }, " Categories"),
-                react_1.default.createElement("button", { className: tabSwitch === 'Recipies' ? 'active' : '', onClick: (e) => { setTabSwitch('Recipies'); } }, "All Your Recipies"),
+                react_1.default.createElement("button", { className: tabSwitch === 'recipies' ? 'active' : '', onClick: (e) => { setTabSwitch('recipies'); } }, "All Your Recipies"),
                 react_1.default.createElement("button", { className: tabSwitch === 'searchApi' ? 'active' : '', onClick: (e) => { setTabSwitch('searchApi'); } }, " Search From Spoonacular"))),
-        react_1.default.createElement("div", { className: "flex hg-100" }, renderComponent())));
+        renderComponent()));
 };
 exports.default = UserPageLanding;

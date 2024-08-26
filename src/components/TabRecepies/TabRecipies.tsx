@@ -1,13 +1,12 @@
 import React from "react";
 
-const TabRecepies = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
+const TabRecipies = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
 
     return (
-        <div className={tabSwitch === 'recepies' ? 'pageContent recepies active' : 'pageContent recepies'}>
-            <div>Recepies</div>
+        <div className={tabSwitch === 'recipies' ? 'pageContent recipies active' : 'pageContent recipies'}>
+            <div>Recipies</div>
         </div>
     )
-
 }
 
-export default TabRecepies
+export default TabRecipies

@@ -2,7 +2,7 @@ import { useState } from "react/cjs/react.development";
 
 import axios from "axios";
 import NavigationBar from "../components/navigation-bar/NavigationBar";
-import SingleRecipe from "./SingleRecipePage";
+// import SingleRecipe from "./SingleRecipePage";
 
 import { useContext } from "react";
 import { Context } from "../context/Context";
@@ -284,10 +284,10 @@ const SearchFromApi = () => {
             })
           ) : (
             <>
-              <SingleRecipe
+              {/* <SingleRecipe
                 recipeId={recipeId}
                 setSingleRecipePage={setSingleRecipePage}
-              />
+              /> */}
             </>
           )}
         </div>

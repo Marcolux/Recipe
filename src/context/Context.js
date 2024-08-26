@@ -26,7 +26,7 @@ exports.Context = Context;
 const Provider = ({ children }) => {
     const [user, setUser] = (0, react_1.useState)({});
     const [loginSignup, setLoginSignup] = (0, react_1.useState)('');
-    const [recipeId, setUserId] = (0, react_1.useState)("");
+    const [recipeId, setUserId] = (0, react_1.useState)(0);
     const [recipeImage, setRecipeImage] = (0, react_1.useState)("");
     const [SingleRecipePage, setSingleRecipePage] = (0, react_1.useState)(false);
     const [recipeDetails, setRecipeDetails] = (0, react_1.useState)({});

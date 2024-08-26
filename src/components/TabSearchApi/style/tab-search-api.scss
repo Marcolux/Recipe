@@ -1,33 +1,73 @@
 @import '../../../../src/styles/variables/variables.scss';
 
-
-.searchFromApiCont{
-    display: flex;
-    flex-direction: column;
-    .apiSearchHeader{
-        font-family: $mainFont;
-        font-size: $fontSizeXl;
-        font-weight: 700;
-        text-align: center;
-    }
-    .formApi{
-        background-color: $darkerBg;
-        padding: $paddingXl;
-        margin: $marginSm $marginXl;
-        border-radius: $radiusLg;
-        box-shadow: 4px 4px 4px #0000003b;
+.pageContent.searchApi.active {
+    max-width: 100vw !important;
+    .searchFromApiCont{
         display: flex;
-        align-items: baseline;
-        justify-content: center;
-        .searchLabel{
-            font-size: $fontSizeMd;
-            font-weight: 600;
+        flex-direction: column;
+        .apiSearchHeader{
+            font-family: $mainFont;
+            font-size: $fontSizeXl;
+            font-weight: 700;
+            text-align: center;
         }
-        .searchInput{
-            font-size: $fontSizeLg;
-            outline: none;
-            border: none; 
-            padding: $paddingSm;
+        .formApi{
+            background-color: $darkerBg;
+            padding: $paddingXl;
+            margin: $marginSm $marginXl;
+            border-radius: $radiusLg;
+            box-shadow: 4px 4px 4px #0000003b;
+            display: flex;
+            align-items: baseline;
+            justify-content: center;
+            .searchLabel{
+                font-size: $fontSizeMd;
+                font-weight: 600;
+            }
+            .searchInput{
+                font-size: $fontSizeLg;
+                outline: none;
+                border: none; 
+                padding: $paddingSm;
+            }
+        }
+        .singleResultsContainer{
+            display: flex;
+            flex-wrap: wrap;
+            padding: $paddingMd 0px;
+            max-width: 100vw !important;
+            justify-content: space-around;
+            position: relative;
+            .singleResult{
+                padding: $paddingSm $paddingMd;
+                border: 1px solid $textColorDK;
+                margin: $marginSm;
+                font-family: $mainFont;
+                
+                max-width: 30%;
+                max-height: 270px;
+                display: flex;
+                flex-direction: column;
+                border-radius: $radiusXl;
+                box-shadow: 4px 4px 4px #00000061;
+                .imgCont{
+                    display: flex;
+                    justify-content: center;
+                    padding: $paddingMd;
+                    max-width: fit-content;
+                    align-self: center;
+                    justify-self: center;
+                    max-height: 75%;
+                    
+                    img{
+                        border-radius: $radiusXl;
+                        height: 100%;
+                        aspect-ratio: auto;
+                        object-fit: cover;
+                    }
+                }
+                
+            }
         }
     }
 }

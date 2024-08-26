@@ -9,9 +9,11 @@ html {
     padding: 0;
     margin: 0;
     font-family: $mainFont;
+    max-width: 100vw !important;
     .App{
         display: flex;
         height: 100vh;
+        max-width: 100% !important;
     }
 }
 
@@ -504,22 +506,7 @@ html {
                     background-color: rgba(255, 255, 255, 0.81);
                 }
                 
-                .singleResult {
-                    font-weight: 900;
-                    letter-spacing: .2px;
-                    font-size: 16px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-                    width: 20vw;
-                    height: 30vh;
-                    padding: 1vh 2vw;
-                    border: 1px solid rgba(40, 36, 36, 0.783);
-                    margin: 1.7vw;
-                    border-radius: 1vw;
-                    box-shadow: -.5px -.5px 3.5px 1.5px #274001;
-                    background: #F2C53D;
-                }
+
                 
                 @keyframes rotation {
                     0% {

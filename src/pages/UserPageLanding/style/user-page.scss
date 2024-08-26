@@ -8,6 +8,7 @@
     display: flex;
     flex-direction: column;
     display: flex;
+    max-width: 100%;
     flex-grow: 1;
     .navTabs{
         padding: $paddingMd $paddingLg 0px $paddingLg;
@@ -70,24 +71,14 @@
         flex-grow: 1;
         padding: $paddingMd;
         border-top: 1px solid $textColorLt;
-        &.searchApi {
-            background-color: #6B8E23;
-            // background-color: #757575;
-        }
-        &.Recipies{
-            background-color: $textColorLt;
-            // background-color: #8f8f8f;
-        }
-        &.categories{
-            background-color: $textColorDK;
-        }
+
         div{
             background-color: $mainBg;
             width: 100%;
         }
         &.active{
             background-color: $textColorLt;
-        
+            // min-height: fit-content !important;
         }
     }
 }

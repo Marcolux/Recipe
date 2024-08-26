@@ -1,15 +1,16 @@
 
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import './style/user-page.css'
 import { Context } from "../../context/Context"
 
 import TabCategories from "../../components/TabCategories/TabCategories"
-import TabRecepies from "../../components/TabRecepies/TabRecipies"
+import TabRecipies from "../../components/TabRecepies/TabRecipies"
 import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 
 const UserPageLanding = () => {
   const [tabSwitch, setTabSwitch] = useState('categories')
+  console.log(tabSwitch)
 
   const context = useContext(Context)
   if (!context) throw new Error('useContext must be used within a Provider')
@@ -23,14 +24,16 @@ const UserPageLanding = () => {
     switch (tabSwitch) {
       case 'categories' :
         return <TabCategories tabSwitch='categories'/>
-      case 'Recipies' :
-        return <TabRecepies tabSwitch='Recipies'/>
+      case 'recipies' :
+        return <TabRecipies tabSwitch='recipies'/>
       case 'searchApi' :
         return <TabSearchAPI tabSwitch='searchApi'/>
       default:
         return <TabCategories tabSwitch='categories'/>
     }
   }
+
+  
 
 
   return (
@@ -58,8 +61,8 @@ const UserPageLanding = () => {
           </button>
           
           <button
-            className={tabSwitch === 'Recipies' ? 'active' : ''}
-            onClick={(e) => {setTabSwitch('Recipies')}}
+            className={tabSwitch === 'recipies' ? 'active' : ''}
+            onClick={(e) => {setTabSwitch('recipies')}}
           >All Your Recipies
           </button>
           
@@ -71,9 +74,7 @@ const UserPageLanding = () => {
         </div>
       </div>
 
-      <div className="flex hg-100">
         {renderComponent()}
-      </div>
 
     </div>
   )
