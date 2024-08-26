@@ -35,9 +35,9 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     const [searchString, setSearchString] = useState('')
     console.log(tabSwitch)
 
-    const [researchType, setresearchType] = useState<string>('')
-    const [researchResultsByName, setResearchResultsByName] = useState<Results>()
-    const [researchResultsByIngre, setResearchResultsByIngred] = useState<ResultsByIngred[]>()
+    // const [researchType, setresearchType] = useState<string>('')
+    // const [researchResultsByName, setResearchResultsByName] = useState<Results>()
+    // const [researchResultsByIngre, setResearchResultsByIngreState] = useState<ResultsByIngred[]>()
 
     const context = useContext(Context)
     if (!context) throw new Error('useContext must be used within a Provider')
@@ -47,10 +47,17 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     const { recipeIdState } = context
     const [recipeId, setRecipeId] = recipeIdState
 
+    const {  researchTypeState } = context
+    const [researchType, setResearchType] = researchTypeState
+    const { researchResultsByNameState } = context
+    const [researchResultsByName, setResearchResultsByName] = researchResultsByNameState
+    const { researchResultsByIngreState } = context
+    const [researchResultsByIngre, setResearchResultsByIngreState] = researchResultsByIngreState
+
 
     const searchFromIngredients = async () => {
         const results = await api_service.get_recipe_from_ingredients(searchString)
-        setResearchResultsByIngred(results)
+        setResearchResultsByIngreState(results)
     }
 
     const searchFromName = async () => {
@@ -77,7 +84,13 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
                                 <div className="imgCont">
                                     <img src={`${researchResultsByName.baseUri}${result.image}`} alt="" />
                                 </div>
-                                <a href={result.sourceUrl} target="_blank">{result.title}</a>
+                                <Link 
+                                    to={`/recipe/${result.id}`}
+                                    onClick={()=>{
+                                        setRecipeId(result.id)
+                                    }}>
+                                    {result.title}
+                                </Link>
                             </div>
 
                         :
@@ -118,7 +131,7 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
                                     }}>
                                     {result.title}
                                 </Link>
-                                {/* <a href={`https://www.foodista.com/recipe/${result.id}/${result.title.replace(' ','-')}`} target="_blank">{result.title}</a> */}
+                                
                             </div>
 
                         :
@@ -152,7 +165,7 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
                     value={researchType}
                     onChange={(e) => {
                         // e.preventDefault()
-                        setresearchType(e.target.value)
+                        setResearchType(e.target.value)
                         setTimeout(() => {
                             console.log(researchType)
                         },1500)

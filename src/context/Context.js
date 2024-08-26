@@ -35,6 +35,9 @@ const Provider = ({ children }) => {
     const [categoryName, setCategoryName] = (0, react_1.useState)(undefined);
     const [allRecipes, setAllRecipes] = (0, react_1.useState)([]);
     const [alert, setAlert] = (0, react_1.useState)(false);
+    const [researchType, setResearchType] = (0, react_1.useState)('');
+    const [researchResultsByName, setResearchResultsByName] = (0, react_1.useState)(undefined);
+    const [researchResultsByIngre, setResearchResultsByIngre] = (0, react_1.useState)([]);
     const state = {
         userState: [user, setUser],
         loginSignupState: [loginSignup, setLoginSignup],
@@ -47,6 +50,9 @@ const Provider = ({ children }) => {
         categoryNameState: [categoryName, setCategoryName],
         allRecipesState: [allRecipes, setAllRecipes],
         alertState: [alert, setAlert],
+        researchTypeState: [researchType, setResearchType],
+        researchResultsByNameState: [researchResultsByName, setResearchResultsByName],
+        researchResultsByIngreState: [researchResultsByIngre, setResearchResultsByIngre],
     };
     return (react_1.default.createElement(Context.Provider, { value: state }, children));
 };

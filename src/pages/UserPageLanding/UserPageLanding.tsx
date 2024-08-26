@@ -1,6 +1,6 @@
 
 import React, { useState, useContext, useEffect } from "react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 import './style/user-page.css'
 import { Context } from "../../context/Context"
 
@@ -9,7 +9,11 @@ import TabRecipies from "../../components/TabRecepies/TabRecipies"
 import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 
 const UserPageLanding = () => {
-  const [tabSwitch, setTabSwitch] = useState('categories')
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const tabFromUrl = searchParams.get('tab');
+
+  const [tabSwitch, setTabSwitch] = useState(tabFromUrl || 'categories')
   console.log(tabSwitch)
 
   const context = useContext(Context)

@@ -3,7 +3,7 @@ import axios from "axios";
 import env from "react-dotenv";
 
 import React,  { useContext, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Context } from "../../context/Context";
 
 import { api_service } from "../../spoonacular/api_service";
@@ -25,21 +25,26 @@ const SingleRecipePage =  () => {
 
   const { recipeDetailsState } = context
   const [recipeDetails, setRecipeDetails] = recipeDetailsState
+  let history = useNavigate()
+  
 
   const userId = localStorage.getItem("userId")
 
-  const recipe = async () => {
-    const details = await api_service.all_the_info(Number(recipeId));
-    setRecipeDetails(details);
-    console.log(details); // Log the fetched details
-
-   
-  } 
   useEffect(() => {
-    recipe()
-  }, [])
+    const fetchRecipeDetails = async () => {
+      try {
+        const details = await api_service.all_the_info(Number(recipeId));
+        setRecipeDetails(details);
+        console.log(details); // Log the fetched details
+      } catch (error) {
+        console.error("Failed to fetch recipe details:", error);
+      }
+    };
 
-  console.log(recipeDetails)
+    fetchRecipeDetails();
+  }, [recipeId]);
+
+  console.log(recipeDetails);
 
  
 
@@ -55,7 +60,7 @@ const SingleRecipePage =  () => {
           <div className="singleRecipeButtons">
             <button
               onClick={() => {
-                setSingleRecipePage(false)
+                history('/user-page?tab=searchApi')
               }}
             >
               Back to Search
@@ -84,20 +89,22 @@ const SingleRecipePage =  () => {
                 {
                   // we store all the ingredients in an array(ingred)
                   // we map the list and we create a html list
-                  recipeDetails?.extendedIngredients.map((ingredient: any, i:number) => {
+                  recipeDetails.extendedIngredients?.map((ingredient: any, i:number) => {
                     ingred.push(ingredient.name)
                     return <li key={i}>{ingredient.name}</li>
-                  })
+                  }) || <li>No ingredients available</li>
                 }
               </ul>
             </div>
             <div className="RecipeDiets">
               <h3>Diets:</h3>
               <ul>
-                {recipeDetails.diets.map((diet: any, i: number) => {
+                {recipeDetails.diets?.map((diet: any, i: number) => {
                   dietS.push(diet);
                   return <li key={i}>{diet}</li>
-                })}
+                }) || <li>No diets available</li>
+                
+                }
               </ul>
             </div>
           </div>

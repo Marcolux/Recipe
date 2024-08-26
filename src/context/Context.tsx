@@ -1,4 +1,27 @@
 import React, { useState, createContext, ReactNode } from "react"
+interface ResultsByIngred {
+  id: number
+  image: string
+  imageType: string
+  title: string
+}
+
+interface SingleResult {
+  id: number,
+  image: string,
+  readyInMinutes: number,
+  servings: number,
+  sourceUrl: string,
+  title: string
+}
+interface Results {
+  baseUri: string,
+  expires: number,
+  number: number,
+  offset: number,
+  processingTimeMs: number,
+  results: SingleResult[]
+}
 
 interface MyContextType {
     userState: [Record<string, any>, React.Dispatch<React.SetStateAction<string>>];
@@ -12,6 +35,10 @@ interface MyContextType {
     categoryNameState: [string | undefined, React.Dispatch<React.SetStateAction<string | undefined>>];
     allRecipesState: [any[], React.Dispatch<React.SetStateAction<any[]>>];
     alertState: [boolean, React.Dispatch<React.SetStateAction<boolean>>];
+    
+    researchTypeState: [string, React.Dispatch<React.SetStateAction<string>>];
+    researchResultsByNameState: [Results | undefined, React.Dispatch<React.SetStateAction<Results | undefined>>];
+    researchResultsByIngreState: [ResultsByIngred[], React.Dispatch<React.SetStateAction<ResultsByIngred[]>>];
 }
 
 const Context = createContext<MyContextType | undefined>(undefined);
@@ -29,6 +56,10 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
   const [allRecipes, setAllRecipes] = useState<any[]>([])
   const [alert, setAlert] = useState(false)
 
+  const [researchType, setResearchType] = useState<string>('')
+  const [researchResultsByName, setResearchResultsByName] = useState<Results | undefined>(undefined);
+  const [researchResultsByIngre, setResearchResultsByIngre] = useState<ResultsByIngred[]>([]);
+
   const state: MyContextType = {
     userState: [user, setUser],
     loginSignupState: [loginSignup, setLoginSignup],
@@ -41,6 +72,10 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
     categoryNameState: [categoryName, setCategoryName],
     allRecipesState: [allRecipes, setAllRecipes],
     alertState: [alert, setAlert],
+
+    researchTypeState: [researchType, setResearchType],
+    researchResultsByNameState: [researchResultsByName, setResearchResultsByName],
+    researchResultsByIngreState: [researchResultsByIngre, setResearchResultsByIngre],
   }
 
   return (

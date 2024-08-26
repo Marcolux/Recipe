@@ -37,18 +37,24 @@ const TabSearchAPI = ({ tabSwitch }) => {
     const classList = tabSwitch === 'searchApi' ? 'pageContent searchApi active' : 'pageContent searchApi';
     const [searchString, setSearchString] = (0, react_1.useState)('');
     console.log(tabSwitch);
-    const [researchType, setresearchType] = (0, react_1.useState)('');
-    const [researchResultsByName, setResearchResultsByName] = (0, react_1.useState)();
-    const [researchResultsByIngre, setResearchResultsByIngred] = (0, react_1.useState)();
+    // const [researchType, setresearchType] = useState<string>('')
+    // const [researchResultsByName, setResearchResultsByName] = useState<Results>()
+    // const [researchResultsByIngre, setResearchResultsByIngreState] = useState<ResultsByIngred[]>()
     const context = (0, react_1.useContext)(Context_1.Context);
     if (!context)
         throw new Error('useContext must be used within a Provider');
     // const { recipeId } = useParams()
     const { recipeIdState } = context;
     const [recipeId, setRecipeId] = recipeIdState;
+    const { researchTypeState } = context;
+    const [researchType, setResearchType] = researchTypeState;
+    const { researchResultsByNameState } = context;
+    const [researchResultsByName, setResearchResultsByName] = researchResultsByNameState;
+    const { researchResultsByIngreState } = context;
+    const [researchResultsByIngre, setResearchResultsByIngreState] = researchResultsByIngreState;
     const searchFromIngredients = () => __awaiter(void 0, void 0, void 0, function* () {
         const results = yield api_service_1.api_service.get_recipe_from_ingredients(searchString);
-        setResearchResultsByIngred(results);
+        setResearchResultsByIngreState(results);
     });
     const searchFromName = () => __awaiter(void 0, void 0, void 0, function* () {
         const results = yield api_service_1.api_service.get_recipe_from_name(searchString);
@@ -62,7 +68,9 @@ const TabSearchAPI = ({ tabSwitch }) => {
                 react_1.default.createElement("div", { className: "singleResult", key: result.id },
                     react_1.default.createElement("div", { className: "imgCont" },
                         react_1.default.createElement("img", { src: `${researchResultsByName.baseUri}${result.image}`, alt: "" })),
-                    react_1.default.createElement("a", { href: result.sourceUrl, target: "_blank" }, result.title))
+                    react_1.default.createElement(react_router_dom_1.Link, { to: `/recipe/${result.id}`, onClick: () => {
+                            setRecipeId(result.id);
+                        } }, result.title))
                 :
                     null))));
         }
@@ -104,7 +112,7 @@ const TabSearchAPI = ({ tabSwitch }) => {
             react_1.default.createElement("p", { className: "searchLabel" }, "Search By"),
             react_1.default.createElement("select", { className: "searchInput mg-l-Xl", value: researchType, onChange: (e) => {
                     // e.preventDefault()
-                    setresearchType(e.target.value);
+                    setResearchType(e.target.value);
                     setTimeout(() => {
                         console.log(researchType);
                     }, 1500);
