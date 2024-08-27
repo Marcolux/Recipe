@@ -311,6 +311,7 @@
   border: 1px solid #333333;
   margin: 5px;
   font-family: "Quicksand";
+  background-color: #333333;
   max-width: 30%;
   max-height: 270px;
   display: -webkit-box;
@@ -333,6 +334,7 @@
       -ms-flex-pack: center;
           justify-content: center;
   padding: 10px;
+  background-color: #333333;
   max-width: -webkit-fit-content;
   max-width: -moz-fit-content;
   max-width: fit-content;
@@ -348,5 +350,11 @@
   aspect-ratio: auto;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.pageContent.searchApi.active .searchFromApiCont .singleResultsContainer .singleResult a {
+  color: #A3D9A5;
+  font-family: "Quicksand";
+  text-decoration: none;
 }
 /*# sourceMappingURL=tab-search-api.css.map */

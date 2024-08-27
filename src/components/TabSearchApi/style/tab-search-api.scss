@@ -43,6 +43,7 @@
                 border: 1px solid $textColorDK;
                 margin: $marginSm;
                 font-family: $mainFont;
+                background-color: $textColorDK;
                 
                 max-width: 30%;
                 max-height: 270px;
@@ -54,6 +55,7 @@
                     display: flex;
                     justify-content: center;
                     padding: $paddingMd;
+                    background-color: $textColorDK;
                     max-width: fit-content;
                     align-self: center;
                     justify-self: center;
@@ -65,6 +67,11 @@
                         aspect-ratio: auto;
                         object-fit: cover;
                     }
+                }
+                a{
+                    color: $textColorLt;
+                    font-family: $mainFont;
+                    text-decoration: none;
                 }
                 
             }

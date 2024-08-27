@@ -58,7 +58,6 @@ const SingleRecipePage = () => {
             try {
                 const details = yield api_service_1.api_service.all_the_info(Number(recipeId));
                 setRecipeDetails(details);
-                console.log(details); // Log the fetched details
             }
             catch (error) {
                 console.error("Failed to fetch recipe details:", error);
@@ -69,18 +68,21 @@ const SingleRecipePage = () => {
     console.log(recipeDetails);
     let dietS = [];
     let ingred = [];
-    return (react_1.default.createElement(react_1.default.Fragment, null, recipeDetails ? (react_1.default.createElement("div", { className: "SingleRecipe" },
+    return (react_1.default.createElement(react_1.default.Fragment, null, recipeDetails &&
+        recipeDetails.title &&
+        recipeDetails.image ? (react_1.default.createElement("div", { className: "SingleRecipe" },
         react_1.default.createElement("h3", { className: "recipeTitle" }, recipeDetails.title),
         react_1.default.createElement("div", { className: "singleRecipeButtons" },
             react_1.default.createElement("button", { onClick: () => {
                     history('/user-page?tab=searchApi');
+                    setRecipeDetails({});
                 } }, "Back to Search"),
             react_1.default.createElement("button", { onClick: () => {
                     // axios call to save the recipe in the backend database
                     axios_1.default.post(`${react_dotenv_1.default.BACKEND_URL}/recipe/${userId} `, {
                         apiId: recipeDetails.id,
                         ingredients: ingred.toString(),
-                        instructions: recipeDetails.instructions,
+                        instructions: recipeDetails.summary,
                         picture: recipeImage,
                         name: recipeDetails.title,
                         diets: dietS.toString(),
@@ -105,6 +107,9 @@ const SingleRecipePage = () => {
                 })) || react_1.default.createElement("li", null, "No diets available")))),
         react_1.default.createElement("div", { className: "RecipeInstructions" },
             react_1.default.createElement("h3", null, "Instructions:"),
-            react_1.default.createElement("p", null, recipeDetails.instructions)))) : (react_1.default.createElement("div", { className: "spin" }))));
+            recipeDetails.instructions ?
+                react_1.default.createElement("p", { dangerouslySetInnerHTML: { __html: recipeDetails.instructions } })
+                :
+                    react_1.default.createElement("p", { dangerouslySetInnerHTML: { __html: recipeDetails.summary } })))) : (react_1.default.createElement("div", { className: "spin" }))));
 };
 exports.default = SingleRecipePage;

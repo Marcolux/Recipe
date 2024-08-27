@@ -33,20 +33,17 @@ const SingleRecipePage =  () => {
   useEffect(() => {
     const fetchRecipeDetails = async () => {
       try {
-        const details = await api_service.all_the_info(Number(recipeId));
-        setRecipeDetails(details);
-        console.log(details); // Log the fetched details
+        const details = await api_service.all_the_info(Number(recipeId))
+        setRecipeDetails(details)
       } catch (error) {
-        console.error("Failed to fetch recipe details:", error);
+        console.error("Failed to fetch recipe details:", error)
       }
-    };
+    }
 
-    fetchRecipeDetails();
-  }, [recipeId]);
+    fetchRecipeDetails()
+  }, [recipeId])
 
-  console.log(recipeDetails);
-
- 
+  console.log(recipeDetails)
 
   let dietS: string[] = []
   let ingred: string[] = []
@@ -54,13 +51,17 @@ const SingleRecipePage =  () => {
   return (
     <>
       {/* check that all the info are loaded if not we load the loading page */}
-      {recipeDetails ? (
+      {
+        recipeDetails &&
+        recipeDetails.title &&
+        recipeDetails.image ? (
         <div className="SingleRecipe">
           <h3 className="recipeTitle">{recipeDetails.title}</h3>
           <div className="singleRecipeButtons">
             <button
               onClick={() => {
                 history('/user-page?tab=searchApi')
+                setRecipeDetails({})
               }}
             >
               Back to Search
@@ -71,7 +72,7 @@ const SingleRecipePage =  () => {
                 axios.post(`${env.BACKEND_URL}/recipe/${userId} `, {
                   apiId: recipeDetails.id,
                   ingredients: ingred.toString(),
-                  instructions: recipeDetails.instructions,
+                  instructions: recipeDetails.summary,
                   picture: recipeImage,
                   name: recipeDetails.title,
                   diets: dietS.toString(),
@@ -110,7 +111,11 @@ const SingleRecipePage =  () => {
           </div>
           <div className="RecipeInstructions">
             <h3>Instructions:</h3>
-            <p>{recipeDetails.instructions}</p>
+            {recipeDetails.instructions ?
+              <p dangerouslySetInnerHTML={{__html: recipeDetails.instructions }}></p>
+              :
+              <p dangerouslySetInnerHTML={{__html: recipeDetails.summary }}></p>
+            }
           </div>
         </div>
       ) : (

@@ -1,4 +1,6 @@
 import React, { useState, createContext, ReactNode } from "react"
+
+
 interface ResultsByIngred {
   id: number
   image: string
@@ -14,6 +16,7 @@ interface SingleResult {
   sourceUrl: string,
   title: string
 }
+
 interface Results {
   baseUri: string,
   expires: number,

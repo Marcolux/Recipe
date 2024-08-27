@@ -36,7 +36,7 @@ const api_service_1 = require("../../spoonacular/api_service");
 const TabSearchAPI = ({ tabSwitch }) => {
     const classList = tabSwitch === 'searchApi' ? 'pageContent searchApi active' : 'pageContent searchApi';
     const [searchString, setSearchString] = (0, react_1.useState)('');
-    console.log(tabSwitch);
+    // console.log(tabSwitch)
     // const [researchType, setresearchType] = useState<string>('')
     // const [researchResultsByName, setResearchResultsByName] = useState<Results>()
     // const [researchResultsByIngre, setResearchResultsByIngreState] = useState<ResultsByIngred[]>()
@@ -63,7 +63,7 @@ const TabSearchAPI = ({ tabSwitch }) => {
     const populateResultsRecipeName = () => {
         if (researchResultsByName &&
             researchResultsByName.results.length > 0) {
-            console.log('Recipe Name', searchString);
+            // console.log('Recipe Name', searchString)
             return (react_1.default.createElement(react_1.default.Fragment, null, researchResultsByName.results.map((result) => (result.image && result.sourceUrl.includes('https://www.foodista.com/') ?
                 react_1.default.createElement("div", { className: "singleResult", key: result.id },
                     react_1.default.createElement("div", { className: "imgCont" },
@@ -84,7 +84,7 @@ const TabSearchAPI = ({ tabSwitch }) => {
     const populateResultsByIngredients = () => {
         if (researchResultsByIngre &&
             researchResultsByIngre.length > 0) {
-            console.log('Ingredients', searchString);
+            // console.log('Ingredients', searchString)
             return (react_1.default.createElement(react_1.default.Fragment, null, researchResultsByIngre.map((result) => (result.image ?
                 react_1.default.createElement("div", { className: "singleResult", key: result.id },
                     react_1.default.createElement("div", { className: "imgCont" },
@@ -113,9 +113,6 @@ const TabSearchAPI = ({ tabSwitch }) => {
             react_1.default.createElement("select", { className: "searchInput mg-l-Xl", value: researchType, onChange: (e) => {
                     // e.preventDefault()
                     setResearchType(e.target.value);
-                    setTimeout(() => {
-                        console.log(researchType);
-                    }, 1500);
                 } },
                 react_1.default.createElement("option", null, "select the search criteria"),
                 react_1.default.createElement("option", { value: "byName" }, "Recipe Name"),

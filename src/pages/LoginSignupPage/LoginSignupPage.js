@@ -33,7 +33,6 @@ const LoginSignupPage = () => {
         throw new Error('useContext must be used within a Provider');
     const { loginSignupState } = context;
     const [loginSignup, setLoginSignup] = loginSignupState;
-    console.log(loginSignup);
     return (react_1.default.createElement("div", { className: "loginSignupPage" }, loginSignup === 'signup'
         ?
             react_1.default.createElement(Signup_1.default, null)

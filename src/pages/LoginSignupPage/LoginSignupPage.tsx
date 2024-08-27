@@ -14,9 +14,8 @@ const LoginSignupPage = () => {
     const context = useContext(Context)
     if (!context) throw new Error('useContext must be used within a Provider')
 
-    const { loginSignupState } = context;
-    const [loginSignup, setLoginSignup] = loginSignupState;
-    console.log(loginSignup)
+    const { loginSignupState } = context
+    const [loginSignup, setLoginSignup] = loginSignupState
     return (
 
         <div className="loginSignupPage">

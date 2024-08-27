@@ -1,5 +1,5 @@
 
-import React, { useState, useContext, useEffect } from "react"
+import React, { useState, useContext } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import './style/user-page.css'
 import { Context } from "../../context/Context"
@@ -9,19 +9,19 @@ import TabRecipies from "../../components/TabRecepies/TabRecipies"
 import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 
 const UserPageLanding = () => {
-  const location = useLocation();
-  const searchParams = new URLSearchParams(location.search);
-  const tabFromUrl = searchParams.get('tab');
 
-  const [tabSwitch, setTabSwitch] = useState(tabFromUrl || 'categories')
-  console.log(tabSwitch)
-
+  // ++++ Getting the tab from the url link ++++ to prevent the default categories
+  const location = useLocation()
+  const searchParams = new URLSearchParams(location.search)
+  const tabFromUrl = searchParams.get('tab')
+  
   const context = useContext(Context)
   if (!context) throw new Error('useContext must be used within a Provider')
-
+    
   const { userState } = context
   const [user, setUser] = userState
-
+  const [tabSwitch, setTabSwitch] = useState(tabFromUrl || 'categories')
+    
   const history = useNavigate()
 
   const renderComponent = () => {
@@ -36,9 +36,6 @@ const UserPageLanding = () => {
         return <TabCategories tabSwitch='categories'/>
     }
   }
-
-  
-
 
   return (
     <div className="userPageLanding">

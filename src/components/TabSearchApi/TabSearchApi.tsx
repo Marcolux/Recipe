@@ -33,7 +33,7 @@ interface SingleResult {
 const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     const classList = tabSwitch === 'searchApi' ? 'pageContent searchApi active' : 'pageContent searchApi'
     const [searchString, setSearchString] = useState('')
-    console.log(tabSwitch)
+    // console.log(tabSwitch)
 
     // const [researchType, setresearchType] = useState<string>('')
     // const [researchResultsByName, setResearchResultsByName] = useState<Results>()
@@ -71,7 +71,7 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
             researchResultsByName && 
             researchResultsByName.results.length > 0
         ) {
-            console.log('Recipe Name', searchString)
+            // console.log('Recipe Name', searchString)
 
             return (
                 <>
@@ -112,7 +112,7 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
             researchResultsByIngre && 
             researchResultsByIngre.length > 0
         ) {
-            console.log('Ingredients', searchString)
+            // console.log('Ingredients', searchString)
             return (
                 <>
 
@@ -166,9 +166,6 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
                     onChange={(e) => {
                         // e.preventDefault()
                         setResearchType(e.target.value)
-                        setTimeout(() => {
-                            console.log(researchType)
-                        },1500)
                     }}
                 >
                     <option>select the search criteria</option>
