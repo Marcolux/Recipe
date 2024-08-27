@@ -42,6 +42,7 @@ interface MyContextType {
     researchTypeState: [string, React.Dispatch<React.SetStateAction<string>>];
     researchResultsByNameState: [Results | undefined, React.Dispatch<React.SetStateAction<Results | undefined>>];
     researchResultsByIngreState: [ResultsByIngred[], React.Dispatch<React.SetStateAction<ResultsByIngred[]>>];
+    tabSwitchState: [string, React.Dispatch<React.SetStateAction<string | 'categories'>>]
 }
 
 const Context = createContext<MyContextType | undefined>(undefined);
@@ -62,6 +63,8 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
   const [researchType, setResearchType] = useState<string>('')
   const [researchResultsByName, setResearchResultsByName] = useState<Results | undefined>(undefined);
   const [researchResultsByIngre, setResearchResultsByIngre] = useState<ResultsByIngred[]>([]);
+  
+  const [tabSwitch, setTabSwitch] = useState('categories');
 
   const state: MyContextType = {
     userState: [user, setUser],
@@ -79,6 +82,7 @@ const Provider: React.FC<{ children: ReactNode }> = ({children}) => {
     researchTypeState: [researchType, setResearchType],
     researchResultsByNameState: [researchResultsByName, setResearchResultsByName],
     researchResultsByIngreState: [researchResultsByIngre, setResearchResultsByIngre],
+    tabSwitchState: [tabSwitch, setTabSwitch]
   }
 
   return (

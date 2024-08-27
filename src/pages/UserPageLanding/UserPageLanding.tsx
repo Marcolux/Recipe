@@ -1,5 +1,5 @@
 
-import React, { useState, useContext } from "react"
+import React, { useState, useContext, useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
 import './style/user-page.css'
 import { Context } from "../../context/Context"
@@ -10,19 +10,30 @@ import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 
 const UserPageLanding = () => {
 
-  // ++++ Getting the tab from the url link ++++ to prevent the default categories
-  const location = useLocation()
-  const searchParams = new URLSearchParams(location.search)
-  const tabFromUrl = searchParams.get('tab')
-  
-  const context = useContext(Context)
-  if (!context) throw new Error('useContext must be used within a Provider')
-    
-  const { userState } = context
-  const [user, setUser] = userState
-  const [tabSwitch, setTabSwitch] = useState(tabFromUrl || 'categories')
-    
   const history = useNavigate()
+  const location = useLocation()
+  const context = useContext(Context)
+
+  if (!context) throw new Error('useContext must be used within a Provider')
+  const { userState, tabSwitchState } = context
+
+  const [user, setUser] = userState
+  const [tabSwitch, setTabSwitch] = tabSwitchState
+    
+
+  // Effect to set tab from URL or default to 'categories'
+  useEffect(() => {
+    const searchParams = new URLSearchParams(location.search)
+    const tabFromUrl = searchParams.get('tab')
+    if (tabFromUrl) {
+      setTabSwitch(tabFromUrl)
+    }
+  }, [location.search])
+
+  // Effect to update the URL when the tabSwitch changes
+  useEffect(() => {
+    history(`?tab=${tabSwitch}`, { replace: true })
+  }, [tabSwitch, history])
 
   const renderComponent = () => {
     switch (tabSwitch) {
@@ -40,7 +51,6 @@ const UserPageLanding = () => {
   return (
     <div className="userPageLanding">
 
-
       <div className="navTabs">
         <div className="headerUserPage">
           <h1 className="">{user.name} Cookbook</h1>
@@ -55,6 +65,7 @@ const UserPageLanding = () => {
         </div>
 
         <div className="flex">
+
           <button
             className={tabSwitch === 'categories' ? ' active' : ''}
             onClick={(e) => {setTabSwitch('categories')}}
@@ -72,10 +83,11 @@ const UserPageLanding = () => {
             onClick={(e) => {setTabSwitch('searchApi')}}
           > Search From Spoonacular
           </button>
+
         </div>
       </div>
 
-        {renderComponent()}
+      {renderComponent()}
 
     </div>
   )

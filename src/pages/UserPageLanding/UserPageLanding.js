@@ -30,17 +30,26 @@ const TabCategories_1 = __importDefault(require("../../components/TabCategories/
 const TabRecipies_1 = __importDefault(require("../../components/TabRecepies/TabRecipies"));
 const TabSearchApi_1 = __importDefault(require("../../components/TabSearchApi/TabSearchApi"));
 const UserPageLanding = () => {
-    // ++++ Getting the tab from the url link ++++ to prevent the default categories
+    const history = (0, react_router_dom_1.useNavigate)();
     const location = (0, react_router_dom_1.useLocation)();
-    const searchParams = new URLSearchParams(location.search);
-    const tabFromUrl = searchParams.get('tab');
     const context = (0, react_1.useContext)(Context_1.Context);
     if (!context)
         throw new Error('useContext must be used within a Provider');
-    const { userState } = context;
+    const { userState, tabSwitchState } = context;
     const [user, setUser] = userState;
-    const [tabSwitch, setTabSwitch] = (0, react_1.useState)(tabFromUrl || 'categories');
-    const history = (0, react_router_dom_1.useNavigate)();
+    const [tabSwitch, setTabSwitch] = tabSwitchState;
+    // Effect to set tab from URL or default to 'categories'
+    (0, react_1.useEffect)(() => {
+        const searchParams = new URLSearchParams(location.search);
+        const tabFromUrl = searchParams.get('tab');
+        if (tabFromUrl) {
+            setTabSwitch(tabFromUrl);
+        }
+    }, [location.search]);
+    // Effect to update the URL when the tabSwitch changes
+    (0, react_1.useEffect)(() => {
+        history(`?tab=${tabSwitch}`, { replace: true });
+    }, [tabSwitch, history]);
     const renderComponent = () => {
         switch (tabSwitch) {
             case 'categories':

@@ -38,6 +38,7 @@ const Provider = ({ children }) => {
     const [researchType, setResearchType] = (0, react_1.useState)('');
     const [researchResultsByName, setResearchResultsByName] = (0, react_1.useState)(undefined);
     const [researchResultsByIngre, setResearchResultsByIngre] = (0, react_1.useState)([]);
+    const [tabSwitch, setTabSwitch] = (0, react_1.useState)('categories');
     const state = {
         userState: [user, setUser],
         loginSignupState: [loginSignup, setLoginSignup],
@@ -53,6 +54,7 @@ const Provider = ({ children }) => {
         researchTypeState: [researchType, setResearchType],
         researchResultsByNameState: [researchResultsByName, setResearchResultsByName],
         researchResultsByIngreState: [researchResultsByIngre, setResearchResultsByIngre],
+        tabSwitchState: [tabSwitch, setTabSwitch]
     };
     return (react_1.default.createElement(Context.Provider, { value: state }, children));
 };

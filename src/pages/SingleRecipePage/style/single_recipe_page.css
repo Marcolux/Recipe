@@ -1,0 +1,245 @@
+@import url(c:\Development\recipe-app\Recipe\src\styles\variables\variables.css);
+.mg-l-Sm {
+  margin-left: 5px !important;
+}
+
+.mg-r-Sm {
+  margin-right: 5px !important;
+}
+
+.mg-t-Sm {
+  margin-top: 5px !important;
+}
+
+.mg-b-Sm {
+  margin-bottom: 5px !important;
+}
+
+.mg-x-Sm {
+  margin: 0px 5px !important;
+}
+
+.mg-y-Sm {
+  margin: 5px !important;
+}
+
+.mg-l-Md {
+  margin-left: 10px !important;
+}
+
+.mg-r-Md {
+  margin-right: 10px !important;
+}
+
+.mg-t-Md {
+  margin-top: 10px !important;
+}
+
+.mg-b-Md {
+  margin-bottom: 10px !important;
+}
+
+.mg-x-Md {
+  margin: 0px 10px !important;
+}
+
+.mg-y-Md {
+  margin: 10px !important;
+}
+
+.mg-l-Lg {
+  margin-left: 12px !important;
+}
+
+.mg-r-Lg {
+  margin-right: 12px !important;
+}
+
+.mg-t-Lg {
+  margin-top: 12px !important;
+}
+
+.mg-b-Lg {
+  margin-bottom: 12px !important;
+}
+
+.mg-x-Lg {
+  margin: 0px 12px !important;
+}
+
+.mg-y-Lg {
+  margin: 12px !important;
+}
+
+.mg-l-Xl {
+  margin-left: 15px !important;
+}
+
+.mg-r-Xl {
+  margin-right: 15px !important;
+}
+
+.mg-t-Xl {
+  margin-top: 15px !important;
+}
+
+.mg-b-Xl {
+  margin-bottom: 15px !important;
+}
+
+.mg-x-Xl {
+  margin: 0px 15px !important;
+}
+
+.mg-y-Xl {
+  margin: 15px !important;
+}
+
+.pd-l-Sm {
+  padding-left: 5px !important;
+}
+
+.pd-r-Sm {
+  padding-right: 5px !important;
+}
+
+.pd-t-Sm {
+  padding-top: 5px !important;
+}
+
+.pd-b-Sm {
+  padding-bottom: 5px !important;
+}
+
+.pd-x-Sm {
+  padding: 0px 5px !important;
+}
+
+.pd-y-Sm {
+  padding: 5px !important;
+}
+
+.pd-l-Md {
+  padding-left: 10px !important;
+}
+
+.pd-r-Md {
+  padding-right: 10px !important;
+}
+
+.pd-t-Md {
+  padding-top: 10px !important;
+}
+
+.pd-b-Md {
+  padding-bottom: 10px !important;
+}
+
+.pd-x-Md {
+  padding: 0px 10px !important;
+}
+
+.pd-y-Md {
+  padding: 10px !important;
+}
+
+.pd-l-Lg {
+  padding-left: 12px !important;
+}
+
+.pd-r-Lg {
+  padding-right: 12px !important;
+}
+
+.pd-t-Lg {
+  padding-top: 12px !important;
+}
+
+.pd-b-Lg {
+  padding-bottom: 12px !important;
+}
+
+.pd-x-Lg {
+  padding: 0px 12px !important;
+}
+
+.pd-y-Lg {
+  padding: 12px !important;
+}
+
+.pd-l-Xl {
+  padding-left: 15px !important;
+}
+
+.pd-r-Xl {
+  padding-right: 15px !important;
+}
+
+.pd-t-Xl {
+  padding-top: 15px !important;
+}
+
+.pd-b-Xl {
+  padding-bottom: 15px !important;
+}
+
+.pd-x-Xl {
+  padding: 0px 15px !important;
+}
+
+.pd-y-Xl {
+  padding: 15px !important;
+}
+
+.flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.alignItems-center {
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+}
+
+.justifyContent-center {
+  -webkit-box-pack: center !important;
+      -ms-flex-pack: center !important;
+          justify-content: center !important;
+}
+
+.notValid {
+  color: rgba(181, 6, 6, 0.846) !important;
+}
+
+.valid {
+  color: rgba(6, 141, 6, 0.921) !important;
+}
+
+.hg-100 {
+  height: 100% !important;
+}
+
+.wdt-100 {
+  width: 100% !important;
+}
+
+.text-bold {
+  font-weight: 700;
+}
+
+.hide {
+  display: none !important;
+}
+/*# sourceMappingURL=single_recipe_page.css.map */

@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react";
 import { Link } from "react-router-dom";
-import './style/tab-search-api.css'
 import { Context } from "../../context/Context";
-import axios from "axios";
+import RecipeCard from "../RecipeCard/RecipeCard";
 
 import { api_service } from "../../spoonacular/api_service";
+import './style/tab-search-api.css'
 
 interface Results {
     baseUri: string,
@@ -33,45 +33,19 @@ interface SingleResult {
 const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     const classList = tabSwitch === 'searchApi' ? 'pageContent searchApi active' : 'pageContent searchApi'
     const [searchString, setSearchString] = useState('')
-    // console.log(tabSwitch)
-
-    // const [researchType, setresearchType] = useState<string>('')
-    // const [researchResultsByName, setResearchResultsByName] = useState<Results>()
-    // const [researchResultsByIngre, setResearchResultsByIngreState] = useState<ResultsByIngred[]>()
 
     const context = useContext(Context)
     if (!context) throw new Error('useContext must be used within a Provider')
-  
-    // const { recipeId } = useParams()
-  
-    const { recipeIdState } = context
-    const [recipeId, setRecipeId] = recipeIdState
 
-    const {  researchTypeState } = context
+    const {  researchTypeState, researchResultsByIngreState, researchResultsByNameState } = context
+
     const [researchType, setResearchType] = researchTypeState
-    const { researchResultsByNameState } = context
     const [researchResultsByName, setResearchResultsByName] = researchResultsByNameState
-    const { researchResultsByIngreState } = context
     const [researchResultsByIngre, setResearchResultsByIngreState] = researchResultsByIngreState
-
-
-    const searchFromIngredients = async () => {
-        const results = await api_service.get_recipe_from_ingredients(searchString)
-        setResearchResultsByIngreState(results)
-    }
-
-    const searchFromName = async () => {
-        const results = await api_service.get_recipe_from_name(searchString)
-        setResearchResultsByName(results)
-    }
 
     const populateResultsRecipeName = () => {
 
-        if (
-            researchResultsByName && 
-            researchResultsByName.results.length > 0
-        ) {
-            // console.log('Recipe Name', searchString)
+        if (researchResultsByName && researchResultsByName.results.length > 0) {
 
             return (
                 <>
@@ -80,18 +54,12 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
 
                         result.image && result.sourceUrl.includes('https://www.foodista.com/')?
     
-                            <div className="singleResult" key={result.id}>
-                                <div className="imgCont">
-                                    <img src={`${researchResultsByName.baseUri}${result.image}`} alt="" />
-                                </div>
-                                <Link 
-                                    to={`/recipe/${result.id}`}
-                                    onClick={()=>{
-                                        setRecipeId(result.id)
-                                    }}>
-                                    {result.title}
-                                </Link>
-                            </div>
+                            <RecipeCard  
+                                key={result.id} 
+                                id={result.id} 
+                                image={`${researchResultsByName.baseUri}${result.image}`} 
+                                title={result.title}
+                            ></RecipeCard>
 
                         :
                         null
@@ -108,51 +76,31 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
     }
     const populateResultsByIngredients = () => {
 
-        if (
-            researchResultsByIngre && 
-            researchResultsByIngre.length > 0
-        ) {
-            // console.log('Ingredients', searchString)
+        if (  researchResultsByIngre.length > 0) {
             return (
                 <>
-
                     {researchResultsByIngre.map((result: ResultsByIngred) => (
 
                         result.image ?
-    
-                            <div className="singleResult" key={result.id}>
-                                <div className="imgCont">
-                                    <img src={`${result.image}`} alt="" />
-                                </div>
-                                <Link 
-                                    to={`/recipe/${result.id}`}
-                                    onClick={()=>{
-                                        setRecipeId(result.id)
-                                    }}>
-                                    {result.title}
-                                </Link>
-                                
-                            </div>
-
+                            <RecipeCard  
+                                key={result.id} 
+                                id={result.id} 
+                                image={result.image} 
+                                title={result.title}
+                            ></RecipeCard>
                         :
                         null
                         
                     ))}
                 </>
             )
-        } else if (researchResultsByIngre && researchResultsByIngre.length === 0){
+        } else if ( researchResultsByIngre.length === 0){
             return <p>No results found.</p>
         } else {
             return <></>
         }
-
     }
 
-    // useEffect(populateResults,[])
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault()
-        researchType === 'byName' ? searchFromName() : searchFromIngredients() 
-    }
     const searchForm = () => {
         return (
             <form 
@@ -185,6 +133,20 @@ const TabSearchAPI = ({tabSwitch}: {tabSwitch:string} ): React.JSX.Element => {
             </form>
         )
     }
+
+    const searchFromIngredients = async () => {
+        const results = await api_service.get_recipe_from_ingredients(searchString)
+        setResearchResultsByIngreState(results)
+    }
+    const searchFromName = async () => {
+        const results = await api_service.get_recipe_from_name(searchString)
+        setResearchResultsByName(results)
+    }
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
+        researchType === 'byName' ? searchFromName() : searchFromIngredients() 
+    }
+    
     return (
         <div className={classList}>  
             <div className="searchFromApiCont">
