@@ -11,7 +11,6 @@ import TabSearchAPI from "../../components/TabSearchApi/TabSearchApi"
 const UserPageLanding = () => {
 
   const history = useNavigate()
-  const location = useLocation()
   const context = useContext(Context)
 
   if (!context) throw new Error('useContext must be used within a Provider')
@@ -20,21 +19,6 @@ const UserPageLanding = () => {
   const [user, setUser] = userState
   const [tabSwitch, setTabSwitch] = tabSwitchState
     
-
-  // Effect to set tab from URL or default to 'categories'
-  useEffect(() => {
-    const searchParams = new URLSearchParams(location.search)
-    const tabFromUrl = searchParams.get('tab')
-    if (tabFromUrl) {
-      setTabSwitch(tabFromUrl)
-    }
-  }, [location.search])
-
-  // Effect to update the URL when the tabSwitch changes
-  useEffect(() => {
-    history(`?tab=${tabSwitch}`, { replace: true })
-  }, [tabSwitch, history])
-
   const renderComponent = () => {
     switch (tabSwitch) {
       case 'categories' :

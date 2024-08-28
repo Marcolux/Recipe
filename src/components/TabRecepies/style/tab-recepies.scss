@@ -1,1 +1,52 @@
 @import '../../../../src/styles/variables/variables.scss';
+
+.pageContent.recipies.active{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .recipiesContainer{
+        display: flex;
+        flex-wrap: wrap;
+        padding: $paddingMd 0px;
+        max-width: 100vw !important;
+        justify-content: space-around;
+        position: relative;
+        .singleResult{
+            padding: $paddingSm $paddingMd;
+            border: 1px solid $textColorDK;
+            margin: $marginSm;
+            font-family: $mainFont;
+            background-color: $textColorDK;
+            
+            max-width: 30%;
+            max-height: 270px;
+            display: flex;
+            flex-direction: column;
+            border-radius: $radiusXl;
+            box-shadow: 4px 4px 4px #00000061;
+            .imgCont{
+                display: flex;
+                justify-content: center;
+                padding: $paddingMd;
+                background-color: $textColorDK;
+                max-width: fit-content;
+                align-self: center;
+                justify-self: center;
+                max-height: 75%;
+                
+                img{
+                    border-radius: $radiusXl;
+                    height: 100%;
+                    aspect-ratio: auto;
+                    object-fit: cover;
+                }
+            }
+            a{
+                color: $textColorLt;
+                font-family: $mainFont;
+                text-decoration: none;
+            }
+            
+        }
+    }
+}

@@ -13,9 +13,8 @@ const SingleRecipePage =  () => {
   const context = useContext(Context)
   if (!context) throw new Error('useContext must be used within a Provider')
 
-  const { recipeIdState, recipeImageState, recipeDetailsState } = context
+  const { recipeIdState, recipeImageState, recipeDetailsState, tabSwitchState } = context
   const [recipeId, setRecipeId] = recipeIdState
-  const [recipeImage, setRecipeImage] = recipeImageState
   const [recipeDetails, setRecipeDetails] = recipeDetailsState
   
 
@@ -38,7 +37,7 @@ const SingleRecipePage =  () => {
       apiId: recipeDetails.id,
       ingredients: ingred.toString(),
       instructions: recipeDetails.summary,
-      picture: recipeImage,
+      picture: recipeDetails.image,
       name: recipeDetails.title,
       diets: dietS.toString(),
     })
@@ -61,7 +60,7 @@ const SingleRecipePage =  () => {
           <div className="singleRecipeButtons">
             <button
               onClick={() => {
-                history('/user-page?tab=searchApi')
+                history(`/user-page`)
                 setRecipeDetails({})
               }}
             >

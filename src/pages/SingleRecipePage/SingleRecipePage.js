@@ -43,9 +43,8 @@ const SingleRecipePage = () => {
     const context = (0, react_1.useContext)(Context_1.Context);
     if (!context)
         throw new Error('useContext must be used within a Provider');
-    const { recipeIdState, recipeImageState, recipeDetailsState } = context;
+    const { recipeIdState, recipeImageState, recipeDetailsState, tabSwitchState } = context;
     const [recipeId, setRecipeId] = recipeIdState;
-    const [recipeImage, setRecipeImage] = recipeImageState;
     const [recipeDetails, setRecipeDetails] = recipeDetailsState;
     const userId = localStorage.getItem("userId");
     (0, react_1.useEffect)(() => {
@@ -65,7 +64,7 @@ const SingleRecipePage = () => {
             apiId: recipeDetails.id,
             ingredients: ingred.toString(),
             instructions: recipeDetails.summary,
-            picture: recipeImage,
+            picture: recipeDetails.image,
             name: recipeDetails.title,
             diets: dietS.toString(),
         });
@@ -79,7 +78,7 @@ const SingleRecipePage = () => {
         react_1.default.createElement("h3", { className: "recipeTitle" }, recipeDetails.title),
         react_1.default.createElement("div", { className: "singleRecipeButtons" },
             react_1.default.createElement("button", { onClick: () => {
-                    history('/user-page?tab=searchApi');
+                    history(`/user-page`);
                     setRecipeDetails({});
                 } }, "Back to Search"),
             react_1.default.createElement("button", { onClick: saveRecipe }, "Add to Your Recipes")),
